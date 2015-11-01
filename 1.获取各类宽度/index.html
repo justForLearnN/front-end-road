@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>各种宽度获取</title>
+</head>
+<body>
+	<div id="box" class="box" style="box-sizing:-border-box; width: 200px; height: 100px; border:10px solid orange; padding: 10px; margin: 10px;"></div>
+</body>
+<script src="../scripts/plugin/jquery-1.11.3.js"></script>
+<script>
+	
+$(function() {
+	// 在ie7+,chrome, FF都为content的宽度，不包括padding，border，margin, 怪异盒模型下也是一样
+	console.log($('.box').width()); // 200
+
+	console.log($('.box').css('width')); // 200px
+
+	// outerWidth: content + padding + border
+	console.log($('.box').outerWidth()); // 240
+
+	// outerWidth(true): content + padding + border + margin
+	console.log($('.box').outerWidth(true)); // 260
+});
+
+var box = document.getElementById('box');
+
+// offsetWidth: content + padding + border 怪异合模型下也是一样
+console.log('offsetWidth:' + box.offsetWidth); // 240
+
+// clientWidth: content + padding   IE下包括border的宽度
+console.log('clientWidth:' + box.clientWidth); // 220
+// 
+
+</script>
+</html>
