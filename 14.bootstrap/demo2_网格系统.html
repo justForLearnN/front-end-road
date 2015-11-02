@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bootstrap:img-responsive</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+	<style>
+	h4 { text-align: center; background: #ccc; padding: 5px; }
+	.bor { border: 1px solid #ccc; border-radius: 4px; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row" style="text-align: center;"><h4>响应式的列重置</h4></div>
+		<div class="row">
+			<div class="col-xs-6 col-sm-3">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</div>
+			<div class="col-xs-6 col-sm-3">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+	            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+	            enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+	            nisi ut aliquip ex ea commodo consequat.
+	        	</p>
+	        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+	            eiusmod tempor incididunt ut. 
+	         	</p>
+			</div>
+			<div class="clearfix visible-xs"></div>
+			<div class="col-xs-6 col-sm-3">
+				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+           		 laboris nisi ut aliquip ex ea commodo consequat. 
+        		</p>	
+			</div>
+			<div class="col-xs-6 col-sm-3">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+            	eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+            	enim ad minim 
+         		</p>
+			</div>
+		</div>
+		<div class="row">
+			<h4>偏移列</h4>
+		</div>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing 
+            	elit.
+         		</p>
+			</div>
+		</div>
+		<div class="row"><h4>嵌套列</h4></div>
+		<div class="row">
+			<div class="col-xs-3">
+				<h4>第一列</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</div>
+			<div class="col-xs-9">
+				<h4>第二列</h4>
+				<div class="row">
+					<div class="col-xs-6">
+						<p>Consectetur art party Tonx culpa semiotics. Pinterest 
+                  		assumenda minim organic quis.
+               			</p>
+					</div>
+					<div class="col-xs-6">
+						<p>
+							sed do eiusmod tempor incididunt ut labore et dolore magna 
+                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-6">
+						<p>quis nostrud exercitation ullamco laboris nisi ut 
+                  aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="col-xs-6">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+                  sed do eiusmod tempor incididunt ut labore et dolore magna 
+                  aliqua. Ut enim ad minim.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row"><h4>列排序</h4></div>
+		<div class="row"><p>排序前</p></div>
+		<div class="row">
+			<div class="col-xs-4 bor">我在左边</div>
+			<div class="col-xs-8 bor">我在右边</div>
+		</div>
+		<div class="row">排序后</div>
+		<div class="row">
+			<div class="col-xs-4 bor col-xs-push-8">我在左边</div>
+			<div class="col-xs-8 bor col-xs-pull-4">我在右边</div>
+		</div>
+	</div>
+</body>
+</html>

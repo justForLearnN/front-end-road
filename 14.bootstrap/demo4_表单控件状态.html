@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+	<style>
+	.bor { border: 1px solid #ccc; border-radius: 4px; }
+	.h4 { text-align: center; background-color: #ccc; padding: 5px; }
+	/*td,th { border: 1px solid #ccc; text-align: center; }*/
+	</style>
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<form action="javascript:;" class="form-horizontal" role="form">
+			<div class="form-group">
+				<label for="name" class="col-xs-2 control-label">Focus</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" id="focusedInput" value="get focus">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="name" class="col-xs-2 control-label">disabled</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" placeholder="can input" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="name" class="col-xs-2 control-label">no input</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" id="disabledTextInput" placeholder="can-input">
+				</div>
+			</div>
+
+			<div class="form-group has-success">
+				<label for="name" class="col-xs-2 control-label">success</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" id="inputSuccess">
+				</div>
+			</div>
+
+			<div class="form-group has-warning">
+				<label for="name" class="col-xs-2 control-label">warning</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" id="inputSuccess">
+				</div>
+			</div>
+
+			<div class="form-group has-error">
+				<label for="name" class="col-xs-2 control-label">error</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" id="inputSuccess">
+				</div>
+			</div>
+
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bootstrap:img-responsive</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+	<style>
+	.bor { border: 1px solid #ccc; border-radius: 4px; }
+	.h4 { text-align: center; background-color: #ccc; padding: 5px; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row h4">标题</div>
+		<div class="row">
+			<h1>I'm title</h1>
+			<h2>I'm title</h2>
+			<h3>I'm title</h3>
+			<h4>I'm title</h4>
+			<h5>I'm title</h5>
+			<h6>I'm title</h6>
+		</div>
+		<div class="row h4">内联子标题</div>
+		<div class="row">
+			<h1>I'm title<small>I'm small</small></h1>
+			<h2>I'm title<small>I'm small</small></h2>
+			<h3>I'm title<small>I'm small</small></h3>
+			<h4>I'm title<small>I'm small</small></h4>
+			<h5>I'm title<small>I'm small</small></h5>
+			<h6>I'm title<small>I'm small</small></h6>
+		</div>
+		<div class="row h4">引导主题副本</div>
+		<div class="row">
+			<p class="lead">this is a lead demo.</p>
+			<p>This is a normal words.</p>
+		</div>
+		<div class="row h4">强调标签</div>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3">
+				<small>this is a small label.</small><br>
+				<strong>this is a strong label.</strong><br>
+				<em>this is a em label.</em><br>
+				<p class="text-left">text-left</p>
+				<p class="text-center">text-center</p>
+				<p class="text-right">text-right</p>
+				<p class="text-justify">Justify:移除默认的列表样式，列表项中左对齐  和 这个类仅适用于直接子列表项 (如果需要移除嵌套的列表项，你需要在嵌套的列表中使用该样式)</p>
+				<p class="text-muted">text-muted</p>
+				<p class="text-primary">text-primary</p>
+				<p class="text-success">text-success</p>
+				<p class="text-info">text-info</p>
+				<p class="text-warning">text-warning</p>
+				<p class="text-danger">text-danger</p>
+				<pre class="pre-scrollable">pre-scrollable</pre>
+			</div>
+		</div>
+		<div class="row h4">缩写</div>
+		<div class="row">
+			<abbr title="world wide web">WWW</abbr><br>
+			<abbr title="real simple syndication" class="initialism">RSS</abbr>
+		</div>
+
+		<div class="row h4">地址</div>
+		<div class="row">
+			<address>
+				<strong>Full Name</strong><br>
+				<a href="mailto:1832064870@qq.com">1832064870@qq.com</a>
+			</address>
+		</div>
+		<div class="row h4">引用</div>
+		<div class="row">
+			<blockquote>
+				<p>This is a default blockquote.</p>
+			</blockquote>
+			<blockquote>
+				<p>
+					This is a addition blockquote. 
+					<small>someone famous in <cite title="Source Title">source title</cite></small>
+				</p>
+			</blockquote>
+		</div>
+		<div class="row h4">列表</div>
+		<div class="row">
+			<h4>有序列表</h4>
+			<ol>
+				<li>Item 1</li>
+				<li>Item 1</li>
+				<li>Item 1</li>
+				<li>Item 1</li>
+			</ol>
+			<h4>无序列表</h4>
+			<ul>
+				<li>Item 1</li>
+				<li>Item 1</li>
+				<li>Item 1</li>
+				<li>Item 1</li>
+			</ul>
+			<h4>未定义样式列表</h4>
+			<ul class="list-unstyled">
+				<li>Item 1</li>
+				<li>Item 1</li>
+				<li>Item 1</li>
+				<li>Item 1</li>
+			</ul>
+			<h4>inline list</h4>
+			<ul class="list-inline">
+				<li>Item 1</li>
+				<li>Item 1</li>
+				<li>Item 1</li>
+				<li>Item 1</li>
+			</ul>
+			<h4>定义列表</h4>
+			<dl>
+				<dt>Description 1</dt>
+				<dd>Item 1</dd>
+				<dt>Description 2</dt>
+				<dd>Item 2</dd>
+			</dl>
+			<h4>水平的定义列表</h4>
+			<dl class="dl-horizontal">
+				<dt>Description 1</dt>
+				<dd>Item 1</dd>
+				<dt>Description 2</dt>
+				<dd>Item 2</dd>
+			</dl>
+			<dl class="dl-horizontal">
+			  <dt>Description 1</dt>
+			  <dd>Item 1</dd>
+			  <dt>Description 2</dt>
+			  <dd>Item 2</dd>
+			</dl>
+		</div>
+		<div class="row h4">代码块显示</div>
+		<div class="row">
+			<p><code>&lt;header&gt;</code>as a inline block.</p>
+			<pre>var a = document.getElementsByClassName('xx');
+			</pre>
+		</div>
+	</div>
+</body>
+</html>

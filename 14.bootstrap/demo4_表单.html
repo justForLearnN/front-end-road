@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+	<style>
+	.bor { border: 1px solid #ccc; border-radius: 4px; }
+	.h4 { text-align: center; background-color: #ccc; padding: 5px; }
+	/*td,th { border: 1px solid #ccc; text-align: center; }*/
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form action="#" role="form">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" class="form-control" id="name" placeholder="please input your name">
+			</div>
+
+			<div class="form-group">
+				<label for="inputfile">file input</label>
+				<input type="file" id="inputfile">
+				<p class="help-block">this is block text helper.</p>
+			</div>
+
+			<div class="form-group">
+				<label><input type="checkbox">please select.</label>
+				<button type="submit" class="btn btn-default">submit</button>
+			</div>
+		</form>
+		<div class="row h4">内联表单</div>
+		<form class="form-inline" role="form">
+		   <div class="form-group">
+		      <label class="sr-only" for="name">名称</label>
+		      <input type="text" class="form-control" id="name" 
+		         placeholder="请输入名称">
+		   </div>
+		   <div class="form-group">
+		      <label class="sr-only" for="inputfile">文件输入</label>
+		      <input type="file" id="inputfile">
+		   </div>
+		   <div class="checkbox">
+		      <label>
+		      <input type="checkbox"> 请打勾
+		      </label>
+		   </div>
+		   <button type="submit" class="btn btn-default">提交</button>
+		</form>
+		<div class="row h4">水平表单</div>
+		<form action="#" class="form-horizontal" role="form">
+			<div class="form-group">
+				<label for="firstname" class="col-xs-2 control-label">Name</label>
+				<div class="col-xs-10"><input type="text" class="form-control" id="firstname" placeholder="please input your name."></div>
+			</div>
+
+			<div class="form-group">
+				<label for="lastname" class="col-xs-2 control-label">LastName</label>
+				<div class="col-xs-10"><input type="text" class="form-control" id="lastname" placeholder="your last name."></div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-10 col-xs-offset-2">
+					<div class="checkbox">
+						<label><input type="checkbox">Select me</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="name" class="col-xs-2 control-label">text input</label>
+				<div class="col-xs-10">
+					<textarea name="name" id="" rows="3" class="form-control"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="checkbox" class="col-xs-2 control-label">Checkbox</label>
+				<div class="col-xs-10">
+					<div class="checkbox"><label><input type="checkbox">lab1</label></div>
+					<div class="checkbox"><label><input type="checkbox">lab2</label></div>
+					<div class="checkbox"><label><input type="checkbox">lab3</label></div>
+					<div class="checkbox"><label><input type="checkbox">lab4</label></div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="raido" class="col-xs-2 control-label">Radio</label>
+				<div class="col-xs-10">
+					<div class="radio"><label><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">lab1</label></div>
+					<div class="radio"><label><input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">lab2</label></div>
+					<div class="radio"><label><input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">lab3</label></div>
+					<div class="radio"><label><input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">lab4</label></div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-10 col-xs-offset-2">
+					<button type="submit" class="btn btn-default">Login</button>
+				</div>
+			</div>
+		</form>
+		<div class="h4">内联复选框和单选框</div>
+		<div>
+			<label class="checkbox-inline"><input type="checkbox" id="inlineCheckBox1" value="option1">lab 1</label>
+			<label class="checkbox-inline"><input type="checkbox" id="inlineCheckBox1" value="option1">lab 2</label>
+			<label class="checkbox-inline"><input type="checkbox" id="inlineCheckBox1" value="option1">lab 3</label>
+		</div>
+		<div class="radio">
+			<label class="checkbox-inline"><input type="radio" name="optionsRadiosinline" id="optionsRadios1" value="option1" checked> lab 1</label>
+			<label class="checkbox-inline"><input type="radio" name="optionsRadiosinline" id="optionsRadios2"> lab 2</label>
+			<label class="checkbox-inline"><input type="radio" name="optionsRadiosinline"> lab 3</label>
+		</div>
+		<div class="h4">选择框</div>
+		<form role="form">
+			<div class="form-group">
+				<label for="name">select list</label>
+				<select name="#" id="" class="form-control">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</select>
+				<label for="name">可多选的选择列表</label>
+				<select name="#" class="form-control" multiple>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</select>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
