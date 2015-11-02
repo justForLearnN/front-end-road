@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3 button</title>
+	<link rel="stylesheet" href="btn.css">
+</head>
+<body>
+	<div class="box"><div class="btn btn1">Button</div></div>
+	<div class="box"><div class="btn btn2" data-text="Button2"><span>Button2</span></div></div>
+	<div class="box"><div class="btn btn3" data-text="Button3"><span>Button3</span></div></div>
+	<div class="box"><div class="btn btn4" data-text="Button4">Button4</div></div>
+	<div class="box"><div class="btn btn5">Button5</div></div>
+	<div class="box"><div class="btn btn6"><span>Button6</span></div></div>
+	<div class="box"><div class="btn btn7">Button7</div></div>
+	<div class="box"><div class="btn btn8">Button8</div></div>
+	<div class="box"><div class="btn">Button</div></div>
+	<div class="box"><div class="btn">Button</div></div>
+	<div class="box"><div class="btn">Button</div></div>
+	<div class="box"><div class="btn">Button</div></div>
+	<div class="box"><div class="btn">Button</div></div>
+	<div class="box"><div class="btn">Button</div></div>
+	<div class="box"><div class="btn">Button</div></div>
+	<div class="box"><div class="btn">Button</div></div>
+	<div class="box"><div class="btn">Button</div></div>
+	<div class="box"><div class="btn">Button</div></div>
+	<div class="box"><div class="btn">Button</div></div>
+	<div class="box"><div class="btn">Button</div></div>
+	<div class="box"><div class="btn">Button</div></div>
+</body>
+<script>
+
+var color = ['#ccc', '#FFE35B', '#717DD6', '#48D693', '#D383D6'];
+
+var aBox = document.getElementsByClassName('box');
+rabBg(aBox);
+
+function rabBg(domlist) {
+	for(var i=0, len=domlist.length; i<len; i++) {
+		domlist[i].style.backgroundColor = color[getRandom(5)];
+	}
+}	
+
+function getRandom(m) {
+	return parseInt(Math.random() * m);
+}
+
+
+</script>
+</html>
