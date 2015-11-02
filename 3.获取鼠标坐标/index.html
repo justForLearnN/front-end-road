@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>关于鼠标点击位置和滚动位移</title>
+</head>
+<body>
+	<div class="box" id="box" style="width: 1px; height: 2000px; border: 1px solid #ccc;"></div>
+</body>
+
+<script src="../scripts/plugin/jquery-1.11.3.js"></script>
+
+<script>
+
+var box = document.getElementById('box');
+/*document.onclick = function(e) {
+	var e = e || window.event,
+		scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+	console.log(e.clientX, ':', e.clientY, scrollTop);
+}*/
+addEventListener('touchstart', function(e){
+	var e = e || window.event,
+		scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+	// e.changedTouches[0].clientX;
+	console.log(e, scrollTop);
+}, false);
+
+// $(document).on('click', function(e) {
+
+// 	console.log(e.clientX, ':', e.clientY, e);
+// });
+/*$(document).on('touchstart', function(e) {
+	console.log(e);
+} )*/
+
+// 移动端支持mousedown和mouseup，click事件，但是不支持mousemove事件
+/*$(document).on('mousedown', function(e) {
+	var s = e.clientX, disX;
+	$(document).on('mousemove', function(e) {
+		disX = e.clientX - s;
+		console.log('aaa');
+	});
+	$(document).on('mouseup', function(e) {
+		console.log('mouse:', disX);
+		$(document).off('mousedown mousemove');
+	})
+})*/
+</script>
+
+</html>
