@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cookie</title>
+</head>
+<body>
+	
+</body>
+
+<script>
+
+function getCookie(name) {
+	var ck = document.cookie;
+	if (ck.length > 0) {
+		var arr = ck.split(';');
+		for(var i=0, len=arr.length; i<len; i++) {
+			if (arr[i].indexOf(name) != -1) {
+				return unescape(arr[i].split('=')[1]);
+			};
+		}
+	};
+	return '';
+}
+
+function getCookie2(key) {
+	var ck = document.cookie;
+	if (cookie.length > 0) {
+		var s = ck.indexOf(key + '=');
+		if (s != -1) {
+			s += key.length + 1;
+			var e = ck.indexOf(';', s);
+			if (e == -1) {
+				e = ck.length;
+			};
+			return unescape(ck.slice(s, e));
+		};
+	};
+	return '';
+}
+
+function setCookie(key, value, delay) {
+	var date = new Date();
+	if (delay) {
+		date.setDate(date.getDate() + delay);
+		return key + '=' + escape(value) + ';expires=' + date.toGMTString(); 
+	};
+}
+
+</script>
+
+</html>
