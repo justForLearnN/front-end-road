@@ -1,0 +1,95 @@
+<!-- 
+
+call/apply 应用实例3 
+封装简单的jQuery插件
+
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<title>在封装函数的过程中，确保this的正确传递</title>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+<style>
+	.box {
+		width: 100px;
+		height: 100px;
+		background: orange;
+	}
+	.box:hover {
+		background: #50F573;
+	}
+</style>
+<script>
+
+// Nicco
+var Nicco = function(box, str) {
+	this.$box = box;
+	this.str  = str;
+}	
+Nicco.prototype = {
+	constructor: Nicco,
+
+	params: '',
+
+	// count:0,
+
+	message: function() {
+		// this.count ++;
+		this.$box.on('mousedown', this.bindthis(this.fndown, this));
+	},
+
+	// 也可以直接用apply
+	_message: function() {
+		var _this = this;
+		_this.$box.on('mousedown', function() {
+			return _this.fndown.apply(_this);
+		})
+	},
+
+	fndown: function() {
+		this.params = this.str + ', uuuuuuu.';// + '-' + this.count;
+		// this.count ++;
+		this.$box.on('mouseup', this.bindthis(this.fnup, this));
+	},
+
+	fnup: function() {
+		console.log(this.params);
+		// this.count ++;
+		this.$box.off();
+		this.$box.on('mouseup', this.bindthis(this.fnup, this));
+	},
+
+	// 封装一个bindthis方法，用来传递this指向，在this会被改变的地方调用
+	bindthis: function(fn, obj) {
+		return function() {
+			return fn.apply(obj, arguments);
+		}
+	}
+}
+
+// 定义jQuery插件
+
+$.fn.mess = function(str) {
+	var nic = new Nicco($(this), str);
+	return nic.message();
+	// return nic._message();
+}
+
+// 在使用中调用
+$(function() {
+	$('.box').mess('rose');
+})
+
+/*var aaa = new Nicco('jake');
+aaa.message();
+console.log(aaa.count);*/
+
+</script>
+
+</html>
+<!-- result: rose, i love you -->
