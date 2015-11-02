@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>mousewheel</title>
+</head>
+<body style="transition:1s">
+	<div class="box" id="box" style="width:1px; height:2000px; border:1px solid #ccc; -webkit-transition: 1s;"></div>
+</body>
+<script src="../scripts/plugin/jquery-1.11.3.js"></script>
+<script>
+
+document.body.onmousewheel = function(event) {
+	var event = event || window.event;
+	console.log(event.wheelDelta);
+}
+addEventListener('DOMMouseScroll', function(e) {
+	console.log(e.detail);
+}, false);
+
+
+/*function addMouseWheel(e) {
+	var e = e || window.event,
+		type = e.type;
+
+	if (type == 'mousewheel' || type == 'DOMMouseScroll') {
+		e.detail = e.wheelDelta ? e.wheelDelta : - e.detail;
+	};
+}*/
+
+function addMouseWheel(e) {
+	var e = e || window.event;
+	console.log(event.wheelDelta);
+}
+
+$(function() {
+	$(document).on('mousewheel DOMMouseScroll', function(e) {
+		var pos = e.originalEvent.deltaY || e.originalEvent.detail;
+		if (pos > 0) {
+			$(document.body).css('backgroundColor', 'orange');
+		} else if (pos < 0) {
+			$(document.body).css('backgroundColor', '#ccc');
+		};
+	})
+});
+
+</script>
+</html>
