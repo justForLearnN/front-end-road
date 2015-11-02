@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js状态模式</title>
+	<style>
+		.box {
+			width: 300px; height: 500px; border: 1px solid #ccc; border-radius: 8px; margin: 10px auto;
+		}
+		.light {
+			width: 30px; height: 30px; border-radius: 15px; margin: 20px auto; background: #fff;
+		}
+		.switch {
+			width: 100px; height: 30px; border-radius: 4px; background-color: #0EA4FF; color: #fff; font-size: 14px; 
+			text-align: center; line-height: 34px; box-shadow: 0 5px 0 0 #124DFF; margin: 0 auto; cursor: pointer;
+			transition: .2s;
+		}
+		.switch:hover {
+			background-color: #2BAAFF;
+		}
+		.switch:active {
+			transform: translateY(4px);
+			box-shadow: 0 1px 0 0 #124DFF;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div id="light" class="light"></div>
+		<div class="switch" id="switch">BUTTON</div>
+	</div>
+</body>
+<script>
+
+/*var Light = function(light, btn) {
+	this.light = light;
+	this.state = 'off';
+	this.button = btn;
+}	
+
+Light.prototype.init = function() {
+	var self = this;
+	this.button.onclick = function() {
+		self.buttonWasPressed();
+	}
+}
+Light.prototype.buttonWasPressed = function() {
+	if (this.state == 'off') {
+		this.state = 'on';
+		this.light.style.backgroundColor = 'orange';
+	} else if (this.state == 'on') {
+		this.light.style.backgroundColor = '#fff';
+		this.state = 'off';
+	}
+}
+
+var light = document.getElementById('light'),
+	btn = document.getElementById('switch'),
+
+	aLight = new Light(light, btn);
+	aLight.init();
+
+btn.onselectstart = function() { return false; }*/
+
+
+
+// On Off Mid
+// Light 
+/*var On = function(lDiv, light) {
+	this.light = light;
+}
+On.prototype.switchL = function() {
+	lDiv.style.backgroundColor = '#ccc';   // on -> mid
+	this.light.setState(this.light.mid);
+}
+var Mid = function(lDiv, light) {
+	this.light = light;
+}
+Mid.prototype.switchL = function() {
+	lDiv.style.backgroundColor = '#fff';   // mid -> off
+	this.light.setState(this.light.off);
+}
+var Off = function(lDiv, light) {
+	this.light = light;
+}
+Off.prototype.switchL = function() {
+	lDiv.style.backgroundColor = 'orange';   // off -> on
+	this.light.setState(this.light.on);
+}
+
+var Light = function(lDiv, button) {
+	this.on = new On(lDiv, this);
+	this.mid = new Mid(lDiv, this);
+	this.off = new Off(lDiv, this);
+	this.button = button; 
+}
+Light.prototype.init = function() {
+	var self = this;
+	this.curState = this.off; 
+	this.button.onclick = function() {
+		self.curState.switchL();
+	}
+}
+Light.prototype.setState = function(newState) {
+	this.curState = newState;
+}*/
+
+var state = {
+	on: {
+		switchL: function(lightDiv) {
+			lightDiv.style.backgroundColor = '#ccc'; // on>mid
+			this.curState = state.mid;
+		}
+	},
+	mid: {
+		switchL: function(lightDiv) {
+			lightDiv.style.backgroundColor = '#fff';
+			this.curState = state.off;
+		}
+	},
+	off: {
+		switchL: function(lightDiv) {
+			lightDiv.style.backgroundColor = 'orange';
+			this.curState = state.on;
+		}
+	}
+}
+
+var Light = function(lightDiv, button) {
+	this.curState = state.off;
+	this.button = button;
+	this.lightDiv = lightDiv;
+}
+Light.prototype.init = function() {
+	var self = this;
+	this.button.onclick = function() {
+		self.curState.switchL.call(self, self.lightDiv);
+	}
+}
+
+var lDiv = document.getElementById('light');
+var button = document.getElementById('switch');
+
+button.onselectstart = function() { return false; }
+
+var aaa = new Light(lDiv, button);
+aaa.init();
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
