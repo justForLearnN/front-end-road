@@ -1,0 +1,190 @@
+<!-- 
+	tab组件
+	1. jQuery中，e.target 与 $(e.target) 的区别
+	2. jQuery中，$ele.prev(), $ele.next(), $ele.prev()[0], $ele.next()[0]
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tab组件</title>
+</head>
+<body>
+<div class="wrapper">
+	<div class="tab_box">
+		<ul class="tab_header">
+			<li class="active th">tab1<div class="rem">x</div></li>
+			<li class="th">tab2<div class="rem">x</div></li>
+			<li class="th">tab3<div class="rem">x</div></li>
+		</ul>
+		<ul class="tab_con">
+			<li class="active tc">tab1</li>
+			<li class="tc">tab2</li>
+			<li class="tc">tab3</li>
+		</ul>
+	</div>
+</div>
+</body>
+<style>
+.body {
+	margin: 0;
+}	
+.wrapper {
+	width: 600px;
+	height: 300px;
+	margin: 20px auto;
+}
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.tab_box {
+	width: 100%;
+	position: relative;
+}
+.tab_header, .tab_con {
+	width: 100%;
+	overflow: hidden;
+}
+.tab_header li {
+	float: left;
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	padding-top: 2px;
+	background-color: #666;
+	color: #ccc;
+	border: 1px solid #666;
+	border-bottom: 0;
+	cursor: pointer;
+	position: relative;
+}
+.rem {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	line-height: 10px;
+	width: 10px;
+	height: 10px;
+}
+
+.tab_header .active {
+	background-color: #fff;
+	color: #666;
+}
+
+.tab_con {
+	width: 100%;
+	border: 1px solid #666;
+	position: absolute;
+	height: 200px;
+	left: 0;
+	top: 42px;
+	z-index: -1;
+}
+.tab_con li {
+	/*position: absolute;*/
+	width: 100%;
+	display: none;
+	height: 100%;
+	color: orange;
+	font-size: 40px;
+	text-align: center;
+	line-height: 200px;
+}
+.tab_con .active {
+	display: block;
+}
+
+</style>
+<script src="../scripts/plugin/jquery-1.11.3.js"></script>
+<!-- <script src="js/tab.js"></script> -->
+<script>
+
+$(function() {
+
+	var index = 0;
+
+	$(document).on('click', function(e) {
+		e.preventDefault();
+		var 
+			target = e.target, // 得到dom对象
+			$target = $(target), // 得到jQuery对象
+			th = $('.th'),
+			tc = $('.tc');
+
+		var opt = $target.attr('class');
+
+		setIndex(th);
+
+		switch(opt) {
+			case 'th': 
+				th.removeClass('active');
+				tc.css('display', 'none');
+
+				index = $target.attr('data-index');
+
+				$target.addClass('active');
+				tc.eq(index).css('display', 'block');
+				break;
+
+			case 'rem':
+				var $pa = $target.parent();
+				index = $pa.attr('data-index');
+				/*console.log($pa.next());
+				console.log($pa.prev()[0]);*/
+				var prev = $pa.prev();
+				var next = $pa.next();
+
+				if (tc.length != 1) {
+					$pa.remove();
+					tc.eq(index).remove();
+
+					if ($pa.attr('class').indexOf('active') > -1) {
+						console.log(index);
+						if (!next[0]) {
+							prev.addClass('active');
+							index -= 1;
+						} else {
+							next.addClass('active');
+							index += 1;
+						}
+						tc = $('.tc');
+						tc.eq(index).css('display', 'block');
+					};
+					th = $('.th');
+					setIndex(th);
+				};
+				break;
+			default:
+				break;
+
+		}
+
+		function setIndex(nodeList) {
+			for(var i=0, len=nodeList.length; i<len; i++) {
+				nodeList.eq(i).attr('data-index', i);
+			}
+		}
+	});
+});
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

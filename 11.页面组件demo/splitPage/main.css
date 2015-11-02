@@ -1,0 +1,95 @@
+body {
+	margin: 0;
+}
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: #ccc;
+}
+
+.box {
+	width: 600px;
+	margin: 60px auto 0;
+}
+
+.result_list {
+	padding: 20px;
+	background-color: #f8f8f8;
+	border-radius: 10px;
+}
+
+.result_list li {
+	margin-top: 20px;
+	border: 1px solid #ddd;
+	padding: 10px;
+	border-radius: 8px;
+	background: #fff;
+	padding-top: 20px;
+}
+.result_list li:hover {
+	border: 1px solid #bbb;
+}
+.result_list li:nth-of-type(1) {
+	margin-top: 0;
+}
+.title {
+	font-size: 18px;
+}
+.url {
+
+}
+.desc {
+	font-size: 14px;
+	margin-top: 5px;
+}
+
+.pos_page {
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+.switch {
+	width: 80px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+	color: #333;
+}
+.prev_page {
+	float: left;
+}
+.next_page {
+	float: right;
+}
+.number {
+	overflow: hidden;
+	text-align: center;
+}
+
+.number li {
+	width: 30px;
+	height: 30px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	line-height: 34px;
+	cursor: pointer;
+	color: #333;
+	text-align: center;
+	display: inline-block;
+	overflow: hidden;
+}
+.number li:not(.active):hover {
+	border: 1px solid #bbb;
+}
+.number .active {
+	background-color: #62A0F5;
+	color: #fff;
+	border: 1px solid #62A0F5;
+}
