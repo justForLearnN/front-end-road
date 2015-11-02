@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Document</title>
+	<style>
+		body { margin: 0; }
+		ul { padding: 0; margin: 0; }
+		li { list-style: none; }
+		.wrap {
+			width: 100%;
+			max-width: 580px;
+			margin: 0 auto;
+			height: 200px;
+			overflow: hidden;
+			position: relative;
+		}
+		.box { 
+			width: 400%;
+			max-width: 2320px; 
+			height: 100%;
+			position: relative;
+		}
+		.box li {
+			width: 25%;
+			max-width: 580px;
+			height: 100%;
+			float: left;
+			font-size: 60px;
+			font-weight: bold;
+			color: #fff;
+			text-align: center;
+			line-height: 200px;
+		}
+		.box li:nth-of-type(1) {
+			background-color: #4595FF;
+		}
+		.box li:nth-of-type(2) {
+			background-color: #9F58FF;
+		}
+		.box li:nth-of-type(3) {
+			background-color: #FF47A2;
+		}
+		.box li:nth-of-type(4) {
+			background-color: #FF924A;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="box">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</div>
+</body>
+<script data-main="./js/main" src="./js/require.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
