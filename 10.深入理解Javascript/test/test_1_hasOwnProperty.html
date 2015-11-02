@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+
+<script>
+// 其他一部分hasOwnProperty的例子在test_1_hoisting.html中
+
+
+var person = {
+	name: 'jake',
+	age: 22,
+	gender: 'man'
+}	
+
+if (typeof Object.prototype.fn === 'undefined') {
+	Object.prototype.fn = function() {}
+};
+
+
+(function() {
+
+	for(var i in person) {
+		if (Object.prototype.hasOwnProperty.call(person, i)) {
+			console.log(i, ':', person[i]);
+		};
+	}
+
+});
+
+(function() {
+	var i, hasOwn = Object.prototype.hasOwnProperty;
+	for(i in person) {
+		if (hasOwn.call(person, i)) {
+			console.log(i, ':', person[i]);
+		};
+	}
+})();
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	
+(function() {
+
+var outer = function(a, b) {
+	var
+		c = 1,
+		d = 2,
+		inner;
+
+	if (a > b) {
+		inner = function() {
+			return c - d;
+		}
+	} else if (a <= b) {
+		inner = function() {
+			return c + d;
+		}
+	};
+	return inner;
+}
+
+console.log(outer(8, 7)());
+
+})();
+
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+
+myname = 'global';
+function fn() {
+	console.log(myname);
+	var myname = 'local';
+	console.log(myname);
+}	
+fn();
+
+// for(var i=0, max=mymarry.length; i<max; i++) {
+
+// }
+
+
+var person = {
+	name: 'yangbo',
+	age: 22,
+	gender: 'man'
+}
+
+if (typeof Object.prototype.clone === "undefined") {
+	Object.prototype.clone = function() {};
+};
+
+/*for (var i in person) {
+	console.log('property:' + i + ', value:' + person[i]);
+}*/
+
+for(var attr in person) {
+	if(person.hasOwnProperty(attr)) {
+		console.log('pro:' + attr + ',val:' + person[attr]);
+	}
+}
+
+/*var res = 'hello world'.hasOwnProperty('split');
+console.log('res:' + res);
+
+var resArr = 'hello world'.split(' ');
+console.log('resArr:' + resArr);*/
+
+</script>
+</html>
