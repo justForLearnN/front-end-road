@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>pageSwitch</title>
+	<style>
+		body { margin: 0; }
+		#pages { position: absolute; width: 100%; height: 100%; }
+		.page { position: absolute; width: 100%; height: 100%; }
+		.page1 { background-color: orange; }
+		.page2 { background-color: #ccc; }
+		.page3 { background-color: yellow; }
+		.page4 { background-color: #669AD6; }
+		.page5 { background-color: #CB62D6; }
+	</style>
+</head>
+<body>
+	<div id="pages">
+		<div class="page page1"></div>
+		<div class="page page2"></div>
+		<div class="page page3"></div>
+		<div class="page page4"></div>
+		<div class="page page5"></div>	
+	</div>
+</body>
+<script src="src/pageSwitch.js"></script>
+<script>
+
+var showpage = new pageSwitch('pages', {
+	duration: 600,
+	direction: 1,
+	start: 0,
+	loop: true,
+	ease: 'ease',
+	transition: 'slide',
+	freeze: false,
+	mouse: true,
+	mousewheel: true,
+	arrowkey: false,
+	autoplay: false,
+	// interval: int
+});
+
+</script>
+</html>
