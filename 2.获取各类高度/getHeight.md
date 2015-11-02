@@ -29,7 +29,7 @@ box.clientHeight;// 120
 
 获取高度在jQuery中和获取宽度表现一致
 ```js
-// content
+// content 
 $xx.height();
 
 // content padding
