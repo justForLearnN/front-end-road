@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+	<style>
+		.bor { border: 1px solid #ccc; border-radius: 4px; }
+		.ht { text-align: center; background-color: #ccc; padding: 10px; margin: 10px auto; border-radius: 8px; }
+	</style>
+	<script src="../script/jquery-2.0.3.js"></script>
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="ht">基本的输入框组</div>
+		<form action="#" class="bs-example bs-example-form">
+			<div class="input-group">
+				<span class="input-group-addon">@</span>
+				<input type="text" class="form-control" placeholder="twitterhandle">
+			</div>
+			<div class="input-group">
+				<input type="text" class="form-control">
+				<span class="input-group-addon">.00</span>
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">$</span>
+				<input type="text" class="form-control">
+				<span class="input-group-addon">.00</span>
+			</div>
+		</form>
+
+		<div class="ht">按钮与input组</div>
+		<form action="#" class="bs-example">
+			<div class="input-group">
+				<input type="text" class="form-control">
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-primary">GO!</button>
+				</span>
+			</div>
+		</form>
+
+		<div class="ht">按钮与input组+下拉菜单</div>
+		<form action="#" class="bs-example">
+			<div class="input-group">
+				<input type="text" class="form-control">
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+						GO!
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="#">link 1</a></li>
+						<li><a href="#">link 2</a></li>
+						<li><a href="#">link 3</a></li>
+						<li class="divider"></li>
+						<li><a href="#">link 4</a></li>
+					</ul>
+				</span>
+			</div>
+		</form>
+
+		<div class="ht">按钮与input组+分离的下拉菜单</div>
+		<form action="#" class="bs-example">
+			<div class="input-group">
+				<input type="text" class="form-control">
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-primary">GO!</button>
+					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="#">link 1</a></li>
+						<li><a href="#">link 2</a></li>
+						<li><a href="#">link 3</a></li>
+						<li class="divider"></li>
+						<li><a href="#">link 4</a></li>
+					</ul>
+				</span>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

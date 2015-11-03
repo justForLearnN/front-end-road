@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+	<style>
+		.bor { border: 1px solid #ccc; border-radius: 4px; }
+		.ht { text-align: center; background-color: #ccc; padding: 10px; margin: 10px auto; border-radius: 8px; }
+		.btn { outline: none; }
+	</style>
+	<script src="../script/jquery-2.0.3.js"></script>
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="ht">按钮下拉菜单</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				Default
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">link 1</a></li>
+				<li><a href="#">link 2</a></li>
+				<li><a href="#">link 3</a></li>
+				<li class="divider"></li>
+				<li><a href="#">link 4</a></li>
+			</ul>
+		</div>
+
+		<div class="ht">分离的按钮下拉菜单</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary">Primary</button>
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">link 1</a></li>
+				<li><a href="#">link 2</a></li>
+				<li><a href="#">link 3</a></li>
+				<li class="divider"></li>
+				<li><a href="#">link 4</a></li>
+			</ul>
+		</div>
+		<div class="btn-group dropup">
+			<button type="button" class="btn btn-primary">Primary</button>
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">link 1</a></li>
+				<li><a href="#">link 2</a></li>
+				<li><a href="#">link 3</a></li>
+				<li class="divider"></li>
+				<li><a href="#">link 4</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
