@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+<title>lazyload</title>
+<style type="text/css">p{margin:50px 0;text-align:center;}img{min-height:400px;*height:400px;max-height:600px;display:block;margin:10px auto;}</style>
+<script src="src/lazyload.js"></script>
+</head>
+
+<body>
+<h1>图片加载测试</h1>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/LihuBridge_ROW15257694370_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/WhiteRhinos_ROW10026185451_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/ArborDayOaks_ROW12769150163_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/Inchworm_ROW13415153838_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/HohRainForest_ROW11893875864_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/Husafell_ROW11529869812_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/TulfesTyrol_ROW13190350716_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/KelpGoose_ROW12403620614_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/ArborDayOaks_ROW12769150163_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/Inchworm_ROW13415153838_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/HohRainForest_ROW11893875864_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/Husafell_ROW11529869812_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/TulfesTyrol_ROW13190350716_1920x1080.jpg" src="images/holder.png" /></p>
+<h1>容器中图片加载测试</h1>
+<div id="container" style="position:relative;height:800px;background:#eee;overflow:auto;">
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/LihuBridge_ROW15257694370_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/WhiteRhinos_ROW10026185451_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/ArborDayOaks_ROW12769150163_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/Inchworm_ROW13415153838_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/HohRainForest_ROW11893875864_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/Husafell_ROW11529869812_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/TulfesTyrol_ROW13190350716_1920x1080.jpg" src="images/holder.png" /></p>
+<p><img data-original="http://www.bing.com/az/hprichbg/rb/KelpGoose_ROW12403620614_1920x1080.jpg" src="images/holder.png" /></p>
+</div>
+<script>
+    function getSlice(arr,start,end){
+        var i=start,ret=[];
+        for(;i<end;i++){
+            ret.push(arr[i]);
+        }
+        return ret;
+    }
+
+    LazyLoad(getSlice(document.images,0,13),function(){
+        this.src=this.getAttribute('data-original');
+        this.parentNode.appendChild(document.createTextNode('加载成功'));
+    });
+	LazyLoad(document.getElementById('container').getElementsByTagName('img'),{callback:function(){
+		this.src=this.getAttribute('data-original');
+        this.parentNode.appendChild(document.createTextNode('容器中图片加载成功'));
+	},container:'container',range:-50});
+</script>
+</body>
+</html>

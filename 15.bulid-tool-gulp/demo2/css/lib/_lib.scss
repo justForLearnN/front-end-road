@@ -1,0 +1,293 @@
+$bgcolor:#fff;
+$color:#333;
+$linkColor:#333;
+$hoverColor:#333;
+$ycolor:#ffe100;
+$fonts: "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+$fonts-en: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$normal_width:960px;
+$large_width:1200px;
+$pad_width:800px;
+$mobile_width:540px;
+$min_width:320px;
+
+$img:'../images';
+
+$media_retina: only screen and (-webkit-min-device-pixel-ratio: 1.5),\a
+only screen and (min--moz-device-pixel-ratio: 1.5),\a
+only screen and (-moz-min-device-pixel-ratio: 1.5),\a
+only screen and (-o-min-device-pixel-ratio: 3/2),\a
+only screen and (min-device-pixel-ratio: 1.5);
+
+@mixin opacity($opacity:.5) {
+    opacity:$opacity;
+    filter:alpha(opacity=$opacity*100);
+}
+
+@mixin screen_retina(){
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (min--moz-device-pixel-ratio: 1.5),
+    only screen and (-moz-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (min-device-pixel-ratio: 1.5) {
+        /*! 高分屏 */
+        @content;
+    }
+}
+
+@mixin screen_large(){
+    @media (min-width: 1300px) and (min-height:750px){
+        @content;
+    }
+}
+
+@mixin screen_medium(){
+    @media (max-width: $pad_width){
+        @content;
+    }
+}
+
+@mixin screen_small(){
+    @media (max-width: $mobile_width){
+        @content;
+    }
+}
+
+
+
+/*! reset css */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/*! HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*! to preserve line-height and selector appearance */
+sup {
+	vertical-align:text-top;
+}
+sub {
+	vertical-align:text-bottom;
+}
+input,
+button,
+textarea,
+select {
+	font-family:$fonts;
+	font-size:inherit;
+	font-weight:inherit;
+	*font-size:100%; /*to enable resizing for IE*/
+	width:auto;
+	overflow:visible;
+}
+legend {
+	color:#000;
+}
+h1,h2,h3,h4,h5,h6{
+	font-weight:normal;
+}
+/*! end reset css */
+html,
+body {
+	height:100%;
+}
+a{
+    color:$linkColor;
+	text-decoration:none;
+	outline:none;
+    &:hover,&:active,&:focus{
+        color:$hoverColor;
+    }
+}
+a,button,input,select,textarea{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+body {
+	background:$bgcolor;
+	color:$color;
+	font-family:$fonts;
+	font-size:14px;
+	line-height:1.6;
+    -webkit-touch-callout:none;
+}
+.wrapper{
+	width:100%;
+	display:block;
+    min-width:$normal_width;
+}
+.main{
+	margin:0 auto;
+	width:$normal_width;
+}
+.alignleft{
+	float:left;
+	display:inline;
+}
+.alignright{
+	float:right;
+	display:inline;
+}
+.clearfix{
+    content:"\200c";
+	display:block;
+	height:0;
+	font-size:0;
+	clear:both;
+}
+.clear{
+	zoom: 1;
+    &:after{
+        @extend .clearfix;
+    }
+}
+.none{
+	display:none;
+	overflow:hidden;
+}
+.full{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.after-block{
+    display:block;
+    content:'';
+    position:absolute;
+}
+.aninode{
+    visibility:hidden;
+}
+.animated{
+    &,& .aninode{
+        visibility:visible;
+    }
+}
+.link-transition{
+    transition:color 800ms ease,background 800ms ease;
+}
+.no-horizontal{
+    display:none;
+    background:rgba(255,255,255,.9);
+    z-index:10;
+    @extend .full;
+    &:after{
+        @extend .after-block;
+        width:45px;
+        height:89px;
+        background:url(../images/phone.png) no-repeat;
+        background-size:contain;
+        transform-origin:center 100%;
+        animation:scalePhone 5s linear infinite;
+        top:50%;
+        left:50%;
+        margin:-45px 0 0 -23px;
+    }
+}
+.loading-frame{
+    border:2px solid inherit;
+    border-top-color:transparent;
+    border-bottom-color:transparent;
+    border-radius:50%;
+    animation:my-loading 2s infinite;
+}
+.loading{
+    width:50px;
+    height:50px;
+    position:relative;
+    border-color:#fff;
+    &:before,&:after{
+        @extend .after-block;
+        @extend .loading-frame;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+    }
+    &:after{
+        top:6px;
+        left:6px;
+        right:6px;
+        bottom:6px;
+    }
+}
+.global-loading{
+    background:$bgcolor;
+    @extend .full;
+    z-index:100;
+    &:before,&:after{
+        @extend .after-block;
+        @extend .loading-frame;
+        width:16px;
+        height:16px;
+        top:50%;
+        left:50%;
+        margin:-8px 0 0 -8px;
+    }
+    &:after{
+        width:30px;
+        height:30px;
+        top:50%;
+        left:50%;
+        margin:-15px 0 0 -15px;
+    }
+}
+
+@media (max-height:500px) and (orientation:landscape) {
+
+.no-horizontal{
+    display:block;
+}
+
+}
+
+@keyframes scalePhone{
+    0% {transform:rotate(-90deg)}
+    20% {transform:rotate(0)}
+}
+
+@keyframes my-loading{
+    0% {transform:rotate(0deg)}
+    50% {transform:rotate(360deg)}
+    100% {transform:rotate(0deg)}
+}

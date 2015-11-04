@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>COOKIE</title>
+<script src="src/COOKIE.js"></script>
+</head>
+
+<body>
+<h1>cookike test</h1>
+<p>如何调用？（你可以查看本页面源代码来查看js代码调用示例）</p>
+<pre>
+<script type="text/javascript">
+	var key;
+	document.write('<h3>当前页面中所有cookie如下：</h3>');
+	if(COOKIE.support){
+		document.write('<h3>支持cookie读写</h3>');
+	}else{
+		document.write('<h3>不支持cookie读写</h3>');
+	}
+	for(key in COOKIE.cookies){
+		document.writeln(key+':'+COOKIE.cookies[key]);
+	}
+
+	var mycookie=COOKIE('myName');
+	document.write('<h3>当前页面"myName"下的cookie如下：</h3>');
+	if(mycookie.support){
+		document.write('<h3>支持cookie读写</h3>');
+	}else{
+		document.write('<h3>不支持cookie读写</h3>');
+	}
+	for(key in mycookie.cookies){
+		document.writeln(key+':'+mycookie.cookies[key]);
+	}
+	
+	function rand(num){
+		return Math.floor(Math.random()*num);
+	}
+	
+	function createCookie(){
+		COOKIE.set('test'+rand(100),1,365*24*3600);
+		COOKIE.set('test'+rand(100),2,365*24*3600);
+		COOKIE.set('test'+rand(100),3,365*24*3600);
+		
+		mycookie.set('test'+rand(100),1,365*24*3600);
+		mycookie.set('test'+rand(100),2,365*24*3600);
+		mycookie.set('test'+rand(100),3,365*24*3600);
+		
+		location.reload();
+	}
+	
+</script>
+
+</pre>
+<p>如果页面中没有cookie，可以点此按钮先种下一些随机cookie：<button onclick="createCookie();">生成cookie</button></p>
+<pre>
+生成cookie代码如下：
+function createCookie(){
+    COOKIE.set('test1',1);
+    COOKIE.set('test2',2);
+    COOKIE.set('test3',3);
+    
+    var mycookie=COOKIE('myName');
+    mycookie.set('test1',1);
+    mycookie.set('test2',2);
+    mycookie.set('test3',3);
+}
+</pre>
+<p>清除页面中所有cookie：<button onclick="COOKIE.clear();location.reload();">清除全部cookie</button></p>
+<p>清除页面中myName下的所有cookie：<button onclick="mycookie.clear();location.reload();">清除cookie</button></p>
+<p>删除页面中myName下某个cookie：<input id="thename" placeholder="请输入键值" /><button onclick="if(this.previousSibling.value)mycookie.remove(this.previousSibling.value);location.reload();">删除</button></p>
+</body>
+</html>
