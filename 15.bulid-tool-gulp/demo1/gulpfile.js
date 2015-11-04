@@ -19,6 +19,16 @@ var autoprefixer = require('gulp-autoprefixer');
 var minifycss    = require('gulp-minify-css');
 var cssbeautify  = require('gulp-cssbeautify');
 
+// js处理相关
+var through      = require('through2');
+var concat       = require('gulp-concat');  // 合并
+var jshint       = require('gulp-jshint');
+
+// 图像处理
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
+var spritesmith = require('gulp.spritesmith');
+
 // 错误，提示
 var gutil = require('gulp-util');
 var notify = require("gulp-notify");
@@ -28,7 +38,9 @@ var autoprefixer_config = ['> 1%', 'Firefox >= 10', 'ie >= 9', 'iOS >= 4', 'Chro
 
 var paths = {
 	css_start_url: 'css/**/*.{scss, less, sass}',
-	css_end_url: 'css'
+	css_end_url: 'css',
+	js_start_url: ['js/**/!(_)*.js', '!js/{node_modules,bower_components}/**/*', '!js/core.js', '!js/main.js'],
+	js_end_url: 'js'
 }
 
 // 错误处理
@@ -39,18 +51,6 @@ function handleError(err) {
     this.emit('end');
 }
 
-// 合并多个文件流，只执行最后一个
-function one(callback) {
-	var last;
-	return through.obj(function(file, enc, cb) {
-		last = file;
-		cb();
-	}, function(cb) {
-		this.push(last);
-		callback && callback();
-		cb();
-	})
-}
 
 gulp.task('css', function() {
 	return gulp.src(paths.css_start_url)
@@ -86,19 +86,25 @@ gulp.task('css', function() {
 });
 
 gulp.task('js', function() {
-    var src = paths.js + '/**/!(_)*.js';
-    return gulp.src([src, '!' + paths.js + '/{libs,node_modules,bower_components}/**/*', '!' + paths.js + '/core.js'])
-        .pipe(plumber({
-            errorHandler: handleError
-        }))
-        .pipe(one())
-        .pipe(livereload({
-            quiet: true
-        }))
-        .pipe(notify({
-            onLast: true,
-            message: "browser reload for js"
-        }));
+	return gulp.src(paths.js_start_url)
+	.pipe(plumber({
+		errorHandler: handleError
+	}))
+	.pipe(concat('core.js'))
+	.pipe(gulp.dest(paths.js_end_url))
+	.pipe(livereload({
+		quiet: true
+	}))
+	.pipe(notify({
+		onLast: true,
+		message: 'Js concat success!'
+	}))
+})
+
+gulp.task('jsconcat', function() {
+	gulp.src(['./js/libs/require.js', './js/libs/config.js', 'js/libs/**/*', '!js/libs/core.js'])
+		.pipe(concat('core1.js'))
+		.pipe(gulp.dest('./js/'));
 });
 
 gulp.task('watch', function() {

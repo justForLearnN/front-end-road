@@ -13,7 +13,7 @@
             COOKIE: 'libs/COOKIE/src/COOKIE',
             utils: 'modules/utils',
             'core': 'libs/core'
-        }
+        },
         exclude: ['jquery', 'createClass', 'JS2CSSKeyframes', 'CSSKeyframes', 'utils']
     }
 
