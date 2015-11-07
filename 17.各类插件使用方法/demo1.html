@@ -1,0 +1,106 @@
+<!-- pageSwitch -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minmum-scale=1.0, user-scalable=no">
+	<title>Document</title>
+	<script src="plugin/zepto.js"></script>
+	<script src="plugin/pageSwitch/src/pageSwitch.js"></script>
+	<style>
+		body { margin: 0; }
+		#wrap, .page { 
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%; }
+		.active { transition: .5s; }
+		.page { color: #fff; font-size: 60px; text-align: center; line-height: 500px; }
+		.page0 { background-color: orange; }
+		.page1 { background-color: #ccc; }
+		.page2 { background-color: pink; }
+		.page3 { background-color: blue; }
+		.page4 { background-color: #666; }
+		#some { position: absolute; z-index: 100; }
+		@keyframes bsize {
+			0% { font-size: 60px; }
+			100% { font-size: 120px; }
+		}
+		.animated { animation: bsize 1s; }
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="page page0">1</div>
+		<div class="page page1">2</div>
+		<div class="page page2">3</div>
+		<div class="page page3">4</div>
+		<div class="page page4">5</div>
+	</div>
+	<div id="some" class="some">
+		<select id="trans">
+			<option value="">select transition style</option>
+			<option value="scroll">scroll</option>
+			<option value="scroll3d">scroll3d</option>
+			<option value="scrollCover">scrollCover</option>
+			<option value="scrollCoverReverse">scrollCoverReverse</option>
+			<option value="scrollCoverIn">scrollCoverIn</option>
+			<option value="scrollCoverOut">scrollCoverOut</option>
+			<option value="scrollX">scrollX</option>
+			<option value="scroll3dX">scroll3dX</option>
+			<option value="scrollCoverX">scrollCoverX</option>
+			<option value="scrollCoverReverseX">scrollCoverReverseX</option>
+			<option value="scrollCoverInX">scrollCoverInX</option>
+			<option value="scrollCoverOutX">scrollCoverOutX</option>
+			<option value="scrollY">scrollY</option>
+			<option value="scroll3dY">scroll3dY</option>
+			<option value="scrollCoverY">scrollCoverY</option>
+			<option value="scrollCoverReverseY">scrollCoverReverseY</option>
+			<option value="scrollCoverInY">scrollCoverInY</option>
+			<option value="scrollCoverOutY">scrollCoverOutY</option>
+		</select>
+	</div>
+</body>
+<script>
+	var pw = new pageSwitch('wrap', {
+		duration: 600,
+		direction: 1,
+		start: 0,
+		loop: true,
+		ease: 'ease',
+		transition: 'slide',
+		freeze: false,
+		mouse: false,
+		mousewheel: false,
+		autoplay: false
+	})
+
+	var pages = $(pw.pages);
+	/*$('#prev').click(function() {
+		// pw.prev();
+		// pw.next();
+		// pw.slide(4);
+		// pw.setEase('linear');
+		pw.setTransition('scrollCover');
+	})*/
+	$('#trans').change(function() {
+		pw.setTransition($(this).val());
+	})
+
+	pw.on('before', function(now, next) {
+		if (now != next) {
+			pages.eq(next).removeClass('animated');
+		};
+	})
+	pw.on('after', function(now, prev) {
+		$('.page').addClass('active');
+		pages.eq(now).addClass('animated');
+		if (now != prev) {
+			// $('.page').removeClass('active');
+			pages.eq(prev).removeClass('animated');
+
+		};
+	})
+</script>
+</html>
