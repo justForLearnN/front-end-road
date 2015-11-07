@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>遍历详解: $.each</title>
+	<script src="../script/jquery-2.0.3.js"></script>
+</head>
+<body>
+	<ul class="list">
+		<li></li>
+		<li></li>
+		<li data-item="do"></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+<script>
+	var demo3Arr = ['Javascript', 'Gulp', 'CSS3', 'Grunt', 'jQuery', 'angular'];
+
+	var demo3Obj = {
+		aaa: 'Javascript',
+		bbb: 'Gulp',
+		ccc: 'CSS3',
+		ddd: 'Grunt',
+		eee: 'jQuery',
+		fff: 'angular'
+	};
+	
+	$.each(demo3Arr, function(e, ele) {
+		if (e == 2) {
+			// return; // 跳过循环
+			return true; // jump this
+			// return false;  // 终止循环
+			// continue;  // illegal
+			// break;  // illegal
+		};
+		console.log(e, ele);
+	})
+
+	$.each(demo3Obj, function(e, ele) {
+		console.log(ele == this);
+		console.log($(this));
+		console.log(e, ele);
+		console.log('--------------------')
+	})
+
+	$('.list li').each(function(i, ele) {
+		console.log(i);
+		console.log(this == ele);
+		$(this).html(i);
+		if ($(this).attr('data-item') == 'do') {
+			$(this).html('data-item: do');
+		};
+	})
+</script>
+</html>

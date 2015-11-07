@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>遍历详解: for</title>
+	<script src="../script/jquery-2.0.3.js"></script>
+</head>
+<body>
+	
+</body>
+<script>
+	var demo1Arr = ['Javascript', 'Gulp', 'CSS3', 'Grunt', 'jQuery', 'angular'];
+
+	(function() {
+		for(var i=0, len=demo1Arr.length; i<len; i++) {
+			if (i == 2) {
+				// return;   // 循环被终止
+				// break;    // 循环被终止
+				continue; // 循环被跳过
+			};
+			console.log('demo1Arr['+ i +']:' + demo1Arr[i]);
+		}
+	})();
+
+</script>
+</html>

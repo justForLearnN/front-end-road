@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>遍历详解: for in</title>
+	<script src="../script/jquery-2.0.3.js"></script>
+</head>
+<body>
+	
+</body>
+<script>
+	var demo3Arr = ['Javascript', 'Gulp', 'CSS3', 'Grunt', 'jQuery', 'angular'];
+
+	var demo3Obj = {
+		aaa: 'Javascript',
+		bbb: 'Gulp',
+		ccc: 'CSS3',
+		ddd: 'Grunt',
+		eee: 'jQuery',
+		fff: 'angular'
+	};
+	
+	(function() {
+		for(var i in demo3Arr) {
+			if (i == 2) {
+				// return; // 无法在for in 中使用
+				// break;  // 循环被终止
+				continue;  // 循环被跳过
+			};
+			console.log('demo2Arr['+ i +']:' + demo3Arr[i]);
+		}
+		console.log('-------------');
+	})();
+
+	(function() {
+		for(var item in demo3Obj) {
+			console.log(item + ':' + demo3Obj[item]);
+		}
+	})();
+</script>
+</html>

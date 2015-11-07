@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>遍历详解: do/while</title>
+	<script src="../script/jquery-2.0.3.js"></script>
+</head>
+<body>
+	
+</body>
+<script>
+	var demo3Arr = ['Javascript', 'Gulp', 'CSS3', 'Grunt', 'jQuery', 'angular'];
+	
+	// while
+	(function() {
+		var i = 0,
+			len = demo3Arr.length;
+		while(i < len) {
+			if (i == 2) {
+				// return; // 循环被终止
+				// break;  // 循环被终止
+				// continue;  // 循环将被跳过，因为后边的代码无法执行，i的值没有改变，因此循环会一直卡在这里，慎用！！
+			};
+			console.log('demo2Arr['+ i +']:' + demo3Arr[i]);
+			i ++;
+		}
+		console.log('------------------------');
+	})();
+
+	// do while
+	(function() {
+		var i = 0,
+			len = demo3Arr.length;
+		do {
+			if (i == 2) {
+				// return; //  循环被终止
+				break; // 循环被终止
+				// continue;  // 循环将被跳过，因为后边的代码无法执行，i的值没有改变，因此循环会一直卡在这里，慎用！！
+			};
+			console.log('demo2Arr['+ i +']:' + demo3Arr[i]);
+			i++;
+		} while(i<len);
+	})();
+</script>
+</html>
