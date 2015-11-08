@@ -11,9 +11,18 @@
 <script>
 	var demo2Arr = ['Javascript', 'Gulp', 'CSS3', 'Grunt', 'jQuery', 'angular'];
 
+	var demo3Obj = {
+		aaa: 'Javascript',
+		bbb: 'Gulp',
+		ccc: 'CSS3',
+		ddd: 'Grunt',
+		eee: 'jQuery',
+		fff: 'angular'
+	};
+
 	demo2Arr.forEach(function(e) {
 		if (e == 'CSS3') {
-			return;  // 循环被跳过
+			// return;  // 循环被跳过
 			// break;   // 报错
 			// continue;// 报错
 		};
@@ -21,6 +30,11 @@
 	})
 
 	// firefox and chrome 支持这种方法,但是在ie中没有这种方法
+	
+	// 无法遍历对象
+	/*demo3Obj.forEach(function(e) {
+		console.log(e);
+	});*/
 
 </script>
 </html>

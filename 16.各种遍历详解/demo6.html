@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>遍历详解: $.each</title>
+	<script src="../script/jquery-2.0.3.js"></script>
+</head>
+<body>
+	<ul class="list">
+		<li></li>
+		<li></li>
+		<li data-item="do"></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+<script>
+	var str = "document.getElementById";
+	for(var item in str) {
+		console.log(item, str[item]);
+	}
+
+	var i = 0, len = str.length;
+	for(;i<len;i++) {
+		console.log(i, str[i]);
+	}
+</script>
+</html>

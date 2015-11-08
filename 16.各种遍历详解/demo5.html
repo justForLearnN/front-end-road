@@ -26,27 +26,42 @@
 		fff: 'angular'
 	};
 	
-	$.each(demo3Arr, function(e, ele) {
-		if (e == 2) {
-			// return; // 跳过循环
-			return true; // jump this
-			// return false;  // 终止循环
-			// continue;  // illegal
-			// break;  // illegal
-		};
-		console.log(e, ele);
-	})
+
+	+function aaaa() {
+		$.each(demo3Arr, function(e, ele) {
+			if (e == 2) {
+				// return; // 跳过循环
+				// return true; // jump this
+				// return false;  // 终止循环
+				// continue;  // illegal
+				// break;  // illegal
+				// console.log(this);
+				
+				console.log(Object.getOwnPropertyDescriptor(this, 'length'));
+
+				$.each(this, function(e, ele) {
+					console.log('xxx:' + e, ele);
+				})
+				// console.log($(this));
+			};
+			console.log(e, ele);
+			
+			// console.log($(this));
+		});
+		console.log('----------------------');
+	}();
 
 	$.each(demo3Obj, function(e, ele) {
-		console.log(ele == this);
-		console.log($(this));
+		// console.log(ele == this);
+		// console.log($(this));
 		console.log(e, ele);
-		console.log('--------------------')
 	})
 
+	console.log('--------------------')
+
 	$('.list li').each(function(i, ele) {
-		console.log(i);
-		console.log(this == ele);
+		console.log(i, ele);
+		// console.log(this == ele); // true
 		$(this).html(i);
 		if ($(this).attr('data-item') == 'do') {
 			$(this).html('data-item: do');

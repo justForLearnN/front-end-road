@@ -6,10 +6,18 @@
 	<script src="../script/jquery-2.0.3.js"></script>
 </head>
 <body>
-	
+	<ul id="list">
+		<li></li>
+		<li></li>
+		<li data-item="do"></li>
+		<li></li>
+		<li></li>
+	</ul>
 </body>
 <script>
 	var demo3Arr = ['Javascript', 'Gulp', 'CSS3', 'Grunt', 'jQuery', 'angular'];
+	var aList = document.getElementById('list').getElementsByTagName('li');
+
 
 	var demo3Obj = {
 		aaa: 'Javascript',
@@ -23,18 +31,45 @@
 	(function() {
 		for(var i in demo3Arr) {
 			if (i == 2) {
-				// return; // 无法在for in 中使用
+				return; // 函数执行被终止
 				// break;  // 循环被终止
-				continue;  // 循环被跳过
+				// continue;  // 循环被跳过
 			};
 			console.log('demo2Arr['+ i +']:' + demo3Arr[i]);
 		}
 		console.log('-------------');
 	})();
 
+
 	(function() {
 		for(var item in demo3Obj) {
+			if (item == 'ccc') {
+				return;
+			};
 			console.log(item + ':' + demo3Obj[item]);
+		}
+	})();
+
+
+	function res() {
+		var demoArr = ['Javascript', 'Gulp', 'CSS3', 'Grunt', 'jQuery', 'angular'];
+
+		for(var item in demoArr) {
+			if (item == 2) {
+				// return;
+				// break;
+				// continue;
+			};
+			console.log(item, demoArr[item]);
+		}
+		console.log('desc', 'function res');
+	}
+	// res();
+	// 
+	(function() {
+		// var aaa = [].slice.call(aList);
+		for(var item in aList) {
+			console.log(item, aList[item]);
 		}
 	})();
 </script>
