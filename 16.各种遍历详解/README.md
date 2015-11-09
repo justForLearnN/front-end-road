@@ -41,6 +41,7 @@ for(; i<len; i++) {};
     + return   函数执行被终止
     + break    循环被终止
     + continue 循环被跳过
+
 [完整实例](https://github.com/yangbo5207/front-end-road/blob/master/16.%E5%90%84%E7%A7%8D%E9%81%8D%E5%8E%86%E8%AF%A6%E8%A7%A3/demo1.html)
 
 ##### for in
