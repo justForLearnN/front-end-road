@@ -55,10 +55,9 @@ pw.on('after', function(now, prev) {});
 
 - css 初始状态
 需要运动的对象在添加class时，需要添加如下初始化形态
-```js
+```css
 .aninode { visibility: hidden; }
 .animated, .animated .aninode { visibility: visible; }
-.animation
 ```
 
 >在使用addClass的方式添加动画时，可以让`.animated`为动画元素的父级，这样js代码将会非常简单，直接添加animated就能控制多个不同元素的不同动画效果，只需在css中设置。
