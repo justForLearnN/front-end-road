@@ -1,5 +1,5 @@
 /*
- * 原型模式
+ * 3. 原型模式
  */
 
  function Person(name) {
