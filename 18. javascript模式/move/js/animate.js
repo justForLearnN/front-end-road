@@ -13,9 +13,16 @@ var animate = function(elem) {
 animate.prototype = animate.fn = {
     constructor: animate,
     init: function(elem) {
-        if (typeof elem === 'string' && elem.indexOf('#') == 0) {
+        if (typeof elem === 'string' && elem.indexOf('#') === 0) {
             var id = elem.slice(1);
             this.elem = document.getElementById(id);
+        }
+        else if (typeof elem === 'string' && elem.indexOf('.') === 0) {
+            var cls = elem.slice(1);
+            this.elem = document.getElementsByClassName(cls)[0];
+        }
+        else if (typeof elem === 'string' && elem.indexOf('#') === -1 && elem.indexOf('.') === -1) {
+            this.elem = document.getElementsByTagName(elem)[0];
         }
         else if (typeof elem === 'object') {
             this.elem = elem;
