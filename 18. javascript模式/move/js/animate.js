@@ -94,6 +94,18 @@ animate.prototype = animate.fn = {
             }
         }
 
+        if (this.css('position') === 'static') {
+            return;
+        }
+        else {
+            if (this.css('left') === 'auto') {
+                this.css('left', 0);
+            }
+            if (this.css('top') === 'auto') {
+                this.css('top', 0);
+            }
+        }
+
         // 初始值
         var initValue = {},
             self = this;
@@ -139,19 +151,13 @@ animate.prototype = animate.fn = {
 var Tween = {
 
     //匀速
-    linear: function (t, b, c, d){
-        return c*t/d + b;
-    },
+    linear: function (t, b, c, d){ return c * t/d + b; },
 
     //加速曲线
-    easeIn: function(t, b, c, d){
-        return c*(t/=d)*t + b;
-    },
+    easeIn: function(t, b, c, d){ return c * (t/=d) * t + b; },
 
     //减速曲线
-    easeOut: function(t, b, c, d){
-        return -c *(t/=d)*(t-2) + b;
-    },
+    easeOut: function(t, b, c, d){ return -c *(t/=d)*(t-2) + b; },
 
     //加速减速曲线
     easeBoth: function(t, b, c, d){
@@ -162,14 +168,10 @@ var Tween = {
     },
 
     //加加速曲线
-    easeInStrong: function(t, b, c, d){
-        return c*(t/=d)*t*t*t + b;
-    },
+    easeInStrong: function(t, b, c, d){ return c*(t/=d)*t*t*t + b; },
 
     //减减速曲线
-    easeOutStrong: function(t, b, c, d){
-        return -c * ((t=t/d-1)*t*t*t - 1) + b;
-    },
+    easeOutStrong: function(t, b, c, d){ return -c * ((t=t/d-1)*t*t*t - 1) + b; },
 
     //加加速减减速曲线
     easeBothStrong: function(t, b, c, d){
@@ -218,6 +220,7 @@ var Tween = {
         }
         return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
     },
+
     elasticBoth: function(t, b, c, d, a, p){
         if (t === 0) {
             return b;
@@ -267,9 +270,8 @@ var Tween = {
     },
 
     //弹球减振（弹球渐出）
-    bounceIn: function(t, b, c, d){
-        return c - Tween['bounceOut'](d-t, 0, c, d) + b;
-    },
+    bounceIn: function(t, b, c, d){ return c - Tween['bounceOut'](d-t, 0, c, d) + b; },
+
     bounceOut: function(t, b, c, d){
         if ((t/=d) < (1/2.75)) {
             return c*(7.5625*t*t) + b;
@@ -280,6 +282,7 @@ var Tween = {
         }
         return c*(7.5625*(t-=(2.625/2.75))*t + 0.984375) + b;
     },
+
     bounceBoth: function(t, b, c, d){
         if (t < d/2) {
             return Tween['bounceIn'](t*2, 0, c, d) * 0.5 + b;
