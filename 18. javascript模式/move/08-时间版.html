@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>move</title>
+        <style>
+            body { margin: 0; }
+            .box { width: 100px; height: 100px; background-color: orange; position: relative; left: 0; top: 0; opacity: 1; border-radius: 10px; }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+    </body>
+
+    <script>
+        'use strict';
+
+        window.onload = function() {
+            var box = document.getElementsByClassName('box')[0];
+
+            console.log(mcss(box, 'opacity'));
+
+            animate(box, { opacity: 16, top: 300 }, 600, 'bounceOut');
+            mcss(box, 'border-radius', '20px');
+        }
+
+        function animate(elem, properties, duration, fx, fn) {
+
+            if (typeof elem != 'object' || typeof properties != 'object') {
+                return;
+            }
+            if (typeof duration === 'undefined') {
+                duration = 400;
+                fx = 'linear';
+            }
+
+            if (typeof duration === 'string') {
+                if (typeof fx === 'function') {
+                    fn = fx;
+                }
+                fx = duration;
+                duration = 400;
+            }
+
+            if (typeof duration === 'function') {
+                fn = duration;
+                fx = 'linear';
+                duration = 400;
+            }
+
+            if (typeof duration === 'number') {
+                if (typeof fx === 'function') {
+                    fn = fx;
+                    fx = 'linear';
+                } else if (typeof fx === 'undefined') {
+                    fx = 'linear';
+                }
+            }
+
+            var iCur = {};
+            for(var item in properties) {
+                iCur[item] = 0;
+                if (item == 'opacity') {
+                    iCur[item] = Math.round(mcss(elem, item) * 100);
+                }
+                else {
+                    iCur[item] = parseInt(mcss(elem, item));
+                }
+            }
+
+            var start = (new Date()).getTime();
+            clearInterval(elem.timer);
+
+            elem.timer = setInterval(function(){
+                var curTime = (new Date()).getTime();
+                var t = duration - Math.max(0, start - curTime + duration);
+
+                for(var item in properties) {
+                    var value = Tween[fx](t, iCur[item], properties[item]-iCur[item], duration);
+                    mcss(elem, item, value);
+                }
+
+                if (t === duration) {
+                    clearInterval(elem.timer);
+                    fn && fn.call(elem);
+                }
+            }, 13);
+        }
+
+        var properties = ['width', 'height', 'opacity', 'left', 'top'];
+
+        /**
+         * 模拟jQuery的css方法，实现获取元素style属性和设置元素style的功能
+         * @param   {Element} elem 元素
+         * @param   {String} attr 元素的属性
+         * @param   {String} value 元素属性的值，如果有单位，将单位也带上
+         * @returns {String | Element} 如果2个参数，返回值，如果3个参数，返回该元素
+         */
+        function mcss( elem, attr, value ) {
+            if ( !elem ) {
+                return;
+            }
+
+            if ( arguments.length === 2 ) {
+                return elem.currentStyle ? elem.currentStyle[attr] : document.defaultView.getComputedStyle( elem, false )[attr];
+            } else if ( arguments.length === 3 ) {
+
+                var _a = ['width', 'height', 'left', 'top'];
+
+                if (attr == 'opacity') {
+                    elem.style[attr] = value/100;
+                    elem.style.filter = 'alpha("opacity='+ value +'")';
+                }
+                else if (_a.indexOf(attr) != -1) {
+                    elem.style[attr] = value + 'px' ;
+                } else {
+                    elem.style[attr] = value;
+                }
+                return elem;
+            }
+        }
+
+        var Tween = {
+        	linear: function (t, b, c, d){  //匀速
+        		return c*t/d + b;
+        	},
+        	easeIn: function(t, b, c, d){  //加速曲线
+        		return c*(t/=d)*t + b;
+        	},
+        	easeOut: function(t, b, c, d){  //减速曲线
+        		return -c *(t/=d)*(t-2) + b;
+        	},
+        	easeBoth: function(t, b, c, d){  //加速减速曲线
+        		if ((t/=d/2) < 1) {
+        			return c/2*t*t + b;
+        		}
+        		return -c/2 * ((--t)*(t-2) - 1) + b;
+        	},
+        	easeInStrong: function(t, b, c, d){  //加加速曲线
+        		return c*(t/=d)*t*t*t + b;
+        	},
+        	easeOutStrong: function(t, b, c, d){  //减减速曲线
+        		return -c * ((t=t/d-1)*t*t*t - 1) + b;
+        	},
+        	easeBothStrong: function(t, b, c, d){  //加加速减减速曲线
+        		if ((t/=d/2) < 1) {
+        			return c/2*t*t*t*t + b;
+        		}
+        		return -c/2 * ((t-=2)*t*t*t - 2) + b;
+        	},
+        	elasticIn: function(t, b, c, d, a, p){  //正弦衰减曲线（弹动渐入）
+        		if (t === 0) {
+        			return b;
+        		}
+        		if ( (t /= d) == 1 ) {
+        			return b+c;
+        		}
+        		if (!p) {
+        			p=d*0.3;
+        		}
+        		if (!a || a < Math.abs(c)) {
+        			a = c;
+        			var s = p/4;
+        		} else {
+        			var s = p/(2*Math.PI) * Math.asin (c/a);
+        		}
+        		return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+        	},
+        	elasticOut: function(t, b, c, d, a, p){    //正弦增强曲线（弹动渐出）
+        		if (t === 0) {
+        			return b;
+        		}
+        		if ( (t /= d) == 1 ) {
+        			return b+c;
+        		}
+        		if (!p) {
+        			p=d*0.3;
+        		}
+        		if (!a || a < Math.abs(c)) {
+        			a = c;
+        			var s = p / 4;
+        		} else {
+        			var s = p/(2*Math.PI) * Math.asin (c/a);
+        		}
+        		return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
+        	},
+        	elasticBoth: function(t, b, c, d, a, p){
+        		if (t === 0) {
+        			return b;
+        		}
+        		if ( (t /= d/2) == 2 ) {
+        			return b+c;
+        		}
+        		if (!p) {
+        			p = d*(0.3*1.5);
+        		}
+        		if ( !a || a < Math.abs(c) ) {
+        			a = c;
+        			var s = p/4;
+        		}
+        		else {
+        			var s = p/(2*Math.PI) * Math.asin (c/a);
+        		}
+        		if (t < 1) {
+        			return - 0.5*(a*Math.pow(2,10*(t-=1)) *
+        					Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+        		}
+        		return a*Math.pow(2,-10*(t-=1)) *
+        				Math.sin( (t*d-s)*(2*Math.PI)/p )*0.5 + c + b;
+        	},
+        	backIn: function(t, b, c, d, s){     //回退加速（回退渐入）
+        		if (typeof s == 'undefined') {
+        		   s = 1.70158;
+        		}
+        		return c*(t/=d)*t*((s+1)*t - s) + b;
+        	},
+        	backOut: function(t, b, c, d, s){
+        		if (typeof s == 'undefined') {
+        			s = 3.70158;  //回缩的距离
+        		}
+        		return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+        	},
+        	backBoth: function(t, b, c, d, s){
+        		if (typeof s == 'undefined') {
+        			s = 1.70158;
+        		}
+        		if ((t /= d/2 ) < 1) {
+        			return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+        		}
+        		return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+        	},
+        	bounceIn: function(t, b, c, d){    //弹球减振（弹球渐出）
+        		return c - Tween['bounceOut'](d-t, 0, c, d) + b;
+        	},
+        	bounceOut: function(t, b, c, d){
+        		if ((t/=d) < (1/2.75)) {
+        			return c*(7.5625*t*t) + b;
+        		} else if (t < (2/2.75)) {
+        			return c*(7.5625*(t-=(1.5/2.75))*t + 0.75) + b;
+        		} else if (t < (2.5/2.75)) {
+        			return c*(7.5625*(t-=(2.25/2.75))*t + 0.9375) + b;
+        		}
+        		return c*(7.5625*(t-=(2.625/2.75))*t + 0.984375) + b;
+        	},
+        	bounceBoth: function(t, b, c, d){
+        		if (t < d/2) {
+        			return Tween['bounceIn'](t*2, 0, c, d) * 0.5 + b;
+        		}
+        		return Tween['bounceOut'](t*2-d, 0, c, d) * 0.5 + c*0.5 + b;
+        	}
+        }
+
+    </script>
+</html>

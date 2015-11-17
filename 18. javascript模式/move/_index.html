@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>animate test</title>
+        <script src="js/animate.js"></script>
+    </head>
+    <body>
+        <div id="box" class="box" style="width: 200px; height: 100px; background-color: orange; position: absolute; left:0; top: 0; opacity:1"></div>
+    </body>
+    <script>
+        // __('#box').animate({ left: 200 });
+        __('#box').animate({
+            left: 200,
+            width: 200,
+            height: 200,
+            top: 200,
+            opacity: 0
+        }, 1000, function() {
+            __('#box').animate({
+                left: 0,
+                opacity: 100
+            }, 1000)
+        })
+    </script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>move</title>
+        <style>
+            body { margin: 0; }
+            .box { width: 100px; height: 100px; background-color: orange; position: absolute; left: 0; opacity: 0; }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+    </body>
+
+    <script>
+        'use strict';
+
+        window.onload = function() {
+            var box = document.getElementsByClassName('box')[0];
+
+            autoMove( box, 100, 1, 10 );
+        }
+
+        function autoMove( elem, time, iTarget, iSpeed ) {
+            clearInterval( elem.timer );
+
+            elem.timer = setInterval( function() {
+                var iCur = (Math.round( mcss( elem, 'opacity' ) * 100 ) + iSpeed)/100;
+
+                if ( -mcss( elem, 'opacity' ) > iTarget ) {
+                    clearInterval( elem.timer );
+                } else {
+                    mcss( elem, 'opacity',  iCur );
+                }
+            }, time )
+        }
+
+        /**
+         * 模拟jQuery的css方法，实现获取元素style属性和设置元素style的功能
+         * @param   {Element} elem 元素
+         * @param   {String} attr 元素的属性
+         * @param   {String} value 元素属性的值，如果有单位，将单位也带上
+         * @returns {String | Element} 如果2个参数，返回值，如果3个参数，返回该元素
+         */
+        function mcss( elem, attr, value ) {
+            if ( !elem ) {
+                return;
+            }
+
+            if ( arguments.length === 2 ) {
+                return elem.currentStyle ? elem.currentStyle[attr] : document.defaultView.getComputedStyle( elem, false )[attr];
+            } else if ( arguments.length === 3 ) {
+                elem.style[attr] = value;
+                return elem;
+            }
+        }
+
+    </script>
+</html>
