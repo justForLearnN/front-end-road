@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>replace</title>
+</head>
+<body>
+
+</body>
+<script>
+
+var initString = 'sdfin, 23s sdflkse fsdfwe sdx dfe s 12sd ss s';
+
+var endString = initString.replace(/\b\d+[a-z]+\b/g, function(aa, bb) {
+	
+	console.log(aa, bb);
+	return 'sdf' + bb;
+});
+console.log(endString);
+
+</script>
+</html>
