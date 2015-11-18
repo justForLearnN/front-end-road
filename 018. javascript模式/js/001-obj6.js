@@ -23,7 +23,7 @@ var person1 = new Person('rose');
 
  console.log('name' in person1); // true
  console.log('getAge' in person1); // true
- 
+
  console.log(person1.hasOwnProperty('name')); // true
  console.log(person1.hasOwnProperty('age')); // false
  console.log(person1.hasOwnProperty('getAge')); // false
