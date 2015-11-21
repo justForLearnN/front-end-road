@@ -1,5 +1,5 @@
 /**
- * buf.slice([Start], [end]) 将Buffer对象转换为字符串
+ * buf.slice([Start], [end]) 截取buffer对象
  * @param {number} [start] [开始位置，默认为0]
  * @param {number} [end] [结束位置，默认为字符串的长度，不包含结束位置]
  * @return {Buffer} [返回截取后的Buffer对象，该对象与原对象指向相同，如果修改该对象，原始对象也会被改变]
