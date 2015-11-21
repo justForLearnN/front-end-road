@@ -1,0 +1,182 @@
+<!-- ScHcItv9w1Q8E
+SwHcitvq2w1s3E4 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*animation关键帧设置*/
+		@-webkit-keyframes show {
+			0% {
+				-webkit-transform: rotateX(180deg);
+				opacity: 0;
+			}
+			90% {
+				-webkit-transform: rotateX(-5deg);
+				opacity: .8;
+			}
+			100% {
+				-webkit-transform: rotateX(0deg);
+				opacity: 1;
+			}
+		}
+		@-webkit-keyframes hide {
+			0% {
+				-webkit-transform: rotateX(0deg);
+				opacity: 1;
+			}
+			100% {
+				-webkit-transform: rotateX(-180deg);
+				opacity: 0;
+			}
+		}
+
+		@-webkit-keyframes show1 {
+			0% {
+				-webkit-transform: rotateX(-180deg);
+				opacity: 0;
+			}
+			90% {
+				-webkit-transform: rotateX(5deg);
+				opacity: .8;
+			}
+			100% {
+				-webkit-transform: rotateX(0deg);
+				opacity: 1;
+			}
+		}
+		@-webkit-keyframes hide1 {
+			0% {
+				-webkit-transform: rotateX(0deg);
+				opacity: 1;
+			}
+			100% {
+				-webkit-transform: rotateX(180deg);
+				opacity: 0;
+			}
+		}
+		body, ul, li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.wrap {
+			width: 700px;
+			height: 300px;
+			margin: 100px auto;
+			position: relative;
+			-webkit-perspective: 1200px;
+			-webkit-transform-style: preserve-3d;
+		}
+		.imgList {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+		}
+		.imgList li {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			background-size: 100%;
+			background-repeat: no-repeat;
+			/*transition: 1s;*/
+			-webkit-transform-origin: bottom;
+			-webkit-transform: rotateX(-180deg);
+			opacity: 0;
+			left: 0;
+			top: 0;
+			border:10px solid orange;
+		}
+		.imgList li:nth-of-type(1) {
+			background: url(images/preserve-3d/preserve-3d_0.jpeg);
+		}
+		.imgList li:nth-of-type(2) {
+			background: url(images/preserve-3d/preserve-3d_1.jpeg);
+		}
+		.imgList li:nth-of-type(3) {
+			background: url(images/preserve-3d/preserve-3d_2.jpg);
+			background-size: 100%;
+		}
+		.imgList li:nth-of-type(4) {
+			background: url(images/preserve-3d/preserve-3d_3.jpeg);
+			background-size: 100%;
+		}
+		.imgList li:nth-of-type(5) {
+			background: url(images/preserve-3d/preserve-3d_4.jpeg);
+		}
+		.imgList li:nth-of-type(6) {
+			background: url(images/preserve-3d/preserve-3d_5.jpg);
+		}
+		input[value=pre] {
+			position: absolute;
+			left: -50px;
+			top: 130px;
+		}
+		input[value=next] {
+			position: absolute;
+			right: -75px;
+			top: 130px;
+		}
+		.imgList .show { 
+			opacity: 1;
+			-webkit-transform: rotateX(0);
+			-webkit-animation: 1s show;
+		}
+		.imgList .hide {
+			-webkit-transform:rotateX(180deg);
+			opacity: 0;
+			-webkit-animation:.5s hide;
+		}
+		.imgList .show1 {
+			opacity: 1;
+			-webkit-transform: rotateX(0);
+			-webkit-animation: 1s show1;
+		}
+		.imgList .hide1 {
+			-webkit-transform:rotateX(180deg);
+			opacity: 0;
+			-webkit-animation:.5s hide1;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="imgList">
+			<li class="show"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<input type="button" value="pre">
+		<input type="button" value="next">
+	</div>
+</body>
+<script>
+	window.onload = function(){
+		var oIList = document.getElementsByClassName('imgList')[0];
+		var aImg = oIList.getElementsByTagName('li');
+		var aBtn = document.getElementsByTagName('input');
+		var iNow = 0;
+
+		aBtn[1].onclick = function() {
+			aImg[iNow].className = 'hide';
+			iNow++;
+			if(iNow>=aImg.length){
+				iNow = 0;
+			}
+			aImg[iNow].className = 'show';
+		}
+		aBtn[0].onclick = function() {
+			aImg[iNow].className = 'hide1';
+			iNow--;
+			if(iNow < 0) {
+				iNow = aImg.length-1;
+			}
+			aImg[iNow].className = 'show1';
+		}
+	}
+
+</script>
+</html>

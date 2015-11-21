@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D transform</title>
+	<style>
+		ul, li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.wrap {
+			width: 100%;
+			height: 200px;
+			display: -webkit-box;
+			-webkit-box-align: center;
+			-webkit-box-pack: justify;
+			/*将变换元素的父级设置为3D空间*/
+			-webkit-transform-style:preserve-3d;
+			/*设置景深*/
+			-webkit-perspective:200px;
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			background: orange;
+			transition: .5s;
+		}
+		.box:nth-of-type(1):hover {
+			-webkit-transform: rotateX(180deg);
+		}
+		.box:nth-of-type(2):hover {
+			-webkit-transform: rotateY(180deg);
+		}
+		.box:nth-of-type(3):hover {
+			-webkit-transform: rotateZ(180deg);
+		}
+		.box:nth-of-type(4):hover {
+			-webkit-transform: translateZ(100px);
+		}
+		.box:nth-of-type(5):hover {
+			-webkit-transform: translateZ(-100px);
+		}
+		.box:nth-of-type(6):hover {
+			-webkit-transform: translateX(100px);
+		}
+
+		.contain {
+			width: 400px;
+			height: 400px;
+			border: 1px solid #ccc;
+			margin: 0 auto;
+			position: relative;
+			-webkit-perspective: 200px;
+			/*设置景深基点，即为视线的角度*/
+			/*-webkit-perspective-origin: left top;*/
+		}
+		.dbox {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			left: 150px;
+			top: 150px;
+			transition: 2s;
+			-webkit-transform-style: preserve-3d;
+			-webkit-transform-origin: center center -50px;
+		}
+		.contain:hover .dbox {
+			-webkit-transform:rotateX(360deg);
+		}
+		.dbox div {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			color: #fff;
+			font:40px/100px "STxihei";
+			text-align: center;
+		}
+		.dbox div:nth-of-type(1) {
+			left: 0;
+			top: 0;
+			background: orange;
+		}
+		.dbox div:nth-of-type(2) {
+			left: -100px;
+			top: 0;
+			background: #9c0;
+			-webkit-transform: rotateY(-90deg);
+			-webkit-transform-origin:right;
+		}
+		.dbox div:nth-of-type(3) {
+			left: 100px;
+			top: 0;
+			background: #cf3;
+			-webkit-transform: rotateY(90deg);
+			-webkit-transform-origin:left;
+		}
+		.dbox div:nth-of-type(4) {
+			left: 0;
+			top: 100px;
+			background: #ccf;
+			-webkit-transform: rotateX(-90deg);
+			-webkit-transform-origin: top;
+		}
+		.dbox div:nth-of-type(5) {
+			left: 0;
+			top: -100px;
+			background: #ccc;
+			-webkit-transform: rotateX(90deg);
+			-webkit-transform-origin: bottom;
+		}
+		.dbox div:nth-of-type(6) {
+			left: 0;
+			top: 0;
+			background: blue;
+			-webkit-transform:translateZ(-100px) rotateX(180deg);
+		}
+	</style>
+</head>
+<body>
+	<ul class="wrap">
+		<li class="box"></li>
+		<li class="box"></li>
+		<li class="box"></li>
+		<li class="box"></li>
+		<li class="box"></li>
+		<li class="box"></li>
+		<li class="box"></li>
+		<li class="box"></li>
+	</ul>
+	<div class="contain">
+		<div class="dbox">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+	</div>
+</body>
+</html>

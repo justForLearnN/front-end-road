@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>transition</title>
+	<style>
+
+		/*
+		 * transition:time [type] [style] 
+		 * transition-duration        运动时间
+		 * transition-delay           延迟时间
+		 * transition-timing-function 运动形式
+		 *  -ease: 逐渐变慢[默认值];
+		 *  -linear:  匀速
+		 *  -ease-in: 加速
+		 *  -ease-out:减速
+		 *  -ease-in-out:先加速后减速
+		 *  -cubic-beaier 贝塞尔曲线
+		 *  http://matthewlein.com/ceaser/;
+		 * 可多样式过渡
+		 */
+		.box {
+			width: 100px;
+			height: 100px;
+			background:#ccc;
+			-webkit-transition: width 200ms cubic-bezier(0.310, -0.370, 0.495, 1.260), height 400ms 100ms; 
+		}
+		.box:hover {
+			width:400px;
+			height:200px;
+		}
+		.tend {
+			width: 100px;
+			height: 100px;
+			background:orange;
+			transition:400ms;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div id="tend" class="tend"></div>
+	<!-- 
+		webkitAnimationEnd 
+		mozAnimationEnd 
+		MSAnimationEnd 
+		oanimationend 
+		animationend 
+		实例详见animate.css的使用
+		改变样式请尽量使用addClass的方式
+	-->
+	<script>
+		var tend = document.getElementById('tend');
+		tend.onclick = function(){
+			this.style.width = this.offsetWidth + 100 + 'px';
+		}
+
+		function addEnd(obj, fn){
+			obj.addEventListener('WebkitTransitionEnd', fn, false);
+			obj.addEventListener('mozAnimationEnd',fn, false);
+			obj.addEventListener('MSAnimationEnd',fn, false);
+			obj.addEventListener('oanimationend',fn, false);
+			obj.addEventListener('transitionend',fn, false);
+		}
+
+		addEnd(tend, function(){
+			tend.style.width = 100 + 'px';
+		})
+	</script>
+</body>
+</html>

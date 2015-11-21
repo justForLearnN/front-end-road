@@ -1,0 +1,73 @@
+linear<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>new UI style</title>
+	<style>
+		/*border-radius设置圆角：可以分别设置
+		border-radius:5px 10px 15px 20px
+		也可以分别设置同一个角的x，y的半径
+		border-radius:5px/10px;
+		使用百分比：border-radius:20%;   */
+		.box {
+			width: 400px;
+			height: 400px;
+			margin: 50px auto;
+			transition: 5s;
+		}
+		.box:hover {
+			-webkit-transform:rotate(720deg);
+		}
+		.box div {
+			width: 180px;
+			height: 180px;
+			margin: 10px;
+			border: 1px solid #ccc;
+			box-sizing:border-box;
+			float: left;
+		}
+		.box div:nth-of-type(1) {
+			border-radius: 5% 50%;
+		}
+		.box div:nth-of-type(2) {
+			border-radius: 50% 5%;
+		}
+		.box div:nth-of-type(4) {
+			border-radius: 5% 50%;
+		}
+		.box div:nth-of-type(3) {
+			border-radius: 50% 5%;
+		}
+		/*
+		 *边框图片：border-image:sourceg | slice | width | repeat
+		 *sourceg : 图片地址
+		 *slice :   切割图片
+		 *width :   边框宽度
+		 *repeat:   图片排列方式
+		 * - round:平铺 | repeat:重复 | stretch:拉伸[默认]
+		 */
+		
+		/*
+         * 线性渐变 
+         * -webkit-linear-gradient(start, color0 [10%], color1[20%], color...)
+         * -webkit-repeating-linear-gradient...
+		 */
+		.liner {
+			width: 200px;
+			height: 200px;
+			background-image:-webkit-linear-gradient(45deg, rgba(0,0,0,1), rgba(0,0,0,0), red);
+			margin:10px auto;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<div class="liner"></div>
+</body>
+</html>

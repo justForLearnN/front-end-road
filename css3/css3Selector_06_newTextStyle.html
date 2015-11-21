@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>new text style</title>
+	<style>
+		.box { width: 1024px; height: 576px; background:url(images/attributeSelector/bg.jpg) no-repeat;
+		 }
+		.xx { width: 450px; height: 450px; background:rgba(0,0,0,0.5); font:50px/450px "STxihei"; color:#fff; text-align:center; margin:0 auto; }
+		/*文字阴影text-shadow:;x方向距离|Y方向距离|模糊程度，值越大越模糊|阴影颜色，可叠加多层阴影*/
+		h1 { font:100px/200px "STxihei"; text-shadow:5px 5px 5px #ccc, 0px 1px 0px #fff; }
+
+		/*让文字完全透明，设置微弱的阴影*/
+		h2 { font:100px/200px "STxihei"; color:#fff; text-shadow: 2px 2px 2px #ccc; }
+		/*鼠标移入让文字变模糊*/
+		h3 { font:100px/200px "STxihei"; color:orange; transition: .4s; }
+		h3:hover { color:rgba(0,0,0,0); text-shadow: 0 0 30px orange; }
+		/*文字描边，只有webkit内核支持*/
+		h4 { font:100px/200px "STxihei"; color:orange; -webkit-text-stroke:1px red; }
+		/*direction: rtl; unicode-bidi: bidi-override;文字反向排列，全兼容*/
+		.txt { width: 300px; height: 30px; border:1px solid #ccc; line-height: 30px; direction: rtl; unicode-bidi: bidi-override; }
+		/*超出部分显示省略号*/
+		p { font:14px/30px "STxihei"; color:#666; width: 600px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+		/*自定义字体*/
+	@font-face {
+			font-family: "miaov";
+			src:url('1-webfont.eot');
+			src:url('1-webfont.eot?#iefix') format('embedded-opentype'),
+				url('1-webfont.woff') format('woff'),
+				url('1-webfont.ttf') format('truetype'),
+				url('1-webfont.svg#untitledregular') format('svg');
+			font-weight: normal;
+			font-style: normal;
+		}
+		
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="xx">以梦为🐴，畅想青春</div>
+	</div>
+	<h1>MACBOOK PRO</h1>
+	<h2>MACBOOK PRO</h2>
+	<h3>MACBOOK PRO</h3>
+	<h4>MACBOOK PRO</h4>
+	<div class="txt">macbook</div>
+	<p>伪类对元素进行分类是基于特征(characteristics)而不是它们的名字、属性或者内容；原则上特征是不可以从文档树上推断得到的。</p>
+</body>
+</html>

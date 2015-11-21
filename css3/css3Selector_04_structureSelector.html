@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3 structure selector</title>
+	<style>
+		p {
+			height: 30px;
+			background:#ccc;
+			color:#fff;
+			font:12px/30px '微软雅黑';
+			padding-left: 10px;
+		}
+		/*E:nth-child(n) 表示元素E父级中的第N(从1开始计数)个元素,父级中所有的子元素都会参与计算, 如果E元素是*号，则表示全部子元素*/
+		p:nth-child(1) { color:yellow; }
+		p:nth-child(3) { color: blue; }
+		/*当n=odd,biao表示第奇数个元素*/
+		p:nth-child(odd) { background: orange; }
+		/*当n=even,biao表示第偶数个元素*/
+		p:nth-child(even) { border-radius: 5px; }
+		/*可用于计算，n从0开始递增*/
+		p:nth-child(3n+1) { font-size: 26px;  }
+		/*nth-last-child(n):倒着计数，功能和nth-child(n)一样;*/
+		span:nth-last-child(2){ color:orange; }
+		
+		/*找到p元素中的第二个，只有P元素才参与到计算中来*/
+		p:nth-of-type(2) { border-radius: 15px; }
+		/*表示第一个和最后一个*/
+		span:nth-last-of-type(2) { border:1px solid #ccc; }
+		p:first-child { border-bottom:2px solid blue; }
+		p:last-child { border-bottom: 4px solid #ccc; }
+		span:first-of-type { background:#ccc; }
+		span:last-of-type { border:1px solid orange; }
+
+		/*E:empty 找到为空的Eyuans元素*/
+		p:empty { border:1px solid #ccc; }
+		/*找到唯一的strong标签*/
+		strong:only-of-type {  border-radius: 5px;  border:1px solid orange; }
+
+		ul, li { margin:0; padding:0; list-style: none; }
+		li { width: 120px; float: left; border-right: 1px solid #ccc;  }
+		li:last-of-type { border-right: none; }
+		ul li a { width: 40px; float: left; text-align: center; color: #333; }
+		ul li a:nth-of-type(3n+1) { font-weight: bold; }
+		ul li:nth-of-type(2) a:nth-child(3) { color: red; }
+	</style>
+</head>
+<body>
+	<p>this is first</p>
+	<span>this a span 1</span>
+	<p>this is second</p>
+	<span>this a span 2</span>
+	<p>this is third</p>
+	<span>this a span 3</span>
+	<p>this is fourth</p>
+	<span>this a span 4</span>
+	<p>this is last</p>	
+	<p></p>
+	<strong>strong label</strong>
+	<hr>
+	<ul>
+		<li>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+		</li>
+		<li>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+		</li>
+		<li>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+		</li>
+		<li>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+		</li>
+		<li>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+		</li>
+		<li>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+		</li>
+		<li>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+		</li>
+		<li>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+			<a href="#">xxxx</a>
+		</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性选择器</title>
+	<style>
+		p {
+			border:1px solid #ccc;
+			height: 30px;
+			line-height: 30px;
+			font-size: 14px;
+			padding-left: 10px;
+		}
+		/*选择包含有“miaov”属性的元素*/
+		p[miaov] { background: #eee; }
+
+		/*选择包含有"miaov"属性并且"miaov=leo"的元素*/
+		p[miaov=leo] { color:#fff; }
+
+		/* ~= ：属性值列表中包含有old属性值的元素*/
+		p[miaov~=old] { color:yellow; }
+
+		/* ^=：属性值开头包含girl的元素*/
+		p[miaov^=girl] { color: pink; }
+
+		/* $=:属性值结尾包含o的元素;*/
+		p[miaov$=o]{ border-radius: 5px; }
+
+		/* *=:属性值中包含l的元素*/
+		p[miaov*=l] { border:1px solid orange; }
+
+		/*|=：属性值以b-开头或者只包含b的元素*/
+		p[miaov|=boy] { color:blue; }
+
+		/*实例：根据href中不同的路径设置不同的背景图标*/
+		p a { padding-left: 20px; background-repeat: no-repeat;  }
+		p a[href*=txt] { background-image: url(images/attributeSelector/text.gif); }
+		p a[href*=doc] { background-image:url(images/attributeSelector/w.gif); }
+		p a[href*=exl] { background-image:url(images/attributeSelector/x.gif); }
+		p a[href*=pdf] { background-image:url(images/attributeSelector/swf.gif); }
+		p a[href*=ppt] { background-image: url(images/attributeSelector/ppt.gif); }
+	</style>
+</head>
+<body>
+	<p miaov="leo">leo</p>
+	<p miaov="dp">dupeng</p>
+	<p miaov="zm">zishu</p>
+	<p miaov="xm">xiaomei</p>
+	<p miaov="leo old">old leo</p>
+	<p miaov="boyLeo">leo is a boy</p>
+	<p miaov="girlXm">xiaomei is a girl</p>
+	<p miaov="boy">who are you?</p>
+	<p miaov="boy-tom">my name is tom</p>
+	<p><a href="abc/txt/xx.html">this is a txt file</a></p>
+	<p><a href="abc/doc/xx.html">this is a doc file</a></p>
+	<p><a href="abc/exl/xx.html">this is a exl file</a></p>
+	<p><a href="abc/pdf/xx.html">this is a pdf file</a></p>
+	<p><a href="abc/ppt/xx.html">this is a ppt file</a></p>
+</body>
+</html>

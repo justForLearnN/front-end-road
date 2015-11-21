@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3 transiform</title>
+	<style>
+		body {
+			height: 400px;
+			border: 1px solid #ccc;
+			display: -webkit-box;
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			background: orange;
+			transition: 5s;
+			float: left;
+			margin-right:2px;
+		}
+		body:hover .box {
+			-webkit-transform: rotate(360deg);
+			-webkit-transform-origin: 100px 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+</body>
+</html>

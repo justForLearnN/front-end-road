@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>box model</title>
+	<style>
+		.box { 
+			width: 100%; 
+			border:1px solid #ccc; 
+			display: -webkit-box; 
+			margin-top: 10px;
+			/*-webkit-box-orient:vertical; */
+			/*-webkit-box-direction:reverse; //布局方向normal:顺序  reverse：倒序*/
+		}
+		.box div { 
+			background:orange; 
+			color: #fff; 
+			text-align: center; 
+			border: 1px solid #fff; 
+		}
+
+		/*box-ordinal-group:设置元素的具体位置
+		  box-flex:定义盒子的弹性空间，等分*/
+		.box div:nth-of-type(1) { height: 100px; -webkit-box-ordinal-group:2; -webkit-box-flex:1; }
+		.box div:nth-of-type(2) { -webkit-box-ordinal-group:4; -webkit-box-flex:1; }
+		.box div:nth-of-type(3) { -webkit-box-ordinal-group:1; -webkit-box-flex:1; }
+		.box div:nth-of-type(4) { -webkit-box-ordinal-group:5; -webkit-box-flex:1; }
+		.box div:nth-of-type(5) { -webkit-box-ordinal-group:3; -webkit-box-flex:2; }
+		
+		/*box-pack:富余空间管理
+		  start：所有子元素在盒子左侧显示，富余空间在右侧
+		  end:所有子元素在盒子右侧显示
+		  center：所有子元素居中
+		  Justify：富余空间在子元素之间平均分布
+
+		  box-align:在垂直方向上的富余空间的管理
+		  start：子元素在顶部
+		  end：子元素在底部
+		  center：子元素居中*/
+		.box:nth-of-type(2){
+			height: 200px;
+			-webkit-box-pack:Justify;
+			-webkit-box-align:center;
+		}
+
+		.box li {
+			width: 10%;
+			height: 100px;
+			border:1px solid #fff;
+			background:#ccc;
+			font:40px/100px "STxihei";
+			text-align:center;
+			color:#fff;
+			list-style: none;
+		}
+
+		/*box-shadow:[inset] x y blur [spread] color
+		  inset:投影方式，可选参数，有：内投影  无：外投影
+		  x, y: 阴影偏移
+		  blur：模糊半径
+		  spread：扩展阴影半径
+		  color：颜色
+		  可多次叠加*/
+		.box:nth-of-type(3) {
+			width: 200px; 
+			height: 200px;
+			background:#ccc;
+			margin:100px;
+			box-shadow: inset 5px 5px 10px 5px #333;
+		}
+		/*resize:both|horizontal|vertical|noth;
+		  overfolow:auto;
+		  设置可拖动,两条属性需配合使用*/
+		.box:nth-of-type(4) {
+			width: 200px;
+			height: 300px;
+			/*border:none;*/
+			margin:0 auto;
+			resize:horizontal;
+			overflow: auto;
+		}
+
+		/*box-reflect 倒影
+		  direction：方向 above|below|left|right
+		  space：距离
+		  gradient：渐变 */
+		.box:nth-of-type(4) img {
+			width: 100%;
+			-webkit-box-reflect:below 10px -webkit-linear-gradient(rgba(0,0,0,0) 0, rgba(0,0,0,1) 100%);
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+	</div>
+
+	<div class="box">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</div>
+	<div class="box"></div>
+	<div class="box"><img src="images/attributeSelector/bg.jpg" alt="0"></div>
+</body>
+</html>

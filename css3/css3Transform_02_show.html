@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#me {
+			width: 50px;
+			height: 50px;
+			background: url(images/transform/iconMe.png);
+			background-size: contain;
+			cursor: pointer;
+			position: absolute;
+			left: 400px;
+			top: 200px;
+			transition: .5s;
+		}
+		.meActive {
+			-webkit-transform: rotate(360deg);
+		}
+		.me {
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			left: 400px;
+			top: 200px;
+			z-index: -1;
+		}
+		.me div {
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			z-index: -10;
+			transition: .5s;
+			-webkit-transition:1s;
+			left: 0;
+			top: 0;
+			opacity: 0;
+		}
+		.me div img {
+			width: 100%;
+			transition: .5s;
+		}
+		.me div img:hover {
+			-webkit-transform: scale(1.5);
+			opacity: 0.2;
+		}
+	</style>
+</head>
+<body>
+	<div id="me"></div>
+	<div class="me">
+		<div class="img"><img src="images/transform/icon0.png"></div>
+		<div class="img"><img src="images/transform/icon1.png"></div>
+		<div class="img"><img src="images/transform/icon2.png"></div>
+		<div class="img"><img src="images/transform/icon3.png"></div>
+		<div class="img"><img src="images/transform/icon4.png"></div>
+	</div>
+</body>
+<script>
+	window.onload = function(){
+		var me = document.getElementById('me');
+		var aImg = document.getElementsByClassName('img');
+		var cTag = true;
+
+		me.onclick = function(e) {
+			if(cTag == true) {
+				for(var i=0; i<aImg.length; i++) {
+					aImg[i].style.left = toLF(200, 90+i*(180/(aImg.length-1))).l + 'px';
+					aImg[i].style.top  = toLF(200, 90+i*(180/(aImg.length-1))).t + 'px';
+					aImg[i].style.WebkitTransform = 'rotate(360deg)';
+					aImg[i].style.opacity = 1;
+					aImg[i].style.WebkitTransition = '1s '+ i*100 +'ms';
+				}
+				me.className = 'meActive';
+			}
+			else if(cTag == false) {
+				for(var i=0; i<aImg.length; i++) {
+					aImg[i].style.left = 0;
+					aImg[i].style.top  = 0;
+					aImg[i].style.WebkitTransform = 'rotate(0deg)';
+					aImg[i].style.opacity = 0;
+					aImg[i].style.WebkitTransition = '1s '+ (aImg.length-i)*100 +'ms';
+				}
+				me.className = '';
+			}
+			cTag = !cTag;
+			stopPropagation(e);
+		}
+	}
+	function stopPropagation(e) {  
+	    e = e || window.event;  
+	    if(e.stopPropagation) { //W3C阻止冒泡方法  
+	        e.stopPropagation();  
+	    } else {  
+	        e.cancelBubble = true; //IE阻止冒泡方法  
+	    }  
+	} 
+	function toLF(iR, iDeg) {
+		var iLeft = Math.round(Math.sin(iDeg/180*Math.PI)*iR);
+		var iTop  = Math.round(Math.cos(iDeg/180*Math.PI)*iR);
+		return {l:iLeft, t:iTop };
+	}
+</script>
+</html>

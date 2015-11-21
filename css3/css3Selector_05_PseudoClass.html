@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>pseudo class</title>
+	<style>
+		div {
+			width:300px;
+			height: 300px;
+			background:#333;
+			color: #fff;
+			font:30px/300px "STxihei";
+			text-align: center;
+			display: none;
+		}
+		/*设置目标元素的属性*/
+		div:target { display: block; }
+		input[type=text] { width: 100px; height: 30px; text-align: center; }
+		/*设置能编辑状态元素的属性*/
+		input[re=enabled]:enabled { color: red; }
+		/*设置不能编辑状态元素的属性*/
+		input[re=disabled]:disabled { color: blue; }
+		label { float:left; margin:0 5px; overflow:hidden; position: relative; }
+		label input { position: absolute; left: -50px; top: -50px; }
+		span { float: left;width: 50px; height: 50px; border:1px solid #ccc; border-radius: 10px; }
+		/*设置处于选择状态的元素的属性，~表示处于某元素之后的元素*/
+		input:checked~span { background:orange; border:1px solid orange; }
+		p { width: 400px; color: #333; font:14px/30px "STxihei";  border:1px solid #ccc; padding:5px; margin:5px;}
+		/*表示一段文本中的第一行*/
+		p:first-line { color:orange; }
+		/*表示一段文本中的第一个字 */
+		p:first-letter { font-size: 20px; }
+		/*表示在元素前添加内容*/
+		p:before { content: "Miaov"; display: block; }
+		/*表示在元素之后添加内容*/
+		p:after { content: "After"; display: block; border:1px solid #eee; border-radius: 5px; text-align: center; }
+		/*设置选中部分文字的样式*/
+		p::selection { background:#ccc; color: #fff; }
+		/*设置除开not括号内元素的其他所有元素的样式*/
+		body *:not(p) { text-decoration: none; }
+	</style>
+</head>
+<body>
+	<a href="#div0">div0</a>
+	<a href="#div1">div1</a>
+	<a href="#div2">div2</a>
+	<div id="div0">div0</div>
+	<div id="div1">div1</div>
+	<div id="div2">div2</div>
+	<input type="text" re="enabled" value="xxxxxxxxx">
+	<input type='text' re="disabled" value="xxxxxxxxx" disabled>
+	<input type="checkbox">
+	<label><input type="radio" name="tab"><span></span></label>
+	<label><input type="radio" name="tab"><span></span></label>
+	<label><input type="radio" name="tab"><span></span></label>
+	<p>从 10.6开始，华文黑体经过重组，加入了对繁体中文的支持，变得让人有点晕。华文黑体（STHeiti）这个字体族分为「黑体-简（Heiti SC）」和「黑体-繁（Heiti TC）」这两个身份，分别支持简体和繁体中文。又分两个字重，Light 和 Medium，分别用作常规粗细和粗体。又于是就有四个变体了。简体中文界面用的是 Heiti SC Light 和 Heiti SC Medium。系统仍保留了 STXihei 和 STHeiti 以向下兼容。</p>
+</body>
+</html>

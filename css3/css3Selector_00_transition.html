@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3 selector 00</title>
+	<style type="text/css">
+
+	.dRectangular {
+		width: 100px;
+		height: 100px;
+		background: #ccc;
+		transition: 1s;
+		-webkit-transition: 1s;
+		-moz-transition: 1s;
+		-o-transition:1s;
+	}
+	.dRectangular:hover {
+		width: 150px;
+		height: 150px;
+		background:#432;
+	}
+
+	</style>
+	<script type="text/javascript">
+
+	window.onload = function()
+	{
+		var dRect = document.getElementsByClassName('dRectangular')[0];
+		dRect.onclick = function()
+		{
+			dRect.style.transition = '2s';
+			dRect.style.WebkitTransition = '2s';
+			dRect.style.MozTransition = '2s';
+			dRect.style.OTransition = '2s';
+			//alert(dRect.offsetWidth);
+		}
+	}
+
+	</script>
+</head>
+<body>
+<div class="dRectangular"></div>	
+</body>
+</html>

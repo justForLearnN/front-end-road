@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box1 {
+			width: 200px;
+			height: 200px;
+			position: relative;
+			background: orange;
+		}
+		.box2 {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			background: #ccc;
+			left: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="box2"></div>
+	</div>
+</body>
+<!-- 如何防止子元素继承父级的事件
+     阻止子元素在该事件上冒泡 -->
+<script type="text/javascript">
+	window.onload = function() {
+		var box1 = document.getElementsByClassName('box1')[0];
+		var box2 = document.getElementsByClassName('box2')[0];
+		box1.onclick = function(e) {
+			alert('box1');
+		}
+		box2.onclick = function(e) {
+			stopPropagation(e);			
+		}
+	}
+	function stopPropagation(e) {  
+	    e = e || window.event;  
+	    if(e.stopPropagation) { //W3C阻止冒泡方法  
+	        e.stopPropagation();  
+	    } else {  
+	        e.cancelBubble = true; //IE阻止冒泡方法  
+	    }  
+	}
+</script>
+</html>
+<!-- 冒泡型事件：事件从子元素往父元素依次执行
+     捕获型事件：事件从父元素往子元素依次执行
+     W3C标准添加事件：addEventListener(event, fn, boolean) 
+       boolean = true:  事件捕获
+       boolean = false  事件冒泡
+     IE添加事件：attachEvent（event, fn） -->
