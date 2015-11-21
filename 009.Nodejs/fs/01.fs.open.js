@@ -1,9 +1,15 @@
+/**
+ * 打开文件 fs.open
+ */
+
 var fs = require('fs');
 
 fs.open('1.txt', 'r', function(err, fd) {
+	
 	if (err) {
 		console.log('open file fail.');
-	} else {
+	} 
+	else {
 		console.log('open success!');
 		console.log(fd);
 	}
