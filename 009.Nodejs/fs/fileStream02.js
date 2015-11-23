@@ -1,7 +1,7 @@
 /**
  * fs.open(path, flags, [mode], callback)
  * @param {string} [path] [要被打开文件的路径]
- * @param {string} [flags] [打开文件的方式 'r' 只读 ， 'r+w' 读写]
+ * @param {string} [flags] [打开文件的方式 'r' 只读 ， 'r+' 读写]
  * @param {numbeer} [mode] [设置文件的模式  读/写/执行  4/2/1]
  * @param {function} [callback] [回调函数]
  *                              callback中的2个参数

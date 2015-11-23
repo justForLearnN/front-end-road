@@ -1,5 +1,5 @@
 /**
- * 标准输入输出流处理的也是Buffer对象
+ * console.log(str) 输出的也是Buffer对象，但是可能会隐式的调用toString方法。
  */
 
 log('Please input: ');
