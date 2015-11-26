@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="http://static.mmtrix.com/g2/M00/12/D4/CgpkBlZWYlSAF2WuAAACbxF5fZg406.png">
+	<title>flex</title>
+	<style>
+	
+	body { margin: 0; }
+	ul, li { padding: 0; margin: 0; list-style: none; }
+	ul { border: 1px solid #ccc; }
+	li { border: 1px solid orange; margin: 10px; text-align: center; line-height: 150px;
+		 font-size: 30px; color: orange  }
+
+	.box1 { 
+		display: flex; 
+		height: 300px; 
+	}
+	.box1 li:nth-of-type(1) { width: 300px; }
+	.box1 li:nth-of-type(2) { flex-grow: 1; }
+	.box1 li:nth-of-type(3) { flex-grow: 2; }
+	.box1 li:nth-of-type(4) { flex-grow: 1; }
+
+	</style>
+</head>
+<body>
+	<ul class="box1">
+		<li>width: 300px</li>
+		<li>flex-grow: 1</li>
+		<li>flex-grow: 2</li>
+		<li>flex-grow: 1</li>
+	</ul>
+</body>
+</html>
+
+<!-- 
+描述：
+当一列宽度固定，其他列会将剩余的父级宽度按比例分，默认值为0
+1. 父级剩余空间  是指在除去子元素所占宽度之后，剩余的宽度。
+	如果子元素所占宽度包括margin值等，如果子元素没有声明宽度，则其宽度由内容撑开。
+2. 剩余的空间，将会按照flex-grow的值，按比例划分。
+ -->

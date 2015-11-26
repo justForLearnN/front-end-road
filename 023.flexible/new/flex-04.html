@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="http://static.mmtrix.com/g2/M00/12/D4/CgpkBlZWYlSAF2WuAAACbxF5fZg406.png">
+	<title>flex</title>
+	<style>
+	
+	body { margin: 0; }
+	ul, li { padding: 0; margin: 0; list-style: none; }
+	ul { border: 1px solid #ccc; }
+	li { border: 1px solid orange; margin: 10px; text-align: center; line-height: 150px;
+		 font-size: 30px; color: orange  }
+
+	.box1 { 
+		display: flex; 
+		height: 300px; 
+	}
+	.box1 li:nth-of-type(1) { flex-shrink: 2; flex-basis: 200px; width: 300px; }
+	.box1 li:nth-of-type(2) { flex-shrink: 4; flex-basis: 300px; width: 500px; }
+	.box1 li:nth-of-type(3) { flex-shrink: 2; flex-basis: 400px; width: 200px; }
+	.box1 li:nth-of-type(4) { flex-shrink: 1; flex-basis: 400px; width: 300px; }
+
+	</style>
+</head>
+<body>
+	<ul class="box1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+</html>
+
+<!-- 
+假如4个子元素的收缩基准值分别为 b1, b2, b3, b4
+              收缩比例值分别为 s1, s2, s3, s4
+              溢出空间值为： more
+
+于是收缩总值为：var totle = b1*s1 + b2*s2 + b3*s3 + b4*s4
+
+ 那么，每个子元素收缩的值就分别为：
+              b1*s1 / totle * more
+              b2*s2 / totle * more
+              b3*s3 / totle * more
+              b4*s4 / totle * more
+ -->

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>flex</title>
+<link rel="shortcut icon" href="http://static.mmtrix.com/g2/M00/12/D4/CgpkBlZWYlSAF2WuAAACbxF5fZg406.png">
+<style>
+h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
+.box{
+	display:-webkit-flex;
+	display:flex;
+	-webkit-align-items: flex-end;
+	height:100px;margin:0;padding:10px;border-radius:5px;list-style:none;background-color:#eee;}
+.box li{margin:5px;padding:10px;border-radius:5px;background:#aaa;text-align:center;}
+.box li:nth-child(1){
+	-webkit-align-self: flex-end;
+	align-self: flex-end;
+}
+.box li:nth-child(2){
+	-webkit-align-self: center;
+	align-self: center;
+}
+.box li:nth-child(3){
+	-webkit-align-self: flex-start;
+	align-self: flex-start;
+}
+.box li:nth-child(4){
+	-webkit-align-self: baseline;
+	align-self: baseline;
+	padding:20px 10px;
+}
+.box li:nth-child(5){
+	-webkit-align-self: baseline;
+	align-self: baseline;
+}
+.box li:nth-child(6){
+	-webkit-align-self: stretch;
+	align-self: stretch;
+}
+.box li:nth-child(7){
+	-webkit-align-self: auto;
+	align-self: auto;
+}
+</style>
+</head>
+<body>
+<h1>align-self示例：</h1>
+<ul id="box" class="box">
+	<li>a</li>
+	<li>b</li>
+	<li>c</li>
+	<li>d</li>
+	<li>e</li>
+	<li>f</li>
+	<li>g</li>
+	<li>h</li>
+	<li>i</li>
+</ul>
+</body>
+</html>
+
+			

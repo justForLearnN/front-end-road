@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>flex</title>
+<link rel="shortcut icon" href="http://static.mmtrix.com/g2/M00/12/D4/CgpkBlZWYlSAF2WuAAACbxF5fZg406.png">
+<style>
+h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
+.box{
+	display:-webkit-flex;
+	display:flex;
+	margin:0;padding:10px;list-style:none;background-color:#eee;}
+.box li{width:100px;height:100px;border:1px solid #aaa;text-align:center;}
+#box{
+	-webkit-flex-direction:row;
+	flex-direction:row;
+}
+#box2{
+	-webkit-flex-direction:row-reverse;
+	flex-direction:row-reverse;
+}
+#box3{
+	height:500px;
+	-webkit-flex-direction:column;
+	flex-direction:column;
+}
+#box4{
+	height:500px;
+	-webkit-flex-direction:column-reverse;
+	flex-direction:column-reverse;
+}
+</style>
+</head>
+<body>
+<h1>flex-direction示例：</h1>
+<h2>flex-direction:row</h2>
+<ul id="box" class="box">
+	<li>a</li>
+	<li>b</li>
+	<li>c</li>
+</ul>
+<h2>flex-direction:row-reverse</h2>
+<ul id="box2" class="box">
+	<li>a</li>
+	<li>b</li>
+	<li>c</li>
+</ul>
+<h2>flex-direction:column</h2>
+<ul id="box3" class="box">
+	<li>a</li>
+	<li>b</li>
+	<li>c</li>
+</ul>
+<h2>flex-direction:column-reverse</h2>
+<ul id="box4" class="box">
+	<li>a</li>
+	<li>b</li>
+	<li>c</li>
+</ul>
+</body>
+</html>
+			

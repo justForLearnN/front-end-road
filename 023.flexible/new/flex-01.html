@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="http://static.mmtrix.com/g2/M00/12/D4/CgpkBlZWYlSAF2WuAAACbxF5fZg406.png">
+	<title>flex</title>
+	<style>
+	
+	body { margin: 0; }
+	ul, li { padding: 0; margin: 0; list-style: none; }
+	ul { border: 1px solid #ccc; }
+	li { border: 1px solid orange; margin: 10px; text-align: center; line-height: 150px;
+		 font-size: 30px; color: orange  }
+
+	li:nth-of-type(1) { height: 300px; }
+	li:nth-of-type(2) { height: 100px; }
+
+	.box1 { display: flex; }
+	.box1 li { flex: 1; }
+
+	</style>
+</head>
+<body>
+	<ul class="box1">
+		<li>flex: 1</li>
+		<li>flex: 1</li>
+		<li>flex: 1</li>
+		<li>flex: 1</li>
+	</ul>
+</body>
+</html>
+
+<!-- 
+描述：
+1. 本例使用弹性盒模型实现了子元素等分布局
+	当子元素都声明flex:1 时，子元素将会等分父级的宽度，其中包括margin值
+2. 当父级高度固定时，所有的子元素将会自动和父级高度相等
+3. 当父级高度没有确定时，父元素和所有的子元素将会和高度最高的子元素高度相等
+4. 当其中有一个元素明确声明了高度时，该高度不会自动适应
+ -->
