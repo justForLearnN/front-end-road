@@ -2,6 +2,9 @@
 兼容性： Chrome 21+ Opera 12.1+ Firefox 22+ Safari 6.1+ IE 10+  
 在手机端的表现： uc浏览器不支持，安卓4.1.1及之前的版本不支持，微信自带浏览器不支持。
 
+> 所有实例链接均为我电脑本地链接，其他读者请配合github上的实例进行阅读。
+> [github所有实例](https://github.com/yangbo5207/front-end-road/tree/master/023.flexible/new)
+
 ###### 1. display: flex;
 
 该布局的关键在于，首先要将父级元素声明为弹性容器。
@@ -215,7 +218,9 @@ flex-direction:column-reverse
 弹性盒子元素会平均地分布在行里，两端保留子元素与子元素之间间距大小的一半。如果最左边的剩余空间是负数，或该行只有一个伸缩盒项目，则该值等效于'center'。在其它情况下，伸缩盒项目则平均分布，并确保两两之间的空白空间相等，同时第一个元素前的空间以及最后一个元素后的空间为其他空白空间的一半。  
 
 [完整实例](http://127.0.0.1/integration/front-end-road/023.flexible/new/flex-10.html)
-
+  
+该文档本地存储位置:
+/Users/yangbo/develop/integration/front-end-road/023.flexible/new/README.md
 
 
 
