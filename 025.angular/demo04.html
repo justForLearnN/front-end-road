@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="demo04">
+<head>
+	<meta charset="UTF-8">
+	<title>angular demo04</title>
+</head>
+<body>
+	<div ng-controller="Conter">
+		<p>价格：<input type="text" ng-model="iphone.price"></p>
+		<p>个数：<input type="text" ng-model="iphone.counter"></p>
+		<p>运费：{{ iphone.yunfei | currency: '￥' }}</p>
+		<p>费用：<span>{{ iphone.price * iphone.counter | currency: '￥' }}</span></p>
+		<h2>总额：{{ sum() }}</h2>
+	</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+	
+var demo = angular.module('demo04', []);
+demo.controller('Conter', function($scope) {
+	$scope.iphone = {
+		price: 10,
+		counter: 1,
+		yunfei: 10
+	}
+	$scope.sum = function() {
+		return $scope.iphone.price * $scope.iphone.counter + $scope.iphone.yunfei;
+	}
+	$scope.$watch('iphone', function(num1, num2) {
+		if (num1.counter >= 10) {
+			$scope.iphone.yunfei = 0;
+		};
+	}, true)
+})
+
+</script>
+</html>
+
+<!-- 过滤器 -->
+<!-- 
+1. | 后面跟上过滤器
+2. currency  表示对钱进行处理，默认值为美元符
+3. 转换为中文  currency: '￥'
+ -->
+
+ <!-- 监听器 $scope.$watch -->
+ <!-- 
+1. arguments[0]: 要监听的数值，如果监听的函数，则是监听的函数的返回值
+2. arguments[2]: 监听到数值变化时发生的事情
+	该回调函数有2个参数, arg[0]  监听数值的新值
+	                    arg[1]  监听数值的旧值
+3. arguments[3]: 可选，如果有值为true，则可以监听对象，如果没有该参数，则只能监听单个数值
+
+  -->

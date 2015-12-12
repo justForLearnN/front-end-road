@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular 动态初始化</title>
+</head>
+<body>
+	<div class="box01" ng-controller="box01">
+		<h2>{{ name }}</h2>
+	</div>
+
+	<div class="box02" ng-controller="box02">
+		<h2>{{ name }}</h2>
+	</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+
+var box01 = document.getElementsByClassName('box01')[0];
+var box02 = document.getElementsByClassName('box02')[0];
+	
+window.onload = function() {
+	angular.bootstrap(box01, ['demo01']);
+	angular.bootstrap(box02, ['demo02']);
+}
+
+var m1 = angular.module('demo01', []);
+var m2 = angular.module('demo02', []);
+m1.controller('box01', ['$scope', function($s) {
+	$s.name = "我是box01";
+}]);
+m2.controller('box02', ['$scope', function($s) {
+	$s.name = "我是box02";
+}])
+
+</script>
+</html>
+
+<!-- 在同一个页面中初始化多个angular模块 -->

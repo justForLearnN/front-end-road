@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="demo05">
+<head>
+	<meta charset="UTF-8">
+	<title>angular demo05</title>
+</head>
+<body>
+	<div ng-controller="Then">
+		<h2>{{ name }}</h2>
+	</div>
+	<div ng-controller="Ohter">
+		<h2>{{ name }}</h2>
+	</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+
+//当前模块的模块名 | 数组中为当前模块要依赖的其他模块
+var demo = angular.module('demo05', []);
+
+// 第一种写法
+demo.controller('Then', function($scope) {
+	$scope.name = "hello";
+});
+
+// 第二种写法，方便压缩处理的方式
+demo.controller('Ohter', ['$scope', function($s) {
+	$s.name = "world";
+}]);
+
+function show() {
+	console.log(this);
+}
+
+var testObj = {
+	name: 'toe',
+	age: 20
+}
+var testObj2 = { gender: 'man' }
+
+// 未修改之前，this指向window
+show(); 
+
+// 修改之后，this指向testObj
+angular.bind(testObj, show)();
+
+var c = angular.copy(testObj);
+// 拷贝testObj到c
+console.log(c);
+c.name = "xxx";
+// 修改之后不相互影响
+console.log(testObj, c);
+
+var d = angular.copy(testObj, testObj2);
+// 传入2个参数，testOjb2被完全覆盖
+console.log(testObj, testObj2, d);
+
+var mm = { gender: 'woman' }
+
+var a = angular.extend( testObj, mm );
+// testOjb继承了mm的值，并赋值给了a， mm未改变
+console.log(testObj, mm, a);
+// Object {name: "toe", age: 20, gender: "woman"} 
+// Object {gender: "woman"} 
+// Object {name: "toe", age: 20, gender: "woman"}
+	
+</script>
+</html>
+
+<!-- angular 工具方法 -->
+<!-- 
+
+1. angular.bind ，修改this指向，与jquery的 $.proxy()方法类似
+2. angular.copy , 拷贝对象
+3. angular.extend 继承对象
+ -->

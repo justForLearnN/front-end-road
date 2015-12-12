@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="demo13">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<div class="wrap" ng-controller="contro13">
+		Search: <input type="text" ng-model="query">
+		SortBy: <select ng-model="order">
+			<option value="name">name</option>
+			<option value="age">age</option>
+		</select>
+		<ul>
+			<li ng-repeat="data in persons | filter:query | orderBy:order">
+				<span>{{ data.name }}</span>: <span>{{ data.age }}</span>
+			</li>
+		</ul>
+	</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+
+var demo = angular.module('demo13', []);
+
+demo.controller('contro13', ['$scope', '$filter', function($s, $f) {
+	$s.persons = [
+		{"name": "xingoo", "age": 25},
+		{"name": "tom", "age": 35},
+		{"name": "some", "age": 15},
+		{"name": "game", "age": 53},
+		{"name": "lol", "age": 12},
+		{"name": "dota", "age": 32}
+	];
+}]);
+
+</script>
+</html>

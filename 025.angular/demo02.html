@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="demo02">
+<head>
+	<meta charset="UTF-8">
+	<title>angular demo02</title>
+</head>
+<body>
+	<div ng-controller="domain01">
+		<h2>{{ name }}</h2>
+	</div>
+
+	<div ng-controller="domain02">
+		<h2>{{ name }}</h2>
+		<h3>{{ age }}</h3>
+	</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+
+var demo = angular.module('demo02', []);
+demo.controller('domain01', function($scope, $rootScope) {
+	$scope.name = "Hello world!";
+	$rootScope.age = 22;
+})
+demo.controller('domain02', function($scope) {
+	$scope.name = "What's your name? ";
+})
+
+</script>
+</html>
+
+<!-- 作用域 -->
+<!-- 
+
+1. angular作用域由控制器划分，相关的关键词有 ng-controller  $scope
+2. $rootScope 为全局作用域
+3. 作用域查找机制与js类似
+
+ -->

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>angular demo01 过滤器</title>
+</head>
+<body>
+	<div ng-controller="contro10">
+		<h2>source: {{ money }}</h2>
+		<h2>currency: {{ money | currency }}</h2>
+		<h2>number: {{ money | number }}</h2>
+		<hr>
+		<h2>source: {{ name }}</h2>
+		<h2>lowercase: {{ name | lowercase }}</h2>
+		<h2>uppercase: {{ name | uppercase }}</h2>
+		<hr>
+		<h2>source: {{ demoval }}</h2>
+		<pre>json: {{ demoval | json }}</pre>
+		<hr>
+		<h2>source: {{ limitToStr }}</h2>
+		<h2>limitTo: {{ limitToStr | limitTo:5 }}</h2>
+		<hr>
+		<h2>source: {{ arrayB }}</h2>
+		<h2>orderBy:color: {{ arrayB | orderBy : 'color' }}</h2>
+		<h2>orderBy:num {{ arrayB | orderBy:'num' }}</h2>
+		<h2>orderBy:num:true {{ arrayB | orderBy:'num':true }}</h2>
+		<hr>
+		<h2>filter:red {{ arrayB | filter:'red' }}</h2>
+		<h2>filter:40 {{ arrayB | filter: 40 }}</h2>
+		<hr>
+		<h2>组合过滤器</h2>
+		<h2>{{ name | limitTo:2 | uppercase }}</h2>
+	</div>
+	<hr>
+	<div ng-controller="control10">
+		<h2>{{ name }}</h2>
+	</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+
+window.onload = function() {
+	angular.bootstrap(document, ['demo10']);
+}	
+var demo = angular.module('demo10', []);
+demo.controller('contro10', ['$scope', function($s) {
+	$s.money = 121312313;
+	$s.name = "Hello";
+	$s.demoval = {"name": "tom", "age": "22"};
+	$s.limitToStr = "The voice";
+	$s.arrayB = [
+		{ color: 'red', num: 20 },
+		{ color: 'orange', num: 10 },
+		{ color: 'blue', num: 40 },
+		{ color: 'green', num: 30 },
+		{ color: 'yellow', num: 50 },
+	]
+}]);
+
+var demo1 = angular.module('demo10');
+demo1.controller('control10', ['$scope', '$filter', function($s, $f) {
+	$s.name = $f('uppercase')('hello');
+}]);
+
+</script>
+</html>

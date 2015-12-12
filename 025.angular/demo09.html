@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>angule demo09</title>
+</head>
+<body>
+	<div class="box" ng-controller="contro09">
+		<h2>{{ name }}</h2>
+	</div>
+
+	<div class="box2">
+		<h2>{{ gend }}</h2>
+	</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+	
+window.onload = function() {
+	angular.bootstrap(document, ['demo09']);
+}
+
+// 将这部分代码放入window.onload里面会报错
+var demo = angular.module('demo09', []);
+demo.controller('contro09', ['$scope', function($s) {
+	$s.name = "hello";
+	setTimeout(function() {
+
+		// 使js原生或者其他第三方的方法内能够支持angular的方法
+		$s.$apply(function() {
+			$s.name = "world";
+		});
+	}, 2000);
+}]);
+
+// run 进行一些全局的操作时可以这样来些，比控制器更加简单一点
+demo.run(['$rootScope', function($rs) {
+	$rs.gend = "good";
+}]);
+
+console.log(demo);
+
+</script>
+</html>

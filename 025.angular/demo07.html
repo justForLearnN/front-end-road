@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>angular demo07 工具方法</title>
+</head>
+<body>
+	<div class="div1">aaaaaaaaaaaaa</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+	
+var demo = angular.module('demo07', []);
+
+
+/*------angular.identify/noop--------*/
+var str = "hello";
+
+// 辅助方法 
+// 原样返回传入的参数
+console.log(angular.identity(str));
+
+// eg 
+function trans(transfro, value) {
+	return (transfro || angular.identity)(value);
+}
+
+// 为一个空函数，返回为undefined
+console.log(angular.noop());
+
+
+/*------angular.lowercase/uppercase----------------------*/
+// 大小写转换
+console.log(angular.lowercase('EsdADF'));  // esdadf
+console.log(angular.uppercase('ssd'));  // SSD
+
+
+
+
+/*-----------angular.element---------------------*/
+// 获取元素
+var aaa = document.getElementsByClassName('div1')[0];
+angular.element(aaa).html('bbbbb');
+// angular实现了一些jQuery对于dom的操作方法，只需要传入dom对象即可使用
+// 
+
+
+/*-----angular.bootstrap------*/
+// 动态初始化模块
+// angular.bootstrap(document, ['demo07']);
+
+
+
+
+/*---- angular.injector -----*/
+
+</script>
+</html>

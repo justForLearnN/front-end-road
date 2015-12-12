@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="demo01">
+<head>
+	<meta charset="UTF-8">
+	<title>angular</title>
+	<script src="js/angular.js"></script>
+</head>
+
+<body>
+	<div ng-controller="Demo01">
+		<h2>{{ name }}</h2>
+		<h3>{{ age }}</h3>
+	</div>
+</body>
+
+<script>
+
+// 声明angular模板
+var app = angular.module('demo01', []);
+
+// 声明控制器函数
+app.controller('Demo01', function($scope) {
+	$scope.name = "hello world";
+	$scope.age  = 33;
+})
+
+</script>
+
+</html>
+
+<!-- 
+1. 刚下载下来的angularjs引入时，报403错误，是因为mac权限的问题，输入一下指令即可解决
+
+```js
+$ chmod a+r angular.js
+```
+
+2. 视频教程里面的写法由于angular.js版本的升级已经无法生效，因此这里需要特别注意，基本的写法
+见上例中我的写法  
+ -->

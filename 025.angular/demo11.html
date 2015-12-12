@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>angular ng-repeat</title>
+</head>
+<body>
+	<div ng-controller="contro11">
+		<div ng-repeat="data in dataL">{{ data }}</div>
+	</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+
+window.onload = function() {
+	angular.bootstrap(document, ['demo11']);
+}
+var demo = angular.module('demo11', []);
+demo.controller('contro11', ['$scope', function($s) {
+	$s.dataL = [ 'aaa', 'bbb', 'ccc' ];
+}])
+</script>
+</html>
+
+<!-- ng-repeat 遍历数组 循环生成dom -->

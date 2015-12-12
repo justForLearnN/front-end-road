@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="demo12">
+<head>
+	<meta charset="UTF-8">
+	<title>angular ng-repeat</title>
+</head>
+<body ng-controller="contro12">
+	<input type="text" ng-model="sval">
+	<input type="button" ng-click="search()" value="搜索">
+	<table border="1">
+		<tr>
+			<th ng-click="sorting('name')">COLOR</th>
+			<th ng-click="sorting('age')">NUM</th>
+		</tr>
+		<tr ng-repeat="data in persons">
+			<td>{{ data.name }}</td>
+			<td>{{ data.age }}</td>
+		</tr>
+	</table>
+	<h2 ng-click="search">{{ sval }}</h2>
+</body>
+<script src="js/angular.js"></script>
+<script>
+	
+var demo = angular.module('demo12', []);
+demo.controller('contro12', ['$scope', '$filter', function($s, $f) {
+
+	var sourceArr = [
+		{"name": "xingoo", "age": 25},
+		{"name": "tom", "age": 35},
+		{"name": "some", "age": 15},
+		{"name": "game", "age": 53},
+		{"name": "lol", "age": 12},
+		{"name": "dota", "age": 32}
+	]; 
+	$s.persons = sourceArr;
+
+	$s.sorting = function(arg) {
+		$s.persons = $f('orderBy')($s.persons, arg, arguments.callee['xxxx']);
+		arguments.callee['xxxx'] = !arguments.callee['xxxx'];
+
+	};
+
+	$s.search = function() {
+		$s.persons = $f('filter')(sourceArr, $s.sval);
+	};
+}]);
+
+</script>
+</html>
+
+<!-- ng-click 点击事件传入参数，注意要加上引号表示传入了字符串值，而不是传入了变量 -->

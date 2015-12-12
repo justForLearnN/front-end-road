@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="demo06">
+<head>
+	<meta charset="UTF-8">
+	<title>angular demo06 工具方法</title>
+</head>
+<body>
+	
+</body>
+<script src="js/angular.js"></script>
+<script>
+
+var demo = angular.module('demo06', []);
+	
+var a = [];
+console.log('isArray', angular.isArray(a)); // true
+
+var aaa = new Date();
+console.log('isDate', angular.isDate(aaa)); // true
+
+console.log('isDefined', angular.isDefined(aaa)); // true
+
+console.log('isUndefined', angular.isUndefined('undefined')); // false
+
+console.log('isFunction', angular.isFunction(a)); // false
+
+console.log('isNumber', angular.isNumber(a)); // false
+
+console.log('isObject', angular.isObject(aaa)); // true
+
+console.log('isString', angular.isString('sdfs')); // true
+
+console.log('isElement', angular.isElement(document.body)); // true
+// 可以判断原生的原生，也可以判断jquery对象
+// 
+// 输出版本信息
+console.log(angular.version);
+
+// 与原生判断相同有些不同，没有太多严格的要求，只要内容相同，就会返回true
+console.log('equals', angular.equals([1,2], [1,2]));
+
+
+
+/*-------------angular.forEach------------------------*/
+
+// 遍历数组 回调函数的参数与jq的$.each中参数相反
+var val = ['a', 'b', 'c'];
+angular.forEach(val, function(value, i) {
+	console.log(value, i);
+})
+
+// 遍历json
+var vals = {
+	a: 'hello', b: 'wor', c: 'ld'
+}
+var result = [];
+
+angular.forEach(vals, function(value, i) {
+	console.log(value, i);
+	this.push(i+value);
+}, result);
+
+// 第三个参数，为结果数组，如果有第三个参数，this指向这个数组，如果没有，this指向window
+
+console.log(result);
+
+
+
+// -------------angular.fromJSON----------------------------
+
+var str = '{"name":"hello", "age": "22"}';
+// 转换为json 与原生的 JSON.parse() 效果一样
+var strJson = angular.fromJson(str);
+console.log(strJson);
+
+// 与原生的 JSON.stringify() 效果一样, 添加true参数，可以对结果进行格式化为便于阅读的形式
+console.log(angular.toJson(strJson, true));
+
+
+</script>
+</html>
+
+<!-- angular 工具方法 -->
+<!-- 
+
+1. angular.isArray()  判断传入的参数是否是数组
+
+ -->

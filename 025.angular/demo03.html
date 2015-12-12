@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="demo03">
+<head>
+	<meta charset="UTF-8">
+	<title>angular demo03</title>
+</head>
+<body>
+	<div ng-controller="domain01">
+		<h2>{{ name }}</h2>
+		<h2 ng-click="age = age+ 1">{{ age }}</h2>
+		<h3 ng-click="add()">{{ age }}</h3>
+		
+		<input type="text" ng-model="content" style="height: 40px; width: 200px; font-size: 16px">
+		<p>{{ content }}</p>
+	</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+	
+var demo = angular.module('demo03', []);
+demo.controller('domain01', function($scope, $timeout) {
+	$scope.name = 'Hello';
+	$timeout(function() {
+		$scope.name = 'world';
+	}, 2000);
+
+	$scope.age  = 22;
+
+	$scope.add = function() {
+		$scope.age += 1;
+	}
+
+	$scope.content = "xxxx";
+})
+
+</script>
+</html>
+
+<!-- 
+
+1. $timeout 延迟，用法与作用与js中的setTimeout一致
+
+2. ng-click 点击事件  还有很多类原生事件的指令，如ng-mouseover, ng-mousedown等
+
+3. ng-model 双向数据绑定
+
+ -->
