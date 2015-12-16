@@ -18,6 +18,10 @@ fs.readFile(filename, function(error, buf) {
 	}
 })
 
+// 同步模式读取文件
+var readRes = fs.readFileSync(filename).toString();
+console.log('file content: ', readRes);
+
 /**
  * 文件删除
  * fs.unlink(path, callback);

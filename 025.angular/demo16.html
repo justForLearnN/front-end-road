@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo16">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body ng-controller="ctrl16">
+	<h2>{{ text }}</h2>
+	<h2 ng-bind="text"></h2>
+	<hr>
+	<h2>moban: {{ text }}</h2>
+	<h2 ng-bind-template="moban: {{ text }}"></h2>
+	<hr>
+	<h2>{{ text2 }}</h2>
+	<h2 ng-cloak>{{ text }}</h2>
+	<h2 ng-non-bindable>{{ text2 }}</h2>
+	<h2 ng-bind-html="text2"></h2>
+</body>
+<script src="js/angular.js"></script>
+<script src="//cdn.bootcss.com/angular-sanitize/1.5.0-rc.0/angular-sanitize.js"></script>
+<script>
+	
+angular.module('demo16', ['ngSanitize'])
+.controller('ctrl16', ['$scope', function($s) {
+	$s.text = "hello";
+	$s.text2 = "<h1>Hello</h1>";
+}]);
+
+</script>
+</html>
+
+<!-- 
+
+ng-bind: 当只有一个表达式时，可以使用该指令替换掉元素标签中的表达式 {{ text }} -> ng-bind="text"
+ng-bind-template: 当含有字符串或者多个表达式时，使用该指令替换
+
+ng-bind-html: 解析字符串中的dom标签，需要引入插件 angular-sanitize.js
+ng-cloak: 在表达式没有解析出来之前，不显示大括号，增加用户体验
+ng-non-bindable: 不解析表达式，直接显示大括号
+
+ -->

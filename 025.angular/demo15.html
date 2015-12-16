@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="demo15">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<div ng-controller="ctrl15">
+	<div><input type="button" value="{{ text }}" ng-disabled="isDisabled"></div>
+	<div><input type="text" value="{{ text }}" ng-readonly="isReadonly"></div>
+	<div><input type="checkbox" ng-checked="isChecked"></div>
+</div>
+
+<script src="js/angular.js"></script>
+<script>
+
+var demo = angular.module('demo15', []);
+
+demo.controller('ctrl15', ['$scope', '$interval', function($s, $i) {
+	var index = 5;
+	$s.text = index + '秒';
+	$s.isDisabled = true;
+	$s.isReadonly = true;
+	$s.isChecked = true;
+
+	var timer = $i(function() {
+		index --;
+
+		if (index == -1) {
+			$i.cancel(timer);
+			$s.text = "解禁！";
+			$s.isDisabled = false;
+			$s.isReadonly = false;
+			$s.isChecked = false;
+			return;
+		};
+
+		$s.text = index + '秒';
+	}, 1000);
+}])
+	
+</script>
+</body>
+</html>
+
+<!-- 
+ng-disabled 值为true时，按钮不可点击，值为false时，按钮可以点击 
+ng-readonly 值为true时，输入框只读，值为false时，则只读效果失效
+ng-checked 值为true时，复选框选中，值为false时，不选中
+ng-value 使用该指令之后，就不用在值中加入大括号表达式了，其用法与value相同，相比较而已，比value有更好一些的用户体验
+
+注意：这里发现一个问，当ng-controller所在标签为P标签时，内层的ng-指令会因为有父级元素而失效！！！！
+-->
+<!-- 
+
+ -->

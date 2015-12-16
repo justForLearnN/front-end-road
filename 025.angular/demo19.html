@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo19">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body ng-controller="ctrl19" ng-init="text='hello'">
+	<h2 ng-cloak>{{ text }}</h2>
+
+	<!-- 嵌套循环 -->
+	<div>
+		<div ng-repeat="outIndex in inArr" ng-init="index1=$index">
+			<div ng-repeat="innerIndex in outIndex" ng-init="index2=$index">{{ innerIndex }}, {{ index1 }}{{ index2 }}</div>
+		</div>
+	</div>
+
+	<div ng-include="'temp.html'">
+		
+	</div>
+
+	<!-- 失去焦点时同步数据 -->
+	<input type="text" ng-model="text" ng-model-options="{ updateOn: 'blur' }">
+	
+</body>
+<script src="js/angular.js"></script>
+<script>
+	
+var demo = angular.module('demo19', [])
+demo.controller('ctrl19', ['$scope', function($s) {
+	$s.inArr = [['a', 'b'], ['c', 'd']];
+}]);
+
+</script>
+</html>
+
+<!-- 
+ng-init:  ng-init="text='hello'"  等同于  $scope.text="hello"
+ -->

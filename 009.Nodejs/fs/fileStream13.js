@@ -6,21 +6,66 @@
 
 var fs = require('fs');
 
-fs.mkdir('./1', function(err) {
+// fs.rmdirSync('./1');
+
+// fs.mkdirSync('./1');
+
+// 同步读取文件夹内的文件
+/*var fileList = fs.readdirSync( './' );
+
+for( var item in fileList ) {
+
+    var stat = fs.statSync( './' + fileList[item] );
+
+    // 判断是否为文件夹
+    if ( stat.isDirectory() ) {
+        console.log( fileList[item], 'type is dir!' );
+    }
+    else {
+        console.log( fileList[item], 'type is file!' );
+    }
+
+}*/
+
+var count = 0;
+
+readAllFile(fs, '../'); // 1268
+
+//  遍历文件夹内的所有文件，最后返回文件个数
+function readAllFile( fs, path ) {
+    var fileList = fs.readdirSync( path );
+    for( var item in fileList ) {
+
+        var status = fs.statSync( path + fileList[item] );
+        if ( status.isDirectory() ) {
+
+            // 递归遍历
+            readAllFile( fs, (path +  fileList[item]) + '/' );
+        }
+        else {
+            count ++;
+        }
+
+    }
+    return count;
+}
+
+
+/*fs.mkdir('./1', function(err) {
 	
 })
 
 fs.rmdir('./1', function() {
-})
+})*/
 
 /**
  * 读取文件夹
  * fs.readdir(path, callback)
  */
 
-fs.readdir('./', function(err, fileList) {
+/*fs.readdir('./', function(err, fileList) {
 	console.log(fileList);
-})
+})*/
 
 /*
 [ '00.io.in.js',

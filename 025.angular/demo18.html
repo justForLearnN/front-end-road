@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo18">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body ng-controller="ctrl18">
+	<input type="checkbox" ng-model="bBtn">
+	<div ng-show="bBtn">aaaaa</div>
+	<div ng-hide="bBtn">bbbbbb</div>
+	<div ng-if="bBtn">ifififif</div>
+	<div ng-switch on="bBtn">
+		<p ng-switch-default>default show</p>
+		<p ng-switch-when="false">false show</p>
+	</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+	
+angular.module('demo18', [])
+.controller('ctrl18', ['$scope', function($s) {
+	$s.bBtn = true;
+}]);
+
+</script>
+</html>
+
+<!-- 
+
+ng-show : 值为true时显示， 值为false时隐藏
+ng-hide: 与ng-show相反
+
+ng-if: dom的添加删除操作，当为true时添加，为false时删除
+
+ -->

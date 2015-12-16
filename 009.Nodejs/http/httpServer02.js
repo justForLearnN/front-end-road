@@ -4,6 +4,7 @@
  */
 
 var http = require('http');
+var fs = require('fs');
 
 var server = http.createServer();
 
@@ -12,3 +13,7 @@ server.listen(8080);
 server.on('request', function(request, response) {
 	console.log('request:', request.headers);
 });
+
+
+//  同步方式读取文件，如果读取正确，会返回文件内容，如果读取文件不存在，则会抛出一个异常
+console.log( fs.readFileSync( './error.html' ).toString() );

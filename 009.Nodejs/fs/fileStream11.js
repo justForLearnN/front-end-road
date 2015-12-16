@@ -7,16 +7,23 @@ var fs = require('fs');
 
 var filename = '2.txt';
 var newname = '2.new.txt';
-
+var status = null;
 fs.rename(filename, newname, function() {
 	console.log(arguments);
 })
 
+// 同步方式重命名
+fs.renameSync( filename, newname );
 
-// 查看文件信息，
-fs.stat(newname, function() {
+// 同步方式查看文件信息
+status = fs.statSync( newname );
+console.log( status );
+
+
+// 异步方式查看文件信息，
+/*fs.stat(newname, function() {
 	console.log(arguments);
-})
+})*/
 
 /*{ 
   '0': null,

@@ -27,3 +27,5 @@ fs.exists(filename, function(boo) {
 		});
 	}
 })
+
+console.log('isExists:', fs.existsSync( filename ) ); // isExists: true

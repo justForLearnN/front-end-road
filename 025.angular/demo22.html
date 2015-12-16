@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo22">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.red { border: 1px solid red; }
+	</style>
+</head>
+<body>
+	<div ng-controller="repeatExample">
+		<ul>
+			<li ng-repeat="item in exampleArray">
+				<h2>{{ item.name + $index}} </h2>
+				<p>{{ item.desc }}</p>
+				<hr class="{{ $even ? 'red' : '' }}">
+			</li>
+		</ul>
+	</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+
+var demo = angular.module('demo22', []);
+demo.controller('repeatExample', ['$scope', function($scope) {
+	$scope.exampleArray = [
+		{ name: 'tom', desc: 'document' },
+		{ name: 'tim', desc: 'ionic' },
+		{ name: 'gem', desc: 'phonegah' },
+		{ name: 'carry', desc: 'cordova' },
+		{ name: 'dinke', desc: 'padding and margin' },
+	]
+}])
+	
+</script>
+</html>
+
+<!-- 
+
+ng-repeat 扩展部分
+- $index  得到遍历的索引号
+- $first  只要是结果的第一项，返回true，其他返回false
+- $middle 头尾2项返回false，中间返回true
+- $last   只要是索引的最后一项，返回true，其他返回false
+- even    奇数行返回true
+- odd     偶数行返回true
+- ng-repeat-start   
+- ng-repeat-end
+
+ -->

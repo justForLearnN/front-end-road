@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo17">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	.red { color: red; }
+</style>
+<body ng-controller="ctrl17">
+	<div ng-class="{ red: true }">{{ text }}</div>
+	<div ng-style="{ color: 'orange' }">{{ text }}</div>
+
+	<a ng-href="{{baidu}}">www.baidu.com</a>
+	<a ng-attr-href="{{baidu}}" ng-attr-title="baidu">www.baidu.com</a>
+</body>
+<script src="js/angular.js"></script>
+<script>
+	
+angular.module('demo17', [])
+.controller('ctrl17', ['$scope', function($s) {
+	$s.text = "angular";
+	$s.baidu = "http://www.baidu.com"
+}]);
+
+</script>
+</html>
+
+<!-- 
+
+ng-class: 
+ng-style:
+ng-href: 这种方式倒是可以试一试
+ng-attr-xxx: 一种较为通用的ng指令标签
+
+ -->

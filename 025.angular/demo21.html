@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo20">
+<head>
+	<meta charset="UTF-8">
+	<title>demo:  百度下拉菜单</title>
+</head>
+<body>
+	<div ng-controller="exampleController">
+		<input type="text" ng-model="name">
+		<input type="button" value="search" ng-click="change(name)">
+		<ul>
+			<li ng-repeat="i in res">{{ i }}</li>
+		</ul>
+
+		<hr>
+
+		<input type="text" ng-model="name1" ng-keyup="change1(name1)">
+		<ul>
+			<li ng-repeat="i in res1">{{ i }}</li>
+		</ul>	
+		<iframe width="100%" height="300" src="//jsfiddle.net/yangbo5207/bkvpwt1t/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+	</div>
+	
+</body>
+<script src="js/angular.js"></script>
+<script>
+	
+var demo = angular.module('demo20', []);
+demo.controller('exampleController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
+	$scope.res = [];
+	$scope.change = function(name) {
+		$http({
+			method: 'JSONP',
+			url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+ name +'&cb=JSON_CALLBACK'
+		}).success(function(data) {
+			console.log(data);
+			$scope.res = data.s;
+		})
+	};
+
+	var timer = null;
+	$scope.res1 = [];
+
+	$scope.change1 = function(name) {
+		timer && $timeout.cancel(timer);
+		timer = $timeout(function() {
+			$http({
+				method: 'JSONP',
+				url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+ name +'&cb=JSON_CALLBACK'
+				// url: 'https://www.baidu.com/home/msg/data/personalcontent?callback=JSON_CALLBACK&num=8&_req_seqid=&sid=&_=1450167798072'
+			}).success(function(data) {
+				$scope.res1 = data.s;
+			})
+		}, 500);
+	}
+}]);
+
+</script>
+</html>

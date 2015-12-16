@@ -76,6 +76,11 @@ console.log(strJson);
 // 与原生的 JSON.stringify() 效果一样, 添加true参数，可以对结果进行格式化为便于阅读的形式
 console.log(angular.toJson(strJson, true));
 
+val.forEach(function(val, i) {
+	console.log(val, i);
+	console.log('this', this);
+}, result)
+
 
 </script>
 </html>

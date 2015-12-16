@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="demo14">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div ng-controller="contro14">
+		<input type="checkbox" ng-model="aaa">
+		<select>
+			<option>aaaaa</option>
+			<option ng-selected="aaa">bbbbb</option>
+		</select>
+
+		<input type="text" ng-change="bbb='hello'" ng-model="bbb"> {{ bbb }}
+		<div>
+			<input type="text" value="aaabsdfsdff" ng-copy="ccc=true">{{ ccc }}
+		</div>
+		<p>
+			<input type="text" value="aaadfsd" ng-cut="ddd=false">{{ ddd }}
+		</p>
+		<p>
+			<input type="text" value="" ng-paste="eee=false">{{ eee }}
+		</p>
+	</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+
+angular.module('demo14', [])
+.controller('contro14', ['$scope', function($s) {
+	
+}])
+
+</script>
+</html>
+
+<!-- 事件指令 -->
+<!-- 
+
+ng-click ng-dblclick
+ng-mousedown ng-mouseup
+ng-mouseenter ng-leave
+ng-mousemove ng-mouseover ng-mouseout
+ng-keydown ng-keyup ng-keypress
+ng-focus ng-blur
+ng-submit
+
+ ng-selected
+ ng-change
+ ng-copy
+ ng-cut
+ ng-paste
+
+ -->

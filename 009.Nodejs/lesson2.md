@@ -20,18 +20,18 @@ require('./test.js');
 在一个文件中使用var定义的变量，其作用域就是当前文件所在的独立模块，不能被其他的模块访问，若想要访问其他模块的变量和方法，可以通过以下方法
 1. 将属性或者方法通过global的方式定义, 但是这种方式并不推荐
 
-    ```js
-    global.a = 100;
-    global.pers = function();
-    ```
+```js
+global.a = 100;
+global.pers = function();
+```
 
 2. 使用模块对象module.exports 或者 exports
-    ```js
-    var a = 100;
-    exports.a = a;
-    ```
+```js
+var a = 100;
+exports.a = a;
+```
 
-    ```js
-    var mm = require(./xx.js);
-    console.log(mm.a);
-    ```
+```js
+var mm = require(./xx.js);
+console.log(mm.a);
+```
