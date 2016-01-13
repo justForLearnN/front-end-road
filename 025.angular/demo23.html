@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="demo23">
+<head>
+	<meta charset="UTF-8">
+	<title>demo 23</title>
+	<link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-controller="demoController23">
+	<h3>BootStrap Tab Component</h3>
+	<tabs>
+		<pane title="First Tab">
+			<div>This is the content of the first tab.</div>
+		</pane>
+		<pane title="Second Tab">
+			<div>This is the content of the second tab.</div>
+		</pane>
+	</tabs>
+</body>
+<script src="js/angular.js"></script>
+<script>
+	
+angular.module('demo23', [])
+.controller('demoController23', ['$scope', function($scope) {
+	$scope.name = "hello world";
+}])
+.directive('tabs', function() {
+	return {
+		restrict: "E",
+		transclude: true,
+		scope: {},
+		controller: ['$scope', function($scope) {
+			var panes = $scope.panes = [];
+
+			$scope.select = function(pane) {
+				angular.forEach(panes, function(pane) {
+					pane.selected = false;
+				});
+				pane.selected = true;
+			}
+
+			this.addPane = function(pane) {
+				if (panes.length == 0) { $scope.select(pane) };
+				panes.push(pane);
+			}
+		}],
+		template:
+			'<div class="tabbable">' + 
+	            '<ul class="nav nav-tabs">' + 
+	            	'<li ng-repeat="pane in panes" ng-class="{active:pane.selected}">'+ 
+	                	'<a href="" ng-click="select(pane)">{{pane.title}}</a>' + 
+	            	'</li>' + 
+	            '</ul>' + 
+	          	'<div class="tab-content" ng-transclude></div>' + 
+	        '</div>', 
+
+	 	replace: true       
+	};
+})
+.directive('pane', function() {
+	return {
+		require: '^tabs',
+		restrict: "E",
+		transclude: true,
+		scope: { title: '@' },
+		link: function(scope, element, attrs, tabsCtrl) {
+			tabsCtrl.addPane(scope);
+		},
+		template: '<div class="tab-pane" ng-class="{active: selected}" ng-transclude>' +  '</div>', 
+		replace: true
+	};
+})
+
+</script>
+</html>

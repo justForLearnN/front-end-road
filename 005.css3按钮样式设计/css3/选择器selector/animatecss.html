@@ -1,0 +1,34 @@
+<!--
+1.变化中的dRect需要用id来确定其身份，不能使用class
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animate.css</title>
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<script type="text/javascript">
+	$(function(){
+
+		$('.iClick').on('click', function(event) {
+			event.preventDefault();
+			testAnim($('.classType').val());
+		});
+	})
+	function testAnim(x) {
+	    $('#dRect').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+	      $(this).removeClass();
+	    });
+	  };
+
+</script>
+
+<body>
+	<input type="button" class="iClick" value="click me">
+	<div id="dRect" class="dRect" style="width:100px; height:20px; background: #ccc;float: left; transition: 1s;"></div>
+	<input type="text" class="classType">
+</body>
+</html>

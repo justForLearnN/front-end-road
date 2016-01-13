@@ -1,0 +1,80 @@
+<!-- //使用addClass的方法制作出炫酷的图标变化效果 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>addClass</title>
+	<style type="text/css">
+		.box {
+			width: 100px;
+			height: 100px;
+			border:1px solid #ccc;
+			left: 10%;
+			border-radius: 50px;
+			position: absolute;
+			cursor:pointer;
+			transition:1s;
+		}
+		.bar {
+			width: 60%;
+			height: 2%;
+			left: 20%;
+			background: #ccc;
+			position: absolute;
+			transition:.5s;
+		}
+		.bar_0 { top: 31%; }
+		.bar_1 { top: 49px; }
+		.bar_2 { top: 66px; }
+		.active_t { top: 49px; }
+		.active_d { display: none; }
+		.active_0 { transform:rotate(45deg); }
+		.active_2 { transform:rotate(-45deg);}
+		.active_b { left: 30%; }
+
+	</style>
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var tag = 0,
+				timer = null;
+			$('#box').on('click', function(){
+				var $bar0 = $('#bar_0'),
+					$bar1 = $('#bar_1'),
+					$bar2 = $('#bar_2');
+				if(tag == 0){
+					$bar0.addClass('active_t');
+					$bar2.addClass('active_t');
+					$(this).addClass('active_b');
+					timer = setTimeout(function(){
+						$bar0.addClass('active_0');
+						$bar2.addClass('active_2');
+						$bar1.addClass('active_d');
+						clearTimeout(timer);
+					},500);
+					tag = 1;
+				}
+				else if(tag == 1){
+					$bar0.removeClass('active_0');
+					$bar2.removeClass('active_2');
+					$(this).removeClass('active_b');
+					timer = setTimeout(function(){
+						$bar0.removeClass('active_t');
+						$bar2.removeClass('active_t');
+						$bar1.removeClass('active_d');
+						clearTimeout(timer);
+					}, 500);
+					tag = 0;
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+	<div id="box" class="box">
+		<div class="bar bar_0" id="bar_0"></div>
+		<div class="bar bar_1" id="bar_1"></div>
+		<div class="bar bar_2" id="bar_2"></div>
+	</div>
+</body>
+</html>
