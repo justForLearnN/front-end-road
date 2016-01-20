@@ -137,7 +137,8 @@ Note that iScroll uses `querySelector` not `querySelectorAll`, so only the first
 > 举个栗子，当你不再使用iScroll时，就不需要变量。
 </div>
 
-<h2 id="initialization">Initialization</h2>初始化
+<h2 id="initialization">Initialization</h2>
+> 初始化
 
 The iScroll needs to be initiated when the DOM is ready. The safest bet is to start it on window `onload` event. `DOMContentLoaded` or inline initialization are also fine but remember that the script needs to know the height/width of the scrolling area. If you have images that don't have explicit width/height declaration, iScroll will most likely end up with a wrong scroller size.
 
@@ -184,7 +185,8 @@ Refer to the [barebone example](http://lab.cubiq.org/iscroll5/demos/barebone/) f
 
 > 如果你有一个负责的DOM结构，有时你需要机智的在onload事件中延迟初始化iScroll，延迟100或者200毫秒XXX
 
-<h2 id="configuring">Configuring the iScroll</h2>配置iScroll
+<h2 id="configuring">Configuring the iScroll</h2>
+> 配置iScroll
 
 iScroll can be configured by passing a second parameter during the initialization phase.
 
@@ -209,7 +211,8 @@ The above will return the configuration the `myScroll` instance will run on. By 
 
 > 上面的执行结果会返回`myScroll`的配置信息。如果你设置了`useTransform: true`但是浏览器不支持css transfroms，`useTransform`的结果还是`false`
 
-<h2 id="the-core">Understanding the core</h2>了解核心
+<h2 id="the-core">Understanding the core</h2>
+> 了解核心
 
 iScroll uses various techniques to scroll based on device/browser capability. **Normally you don't need to configure the engine**, iScroll is smart enough to pick the best for you.
 
@@ -257,7 +260,8 @@ Default: `true`
 
 > 如果不能决定什么是最佳配置，为了获得最佳性能上述所有的选项都应该配置为`true`，(或者更好的方式就是不理他们，因为他们会自动被设置为true，你可以试试和他们一起玩如果你遇到了中断或者内存泄露) 
 
-<h2 id="basic-features">Basic features</h2>基础特性
+<h2 id="basic-features">Basic features</h2>
+> 基础特性
 
 ### <small>options.</small>bounce
 
@@ -396,7 +400,8 @@ In this case you'd listen to `myCustomTapEvent`.
 
 Default: `false`
 
-<h2 id="scrollbars">Scrollbars</h2>滚动条
+<h2 id="scrollbars">Scrollbars</h2>
+> 滚动条
 
 The scrollbars are more than just what the name suggests. In fact internally they are referenced as *indicators*.
 > scrollbars不仅仅是滚动条，事实上在内部他们代表了 *indicators*.
@@ -468,7 +473,8 @@ Default: `false`
 
 See the [scrollbar demo](http://lab.cubiq.org/iscroll5/demos/scrollbars/).
 
-<h3 id="styling-the-scrollbar">Styling the scrollbar</h3>给滚动条设置样式
+<h3 id="styling-the-scrollbar">Styling the scrollbar</h3>
+> 给滚动条设置样式
 
 So you don't like the default scrollbar styling and you think you could do better. Help yourself! iScroll makes dressing the scrollbar a snap. First of all set the `scrollbars` option to `'custom'`:
 
@@ -750,7 +756,8 @@ Juicy method that lets you zoom programmatically.
 
 `time` is the duration of the animation in milliseconds (optional).
 
-<h2 id="infinite-scrolling">Infinite scrolling</h2> 无限滚动
+<h2 id="infinite-scrolling">Infinite scrolling</h2> 
+> 无限滚动
 
 iScroll integrates a smart caching system that allows to handle of a virtually infinite amount of data using (and reusing) just a bunch of elements.
 > iScroll集成了智能缓存系统
@@ -764,7 +771,8 @@ Please review the [infinite demo](http://lab.cubiq.org/iscroll5/demos/infinite/)
 I will add more details as soon as the functionality evolves.
 > 我会尽快完善
 
-<h2 id="advanced-options">Advanced options</h2> 高级选项
+<h2 id="advanced-options">Advanced options</h2> 
+> 高级选项
 
 For the hardcore developer.
 > 针对核心开发者
@@ -831,7 +839,8 @@ By reducing this value you get better visual effect but the script becomes more 
 
 Default: `60`
 
-<h2 id="refresh">Mastering the refresh method</h2>掌握刷新的方法
+<h2 id="refresh">Mastering the refresh method</h2>
+> 掌握刷新的方法
 
 iScroll needs to know the exact dimensions of both the wrapper and the scroller. They are computed at start up but if your elements change in size, we need to tell iScroll that you are messing with the DOM.
 > iScroll需要知道wrapper与滚动区域的确切尺寸。他们会在初始化的时候被确定。但是如果你改变了他们的大小，你需要告诉iScroll你扰乱了DOM结构。
