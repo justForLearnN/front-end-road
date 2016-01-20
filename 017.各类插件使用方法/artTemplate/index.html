@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>js 模板</title>
+	<script src="js/template.js"></script>
+</head>
+<body>
+	<div id="content"></div>
+	<script id="test" type="text/html">
+	{{ if isAdmin }}
+		<h1>{{ title }}</h1>
+		<ul>
+			{{ each list as value i }}
+				<li>index {{ i+1 }} : {{ value }}</li>
+			{{ /each }}
+		</ul>
+	{{ /if }}
+	</script>
+	<script>
+	var data = {
+		title: 'base exapmle',
+		isAdmin: true,
+		list: ['chinese', 'blog', 'sheying', 'movie', 'ingyao', 'gita']
+	};
+
+	var html = template('test', data);
+	document.getElementById('content').innerHTML = html;
+	</script>
+</body>
+</html>
