@@ -58,7 +58,8 @@ Currently we have the following fragrances:
 
 > 可以做无限缓存运动。在移动设备上处理长列表元素是一个不简单的任务，*iScroll infinite*使用了缓存机制，可以让你的滚动有无限的潜在元素
 
-<h2 id="getting-started">Getting started</h2>让我们开始吧
+<h2 id="getting-started">Getting started</h2>
+> 让我们开始吧
 
 So you want to be an iScroll master. Cool, because that is what I'll make you  
 
