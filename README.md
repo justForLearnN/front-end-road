@@ -2,56 +2,67 @@
 <h1 id="intro">iScroll, 让web平滑滚动</h1>
 
 iScroll is a high performance, small footprint, dependency free, multi-platform javascript scroller.
-iScroll 是一个高性能，小内存，依赖自由，跨平台的javascript滚动插件。
+
+> iScroll 是一个高性能，小内存，依赖自由，跨平台的javascript滚动插件。
 
 It works on desktop, mobile and smart TV. It has been vigorously optimized for performance and size so to offer the smoothest result on modern and old devices alike.
-它能在桌面端，移动端，TV端运行。它大力优化了性能与大小, 为现代与老设备上提供了流畅的运行效果
+
+> 它能在桌面端，移动端，TV端运行。它大力优化了性能与大小, 为现代与老设备上提供了流畅的运行效果
 
 iScroll does not just *scroll*. It can handle any element that needs to be moved with user interaction. It adds scrolling, zooming, panning, infinite scrolling, parallax scrolling, carousels to your projects and manages to do that in just 4kb. Give it a broom and it will also clean up your office.
-iScroll不仅仅是 *滚动*. 他能够处理需要与用户交互移动的任何元素，它增加了滚动，缩放，平移，无限滚动，视差滚动，xxxx，做到这些只需要4kb. 给他一个扫帚，它也将清理你的办公室！
+
+> iScroll不仅仅是 *滚动*. 他能够处理需要与用户交互移动的任何元素，它增加了滚动，缩放，平移，无限滚动，视差滚动，xxxx，做到这些只需要4kb. 给他一个扫帚，它也将清理你的办公室！
 
 Even on platforms where native scrolling is good enough, iScroll adds features that wouldn't be possible otherwise. Specifically:
-即使在一些原生滚动不足够好的平台上，iScroll也添加了一些不可能实现的特性，特别是：
+
+> 即使在一些原生滚动不足够好的平台上，iScroll也添加了一些不可能实现的特性，特别是：
 
 
 * Granular control over the scroll position, even during momentum. You can always get and set the x,y coordinates of the scroller.
-精确控制滚动位置，即使元素处于运动中，你能够设置/获取元素的x,y坐标
+ 
+> 精确控制滚动位置，即使元素处于运动中，你能够设置/获取元素的x,y坐标
 
 * Animation can be customized with user defined easing functions (bounce, elastic, back, ...).
-使用缓动函数可以定制动画效果 
+
+> 使用缓动函数可以定制动画效果 
  
 * You can easily hook to a plethora of custom events (onBeforeScrollStart, onScrollStart, onScroll, onScrollEnd, flick, ...).
-你可以简单的勾入多种自定义事件
+> 你可以简单的勾入多种自定义事件
 
 * Out of the box multi-platform support. From older Android devices to the latest iPhone, from Chrome to Internet Explorer.
-开箱即用的多平台支持。从很老的Android设备到最新的iPhone，从chrome到IE
+> 开箱即用的多平台支持。从很老的Android设备到最新的iPhone，从chrome到IE
 
 <h2 id="iscroll-versions">The many faces of iScroll</h2>
 <h2 id="iscroll-versions">多面的iScroll</h2>
 
 iScroll is all about optimization. To reach the highest performance it has been divided into multiple versions. You can pick the version that better suits your need.
-iScroll都是与优化相关的，为了达到最高的性能，已经被分成了多种版本.你可以选择最适合你的版本
+> iScroll都是与优化相关的，为了达到最高的性能，已经被分成了多种版本.你可以选择最适合你的版本
 
 Currently we have the following fragrances:
-目前我们有以下的版本
+> 目前我们有以下的版本
 
 * **iscroll.js**, it is the general purpose script. It includes the most commonly used features and grants very high performance in a small footprint.
-**iscroll.js**, 这是一个通用版本，它包含了最常用的功能和grants，小容量，高性能
+
+> **iscroll.js**, 这是一个通用版本，它包含了最常用的功能和grants，小容量，高性能
 
 * **iscroll-lite.js**, it is a stripped down version of the main script. It doesn't support snap, scrollbars, mouse wheel, key bindings. But if all you need is scrolling (especially on mobile) *iScroll lite* is the smallest, fastest solution.
-**iscroll-lite.js**，这是主要脚本的精简版。他不包括snap，滚动条，鼠标滚动，键值绑定。但是如果你所有的需求都在滚动上(特别是移动版),*iScroll lite* 是最小，最快的解决方案。
+> **iscroll-lite.js**，这是主要脚本的精简版。他不包括snap，滚动条，鼠标滚动，键值绑定。但是如果你所有的需求都在滚动上(特别是移动版),*iScroll lite* 是最小，最快的解决方案。
 
 * **iscroll-probe.js**, probing the current scroll position is a demanding task, that's why I decided to build a dedicated version for it. If you need to know the scrolling position at any given time, this is the iScroll for you. (I'm making some more tests, this might end up in the regular `iscroll.js` script, so keep an eye on it).
-**iscroll-probe.js** 探测当前的滚动位置是一个艰巨的任务，这就是为什么我决定创建一个专门的版本来搞定这个问题。如果你需要知道在任何特定位置，元素滚动的坐标位置，这是最适合你的iScroll版本。（我在做一些测试，这最终可能会融入到`iscroll.js`中去，所以保持关注吧）
+> **iscroll-probe.js** 探测当前的滚动位置是一个艰巨的任务，这就是为什么我决定创建一个专门的版本来搞定这个问题。如果你需要知道在任何特定位置，元素滚动的坐标位置，这是最适合你的iScroll版本。（我在做一些测试，这最终可能会融入到`iscroll.js`中去，所以保持关注吧）
 
-* **iscroll-zoom.js**, adds zooming to the standard scroll.在标准滚动效果上增加了缩放特效
+* **iscroll-zoom.js**, adds zooming to the standard scroll.
+> 在标准滚动效果上增加了缩放特效
 
 * **iscroll-infinite.js**, can do infinite and cached scrolling. Handling very long lists of elements is no easy task for mobile devices. *iScroll infinite* uses a caching mechanism that lets you scroll a potentially infinite number of elements.
-可以做无限缓存运动。在移动设备上处理长列表元素是一个不简单的任务，*iScroll infinite*使用了缓存机制，可以让你的滚动有无限的潜在元素
+
+> 可以做无限缓存运动。在移动设备上处理长列表元素是一个不简单的任务，*iScroll infinite*使用了缓存机制，可以让你的滚动有无限的潜在元素
 
 <h2 id="getting-started">Getting started</h2>让我们开始吧
 
-So you want to be an iScroll master. Cool, because that is what I'll make you into.如果你想成为一个iScroll大师，那将会很酷，因为我将会带你入门
+So you want to be an iScroll master. Cool, because that is what I'll make you  
+
+> into.如果你想成为一个iScroll大师，那将会很酷，因为我将会带你入门
 
 The best way to learn the iScroll is by looking at the demos. In the archive you'll find a `demo` folder [stuffed with examples](https://github.com/cubiq/iscroll/tree/master/demos). Most of the script features are outlined there.
 学习iScroll最好的方式就是看demos，在存档中你将会看到一个`demo`文件夹，大多数脚本功能都会在demo中实现
