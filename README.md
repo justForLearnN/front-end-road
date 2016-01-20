@@ -93,8 +93,7 @@ iScroll must be applied to the wrapper of the scrolling area. In the above examp
 
 <div class="tip">
 <p><code>box-shadow</code>, <code>opacity</code>, <code>text-shadow</code> and alpha channels are all properties that don't go very well together with hardware acceleration. Scrolling might look good with few elements but as soon as your DOM becomes more complex you'll start experiencing lag and jerkiness.</p>
-`box-shadow`, `opacity`, `text-shadow`, `alpha channels`   
-> 都是一些不能够与硬件加速很好的结合在一起，如果只有少量的元素，滚动看上去会很不错，但是如果你的DOM变得复杂，滚动效果就会出现滞后卡顿跳跃等现象。
+> `box-shadow`, `opacity`, `text-shadow`, `alpha channels`    都是一些不能够与硬件加速很好的结合在一起，如果只有少量的元素，滚动看上去会很不错，但是如果你的DOM变得复杂，滚动效果就会出现滞后卡顿跳跃等现象。
 
 <p>Sometimes a background image to simulate the shadow performs better than <code>box-shadow</code>. The bottom line is: experiment with CSS properties, you'll be surprised by the difference in performance a small CSS change can do.</p>  
 
