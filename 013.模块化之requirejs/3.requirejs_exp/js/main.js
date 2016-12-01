@@ -13,7 +13,7 @@ requirejs.config({
 });
 
 define(function(require) {
-	var 
+	var
 		mod1 = require('module1');
 		$    = require('jquery');
 

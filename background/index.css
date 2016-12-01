@@ -1,0 +1,15 @@
+body {
+	margin: 0;
+}
+
+.target {
+	width: 200px;
+	height: 200px;
+	padding: 10px;
+	margin: 40px auto;
+	/*background-image: url(images/05.png), url(images/04.png);
+	background-repeat: no-repeat;
+	background-size: contain;*/
+
+	background: url(images/05.png) no-repeat 20px 30px/contain, url(images/04.png) no-repeat 0/contain;
+}

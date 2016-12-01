@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div ng-controller="mainController">
+        <strong>First Name:</strong> {{ personManagerInstance.getPersonFirstName() }} <br />
+        <strong>Last Name:</strong> {{ personManagerInstance.getPersonLastName() }} <br />
+        <strong>Full Name:</strong> {{ personManagerInstance.getPersonFullName() }} <br />
+        <br />
+        <label>Set the first name: <input type="text" ng-model="personInstance.firstName" /></label>
+        <label>Set the last name: <input type="text" ng-model="personInstance.lastName"></label>
+    </div>
+</body>
+<script src="../js/angular.js"></script>
+<script src="./main.js"></script>
+</html>

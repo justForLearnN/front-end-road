@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>监听模式</title>
+</head>
+<body>
+
+</body>
+<script src="./state.js"></script>
+<script>
+    (function() {
+        store.subscribe('test', function(value) {
+            console.log(`hello, ${value}`);
+        })
+
+        store.subscribe('test', function(value) {
+            console.log(`${value}, get some home.`);
+        })
+
+        store.dispatch('test', 'Tom');
+        store.dispatch('test', 'Game');
+        // store.unsubscribe('test');
+
+        store.dispatch('test', 'world!');
+
+        console.log(store.getEvents());
+    })()
+</script>
+</html>

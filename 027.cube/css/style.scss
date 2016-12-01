@@ -1,0 +1,97 @@
+﻿$fonts: 'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans CN', 'Source Han Sans SC', 'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif;
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    font-family: $fonts;
+    width: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+a, div, span {
+    text-decoration: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.wrapper {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+    min-width: 320px;
+    max-width: 500px;
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+.box {
+	width: 200px; height: 200px;
+	border: 1px solid #ccc;
+	position: relative;
+	margin: 100px auto;
+	transform-style: preserve-3d;
+	transform-origin: 100px 100px -100px;
+	backface-visibility: hidden;
+	transform: scale(0.8) rotateX(-31.7185deg) rotateY(686.062deg);
+}
+
+.item {
+	box-sizing: border-box;
+	width: 200px; height: 200px;
+	position: absolute;
+	text-align: center;
+	line-height: 200px;
+	color: #fff;
+	font-size: 40px;
+	display: none;
+}
+
+.front {
+	display: block;
+	background-color: #234234;
+	left: 0; top: 0 }
+
+.right {
+	display: block;
+	background-color: #222d23;
+	left: 200px; top: 0;
+	transform-origin: left;
+	transform: rotateY(90deg);
+}
+.end {
+	display: block;
+	background-color: #222d23;
+	left: 0; top: 0;
+	transform: translateZ(-200px) rotateY(-180deg) ;
+}
+.left {
+	display: block;
+	background-color: orange;
+	left: -200px; top: 0;
+	transform-origin: right;
+	transform: rotateY(-90deg);
+}
+
+.top {
+	display: block;
+	background-color: red;
+	left: 0; top: -200px;
+	transform-origin: bottom;
+	transform: rotateX(90deg);
+}
+.bottom {
+	display: block;
+	background-color: #ccc;
+	left: 0; top: 200px;
+	transform-origin: top;
+	transform: rotateX(-90deg);
+}
+
+svg {
+    border: 1px solid #ccc;
+}

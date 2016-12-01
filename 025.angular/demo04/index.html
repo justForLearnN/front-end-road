@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style media="screen">
+        .text-warning {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" ng-controller="TextAreaWithLimitCtrl">
+        <p ng-bind-html-unsafe="msg">{{ msg }}</p>
+    </div>
+</body>
+<script src="../js/angular.js"></script>
+<script src="./main.js"></script>
+</html>
+
+<!--
+ng-class="{ 'text-warning': shouldWarn }"  当shouldWarn运行结果为true时，为该元素添加一个class: text-warning
+-->

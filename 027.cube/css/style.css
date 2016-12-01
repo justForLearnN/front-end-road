@@ -1,0 +1,136 @@
+body,html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Helvetica Neue',Helvetica,'Nimbus Sans L',Arial,'Liberation Sans','PingFang SC','Hiragino Sans GB','Source Han Sans CN','Source Han Sans SC','Microsoft YaHei','Wenquanyi Micro Hei','WenQuanYi Zen Hei','ST Heiti',SimHei,'WenQuanYi Zen Hei Sharp',sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    width: 100%;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a,div,span {
+    text-decoration: none;
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.wrapper {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    min-width: 320px;
+    max-width: 500px;
+    height: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+}
+
+.box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 100px auto;
+    -webkit-transform: scale(.8) rotateX(-31.7185deg) rotateY(686.062deg);
+    -moz-transform: scale(.8) rotateX(-31.7185deg) rotateY(686.062deg);
+    transform: scale(.8) rotateX(-31.7185deg) rotateY(686.062deg);
+    -webkit-transform-origin: 100px 100px -100px;
+    -moz-transform-origin: 100px 100px -100px;
+    transform-origin: 100px 100px -100px;
+    border: 1px solid #ccc;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.item {
+    font-size: 40px;
+    line-height: 200px;
+    position: absolute;
+    display: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    color: #fff;
+}
+
+.front {
+    top: 0;
+    left: 0;
+    display: block;
+    background-color: #234234;
+}
+
+.right {
+    top: 0;
+    left: 200px;
+    display: block;
+    -webkit-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+    -webkit-transform-origin: left;
+    -moz-transform-origin: left;
+    transform-origin: left;
+    background-color: #222d23;
+}
+
+.end {
+    top: 0;
+    left: 0;
+    display: block;
+    -webkit-transform: translateZ(-200px) rotateY(-180deg);
+    -moz-transform: translateZ(-200px) rotateY(-180deg);
+    transform: translateZ(-200px) rotateY(-180deg);
+    background-color: #222d23;
+}
+
+.left {
+    top: 0;
+    left: -200px;
+    display: block;
+    -webkit-transform: rotateY(-90deg);
+    -moz-transform: rotateY(-90deg);
+    transform: rotateY(-90deg);
+    -webkit-transform-origin: right;
+    -moz-transform-origin: right;
+    transform-origin: right;
+    background-color: orange;
+}
+
+.top {
+    top: -200px;
+    left: 0;
+    display: block;
+    -webkit-transform: rotateX(90deg);
+    -moz-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+    -webkit-transform-origin: bottom;
+    -moz-transform-origin: bottom;
+    transform-origin: bottom;
+    background-color: red;
+}
+
+.bottom {
+    top: 200px;
+    left: 0;
+    display: block;
+    -webkit-transform: rotateX(-90deg);
+    -moz-transform: rotateX(-90deg);
+    transform: rotateX(-90deg);
+    -webkit-transform-origin: top;
+    -moz-transform-origin: top;
+    transform-origin: top;
+    background-color: #ccc;
+}
+
+svg {
+    border: 1px solid #ccc;
+}
