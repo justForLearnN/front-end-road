@@ -72,12 +72,8 @@ The best way to learn the iScroll is by looking at the demos. In the archive you
 > 学习iScroll最好的方式就是看demos，在存档中你将会看到一个`demo`文件夹，大多数脚本功能都会在demo中实现
 
 `IScroll` is a class that needs to be initiated for each scrolling area. There's no limit to the number of iScrolls you can have in each page if not that imposed by the device CPU/Memory.
-<<<<<<< HEAD
-对于每个滚动区域来说，`IScroll`是一个必须声明的对象，如果没有性能限制，每个页面能够拥有iScroll的数量是没有限制的
-=======
 
 > 对于每个滚动区域来说，`IScroll`是一个必须声明的对象，在每个页面没有限制iScroll的个数
->>>>>>> 994c53d8cf31f764d8dcfa8532b0d31ccead1e4c
 
 Try to keep the DOM as simple as possible. iScroll uses the hardware compositing layer but there's a limit to the elements the hardware can handle.
 
@@ -95,27 +91,17 @@ The optimal HTML structure is:
     </div>
 
 iScroll must be applied to the wrapper of the scrolling area. In the above example the `UL` element will be scrolled. Only the first child of the container element is scrolled, additional children are simply ignored.
-<<<<<<< HEAD
-iScroll必须在滚动区域添加一个wrapper元素，在上面的例子中，`UL`元素将会滚动。只有容器的第一个子元素会滚动，额外的子元素将会被忽略。
+
+> iScroll必须在滚动区域添加一个wrapper元素，在上面的例子中，`UL`元素将会滚动。只有容器的第一个子元素会滚动，添加更多的子元素将会被忽略
 
 <div class="tip">
 <p><code>box-shadow</code>, <code>opacity</code>, <code>text-shadow</code> and alpha channels are all properties that don't go very well together with hardware acceleration. Scrolling might look good with few elements but as soon as your DOM becomes more complex you'll start experiencing lag and jerkiness.</p>
-`box-shadow`, `opacity`, `text-shadow`, `alpha channels` 
-都是一些不能够与{硬件加速}很好的结合在一起，如果只有少量的元素，滚动就会很不错，但是如果你的DOM变得复杂，滚动效果就会出现滞后卡顿跳跃等现象。
 
-<p>Sometimes a background image to simulate the shadow performs better than <code>box-shadow</code>. The bottom line is: experiment with CSS properties, you'll be surprised by the difference in performance a small CSS change can do.</p>
-有时一个背景图片来模拟阴影效果会比直接使用`box-shadow`效果好。{底线是}：使用css属性来实验，你会因为一个小的css属性改变带来的效果感到惊讶。
-=======
-> iScroll必须在滚动区域添加一个wrapper元素，在上面的例子中，`UL`元素将会滚动。只有容器的第一个子元素会滚动，添加更多的子元素将会被忽略。
-
-<div class="tip">
-<p><code>box-shadow</code>, <code>opacity</code>, <code>text-shadow</code> and alpha channels are all properties that don't go very well together with hardware acceleration. Scrolling might look good with few elements but as soon as your DOM becomes more complex you'll start experiencing lag and jerkiness.</p>
 > `box-shadow`, `opacity`, `text-shadow`, `alpha channels`    都是一些不能够与硬件加速很好的结合在一起，如果只有少量的元素，滚动看上去会很不错，但是如果你的DOM变得复杂，滚动效果就会出现滞后卡顿跳跃等现象。
 
 <p>Sometimes a background image to simulate the shadow performs better than <code>box-shadow</code>. The bottom line is: experiment with CSS properties, you'll be surprised by the difference in performance a small CSS change can do.</p>  
 
 > 有时一个背景图片来模拟阴影效果会比直接使用`box-shadow`效果好。底线是：使用css属性来实验，你会因为一个小的css属性改变带来的想过感到惊讶。
->>>>>>> 994c53d8cf31f764d8dcfa8532b0d31ccead1e4c
 
 </div>
 
@@ -128,23 +114,15 @@ The minimal call to initiate the script is as follow:
     </script>
 
 The first parameter can be a string representing the DOM selector of the scroll container element OR a reference to the element itself. The following is a valid syntax too:
-<<<<<<< HEAD
-第一个参数可以是一个表示DOM选择器的字符串或者是该元素自身，下面是一个有效的语法：
-=======
 
 > 第一个参数可以是一个表示DOM选择器的字符串或者是该元素自身，下面也是一个有效的语法：
->>>>>>> 994c53d8cf31f764d8dcfa8532b0d31ccead1e4c
 
     var wrapper = document.getElementById('wrapper');
     var myScroll = new IScroll(wrapper);
 
 So basically either you pass the element directly or a string that will be given to `querySelector`. Consequently to select a wrapper by its class name instead of the ID, you'd do:
-<<<<<<< HEAD
-{因此传入classname用来代替ID也是可以的}
-=======
 
 > 因此传入classname用来代替ID也是可以的
->>>>>>> 994c53d8cf31f764d8dcfa8532b0d31ccead1e4c
 
     var myScroll = new IScroll('.wrapper');
 
