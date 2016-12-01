@@ -46,15 +46,7 @@ Currently we have the following fragrances:
 > **iscroll.js**, 这是一个通用版本，它包含了最常用的功能和grants，小容量，高性能
 
 * **iscroll-lite.js**, it is a stripped down version of the main script. It doesn't support snap, scrollbars, mouse wheel, key bindings. But if all you need is scrolling (especially on mobile) *iScroll lite* is the smallest, fastest solution.
-<<<<<<< HEAD
-**iscroll-lite.js**，这是主要脚本的精简版。他不包括snap，滚动条，鼠标滚动，键值绑定。但是如果你所有的需求仅仅滚动(特别是移动版),*iScroll lite* 是最简便，最快的解决方案。
 
-* **iscroll-probe.js**, probing the current scroll position is a demanding task, that's why I decided to build a dedicated version for it. If you need to know the scrolling position at any given time, this is the iScroll for you. (I'm making some more tests, this might end up in the regular `iscroll.js` script, so keep an eye on it).
-**iscroll-probe.js** 探测当前的滚动位置是一个高难度的任务，所以我创建一个专门的版本来解决这个问题。如果你想随时知道滚动位置，这就是你需要的iScroll版本。（我正在做一些更多测试，这最终可能会融入到`iscroll.js`中去，所以保持关注吧）
-
-* **iscroll-zoom.js**, adds zooming to the standard scroll.
-    iscroll-zoom.js在标准滚动效果上增加了缩放特效
-=======
 > **iscroll-lite.js**，这是主要脚本的精简版。他不包括snap，滚动条，鼠标滚动，键值绑定。但是如果你所有的需求都在滚动上(特别是移动版),*iScroll lite* 是最小，最快的解决方案。
 
 * **iscroll-probe.js**, probing the current scroll position is a demanding task, that's why I decided to build a dedicated version for it. If you need to know the scrolling position at any given time, this is the iScroll for you. (I'm making some more tests, this might end up in the regular `iscroll.js` script, so keep an eye on it).
@@ -62,7 +54,6 @@ Currently we have the following fragrances:
 
 * **iscroll-zoom.js**, adds zooming to the standard scroll.
 > 在标准滚动效果上增加了缩放特效
->>>>>>> 994c53d8cf31f764d8dcfa8532b0d31ccead1e4c
 
 * **iscroll-infinite.js**, can do infinite and cached scrolling. Handling very long lists of elements is no easy task for mobile devices. *iScroll infinite* uses a caching mechanism that lets you scroll a potentially infinite number of elements.
 
@@ -73,12 +64,8 @@ Currently we have the following fragrances:
 
 So you want to be an iScroll master. Cool, because that is what I'll make you  
 
-<<<<<<< HEAD
 So you want to be an iScroll master. Cool, because that is what I'll make you into.
-如果你想成为一个iScroll大师，太好了，因为我将会带你入门
-=======
-> into.如果你想成为一个iScroll大师，那将会很酷，因为我将会带你入门
->>>>>>> 994c53d8cf31f764d8dcfa8532b0d31ccead1e4c
+如果你想成为一个iScroll大师，那就太好了，因为我将会带你入门
 
 The best way to learn the iScroll is by looking at the demos. In the archive you'll find a `demo` folder [stuffed with examples](https://github.com/cubiq/iscroll/tree/master/demos). Most of the script features are outlined there.
 
