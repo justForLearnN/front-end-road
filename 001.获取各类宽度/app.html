@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+</head>
+<body>
+  <div class="parent"></div>
+</body>
+<script src="../script/jquery-1.11.3.js"></script>
+<script>
+
+(function ($) {
+  var isChange = false;
+  function createRect(width, backgroundColor, selector) {
+    var $rect = $('<div class="box">my first jquery component</div>');
+    $rect.css({
+      width: 100,
+      height: 100,
+      backgroundColor: 'red'
+    })
+    $rect.on('click', function () {
+      isChange ? 
+        $(this).css({ width: 100, backgroundColor: 'red' }) :
+        $(this).css({ width: width, backgroundColor: backgroundColor });
+      
+      isChange = !isChange
+    })
+    $rect.appendTo($(selector))
+  }
+  window.createRect = createRect
+})(jQuery)
+
+createRect(150, 'orange', '.parent');
+</script>
+</html>
