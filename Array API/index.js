@@ -1,4 +1,4 @@
-const currentArrayAPI = 'concat';
+const currentArrayAPI = 'find';
 
 switch (currentArrayAPI) {
     case 'length':
@@ -61,8 +61,58 @@ switch (currentArrayAPI) {
         console.log('new4_', new4_);
         break;
 
+    case 'copywithin':
+        var examp = ['a', 'b', 'c', 'd', 1];
+        var res = examp.copyWithin();
+        res.push('1');
+        console.log(examp, res);  // 原数组始终会被改变
 
+        var examp2 = { 0: 'a', 1: 'b', 2: 'c', 3: 'xx', length: 4 }
+        var res2 = Array.prototype.copyWithin.call(examp2, 1, 3);
+        console.log(examp2, res2);
+        break;
 
+    case 'entries':
+        var examp = ['a', 'b', 'c'];
+        var entries = examp.entries();
+
+        console.log(entries.next());
+        break;
+
+    case 'every':
+        var examp = [3, 4, 5, 6];
+
+        var res = examp.every(function(item) {
+            console.log(this);
+            return item > 2;
+        }, [1]);
+        console.log(res);
+        break;
+
+    case 'some':
+        var examp = [3, 4, 5, 6];
+        var res = examp.some(item => item > 4);
+        console.log(res);
+        break;
+
+    case 'fill':
+        var examp = [3, 4, 5, 6];
+        var res = examp.fill('a', 1);
+        console.log(res, examp);
+        break;
+
+    case 'filter':
+        var examp = [3, 4, 5, 6, 'a'];
+        var res = examp.filter(item => typeof item == 'number');
+        console.log(examp, res);
+        break;
+
+    case 'find':
+        // 找到返回true的某一项
+        var examp = [3, 4, 5, 6];
+        var res = examp.find(item => item > 3);
+        console.log(res);
+        break;
     default:
 
 }
