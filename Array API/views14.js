@@ -62,7 +62,7 @@ function convert(num) {
 
 console.log(convert_(454));
 
-
+// 另一种解法
 function convert_(num) {
     var single = ['I', 'V', 'X'],
         tens = ['X', 'L', 'C'],

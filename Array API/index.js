@@ -1,4 +1,4 @@
-const currentArrayAPI = 'from';
+const currentArrayAPI = 'length';
 
 const likeArray = {
     0: 'hello',
