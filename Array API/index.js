@@ -1,4 +1,4 @@
-const currentArrayAPI = 'sort';
+const currentArrayAPI = 'from';
 
 const likeArray = {
     0: 'hello',
@@ -272,6 +272,114 @@ switch (currentArrayAPI) {
         break;
 
     case 'slice':
-        
+        var examp = [1, 2, 3, 4, 5, 6, 7, 8];
+        var new_ = examp.slice(0, 2); // 负数，则倒着数
+        console.log(new_);
+
+        var p = { name: 'TOM', age: 20 }
+        var examp2 = [p, 20, 'ame'];
+        var new2_ = examp2.slice(0, 2);
+
+        p.name = 'Alex';
+        console.log(examp2[0].name, new2_[0].name);  // 引用指向的对象是相同的，因此改变之后会导致所有的数据都改变了
+        break;
+
+    // array.splice(start)
+    // array.splice(start, deleteCount)
+    // array.splice(start, deleteCount, item1, item2, ...) //
+    // 位置 | 个数 | 要替换的具体元素
+    // 会直接修改数组，返回被替换的元素
+    case 'splice':
+        var examp = [1, 2, 3, 4, 5, 6, 7, 8];
+        var new_ = examp.splice(3, 2, 'a');
+        console.log(examp, new_);
+        break;
+
+    // 删除数组最末尾的元素，并返回该元素
+    case 'pop':
+        var examp = [1, 2, 3];
+        var res = examp.pop();
+        console.log(examp, res);   // [1, 2], 3
+        break;
+
+    // 将指定元素添加到数组末尾, 并返回修改之后的数组长度
+    // arr.push(element1[, ...[, elementN]])
+    case 'push':
+        var examp = [1, 2, 3];
+        var res = examp.push(4, 5);
+        console.log(examp, res);
+        break;
+
+    // 删除数组最前面的元素，并返回该元素
+    case 'shift':
+        var examp = [1, 2, 3];
+        var res = examp.shift();
+        console.log(examp, res); // [2, 3], 1
+        break;
+
+  // 在数组前面添加元素，并返回修改之后的数组长度
+    case 'unshift':
+        var examp = [1, 2, 3];
+        var res = examp.unshift('a', 'b');
+        console.log(examp, res); //  ["a", "b", 1, 2, 3], 5
+        break;
+
+    /*-------工具方法---------*/
+
+    // of 将所有参数作为子元素，创建一个新的数组
+    case 'of':
+        var examp = Array.of(1, 2, 3);
+        console.log(examp);
+        break;
+
+    // 判断目标对象是否为数组
+    case 'isArray':
+        var re1 = Array.isArray(1); // false
+        var re2 = Array.isArray([]); // true
+        console.log(re1, re2);
+        break;
+
+    // 将类数组对象或者可迭代的数据对象转化为数组
+    case 'from':
+        Array.from('hello'); // ['h', 'e', 'l', 'l', 'o']
+
+        var s = new Set(['foo', window]);
+        Array.from(s);  // ["foo", Window]
+
+        var m = new Map([[1, 2], [2, 4], [4, 8]]);
+        Array.from(m);
+        // [[1, 2], [2, 4], [4, 8]]
+
+        function f() {
+          return Array.from(arguments);
+        }
+
+        f(1, 2, 3);
+        // [1, 2, 3]
+
+        var ex = [1, 2, 3]
+        var res = Array.from(ex, function(item, i) {
+            console.log(item, i)
+            return item + 20
+        })
+
+        console.log(ex, res);
         break;
 }
+
+// 是否改变原数组
+// 是否能被Array-like调用
+//
+
+
+// 常见问题
+// 如何判断一个变量是否为数组
+// 数组的原生方法有哪些？
+// 如何将一个类数组变量转化为数组？
+// 说一说ES6中对于数组有哪些扩展
+// 数组去重，你能说出多少种方法？
+// 你知道Array.prototype的类型是什么吗？
+// 如何“打平”一个嵌套数组，如[1,[2,[3]],4,[5]] => [1,2,3,4,5]?你能说出多少种方法？
+// 如何克隆一个数组？你能说出多少种？
+// 说一说Array.prototype.sort()方法的原理？（追问：不传递参数会如何？）
+// 找出Array中的最大元素，你能说出几种方法？
