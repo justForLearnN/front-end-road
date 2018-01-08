@@ -1,4 +1,12 @@
-const currentArrayAPI = 'find';
+const currentArrayAPI = 'sort';
+
+const likeArray = {
+    0: 'hello',
+    1: 'world',
+    2: '!',
+    3: '~',
+    length: 4
+}
 
 switch (currentArrayAPI) {
     case 'length':
@@ -72,11 +80,14 @@ switch (currentArrayAPI) {
         console.log(examp2, res2);
         break;
 
+    // 返回一个键值对的迭代器
     case 'entries':
         var examp = ['a', 'b', 'c'];
         var entries = examp.entries();
 
-        console.log(entries.next());
+        for(let [index, elem] of entries) {
+            console.log(index, elem);
+        }
         break;
 
     case 'every':
@@ -115,4 +126,152 @@ switch (currentArrayAPI) {
         break;
     default:
 
+    case 'findIndex':
+        var examp = [3, 4, 5];
+        var res = examp.findIndex(item => item > 3);
+        console.log(res, examp);
+
+    case 'forEach': // 单纯的遍历数组
+        var examp = [3, 4, 5];
+        var res = examp.forEach(item => item + 1);
+        console.log(examp, res);
+        // [3, 4, 5]   undefined
+        break;
+
+    case 'includes': // 判断指定位置是否是指定元素
+        var examp = [3, 4, 5];
+        var res = examp.includes(3);    // true
+        var foo = examp.includes(3, 2); // false
+        console.log(examp, res);
+        break;
+
+    // 判断指定位置是否包含指定元素
+    // 有返回该元素在数组中的位置，没有则返回-1
+    case 'indexOf':
+        var examp = [3, 4, 5];
+        var res = examp.indexOf(4);
+        var foo = examp.indexOf(4, 2);
+        console.log(res, foo);
+        break;
+
+    // 与indexOf唯一不同的地方在于查找方向是相反的
+    case 'lastIndexOf':
+        var examp = [3, 4, 5];
+        var res = examp.lastIndexOf(4);
+        var foo = examp.lastIndexOf(4, 0);
+        console.log(res, foo);
+        break;
+
+    case 'join':
+        var examp = [3, 4, 5];
+        var res = examp.join('=');
+        console.log(examp, res);
+
+        var boo = [].join.call(likeArray, ' ');
+        console.log(boo); // hello world ! ~
+        break;
+
+    case 'keys': // 返回一个键名的迭代器
+        var examp = [3, 4, 5];
+        var res = examp.keys();
+        for(let index of res) {
+            console.log(index);  // 0, 1, 2
+        }
+        break;
+
+    // 返回一个键值的迭代器
+    // 仅Edge支持
+    // case 'values':
+    //     var examp = [3, 4, 5];
+    //     var res = examp.values();
+    //     for(let elem of res) {
+    //         console.log(elem);  // 0, 1, 2
+    //     }
+    //     break;
+
+    // 遍历数组并返回每一子项处理结果组成的新数组
+    case 'map':
+        var examp = [3, 4, 5];
+        var res = examp.map(item => item + 1);
+        console.log(examp, res);
+        // [3, 4, 5]   [4, 5, 6]
+        break;
+
+    // 聚合函数
+    // callback
+    // 第二个参数手动设定聚合的初始结果，作为第一项参与聚合运算
+    // callback 共4个参数，第一个表示聚合的结果，如果未设定初始结果，会将第一项作为初始结果，会不断的累计
+    // 第二个表示数组当前项目，如果未设定初始结果，从第二项开始
+    // 第三个参数为当前处理结果的索引值
+    // 第四个参数表示当前数组
+    case 'reduce':
+        var str = 'aaabdddbddsssdd';
+        var res = str.split('').reduce((prev, next) => {
+            prev[next] = prev[next] ?  (prev[next] + 1) : 1;
+            return prev;
+        }, {})
+        console.log(res);
+        break;
+
+    case 'reduceRight':
+        var examp = [3, 4, 5];
+        var res = examp.reduceRight((res, item) => {
+            console.log(res, item);
+            return res + item;
+        })
+
+        console.log(res);
+
+    // 颠倒数组元素的位置，原数组被改变
+    case 'reverse':
+        var examp = [3, 4, 5];
+        var res = examp.reverse();
+        console.log(examp, res);
+        break;
+
+    // 数组排序，改变原数组
+    // 当直接调用时，排序顺序按照第一个元素来，依次  1-9 a-z
+    // 当出现判断条件时，
+    // 如果 compareFunction(a, b) < 0, 那么把 元素a 放 在 b 前面
+    // 如果 compareFunction(a, b) == 0 || NaN, 位置不变
+    // 如果 compareFunction(a, b) > 0, 那么把 元素b 放 在 a 前面
+    case 'sort':
+        var examp = [5, 3, 12, 22, 6, 'a', 'ssd', 'hell'];
+        var res = examp.sort();
+        console.log(examp, res);
+
+        var examp2 = [3, 5, 'a', 12, 22, 6, 'b', 'a', 'ssd', 'hell'];
+        var res2 = examp2.sort((a, b) => {
+            console.log(a, b);
+            return a - b;
+        })
+        console.log(examp2, res2);
+
+        var res3 = [{ name: 'TOM', age: 22 }, { name: 'jake', age: 12 }, { name: 'faker', age: 23 }]
+        var res3 = res3.sort((a, b) => a.age - b.age);
+        console.log(res3);
+
+        var res4 = res3.sort((a, b) => {
+            var nameA = a.name.toUpperCase();
+            var nameB = b.name.toUpperCase();
+            if (nameA < nameB) {
+                return -1;
+            }
+
+            if (nameA > nameB) {
+                return 1;
+            }
+            return 0;
+        })
+        console.log(res4);
+
+        // 只有当compareFunction(a, b) 运算结果大于0时，元素位置才会交换
+        var examp5 = [1, 3, 'a', 'c'];
+        examp5.sort(function() { return 1 });
+        console.log(examp5);
+        break;
+
+    case 'slice':
+        
+        break;
 }
