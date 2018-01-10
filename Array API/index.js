@@ -1,4 +1,4 @@
-const currentArrayAPI = 'length';
+const currentArrayAPI = 'copywithin';
 
 const likeArray = {
     0: 'hello',
@@ -37,6 +37,7 @@ switch (currentArrayAPI) {
         console.log('5. after change new_ length', new_) ; // [1, 2, 3, 4]
         break;
 
+    // origin array is not change
     case 'concat':
         var exap0 = [1, 2, 3];
         var exap1 = ['a', 'b'];
@@ -69,15 +70,20 @@ switch (currentArrayAPI) {
         console.log('new4_', new4_);
         break;
 
+    // 原数组改变，可以被类数组调用
     case 'copywithin':
         var examp = ['a', 'b', 'c', 'd', 1];
         var res = examp.copyWithin();
         res.push('1');
         console.log(examp, res);  // 原数组始终会被改变
+        // ["a", "b", "c", "d", 1, "1"]
+        // ["a", "b", "c", "d", 1, "1"]
 
         var examp2 = { 0: 'a', 1: 'b', 2: 'c', 3: 'xx', length: 4 }
         var res2 = Array.prototype.copyWithin.call(examp2, 1, 3);
         console.log(examp2, res2);
+        // {0: "a", 1: "xx", 2: "c", 3: "xx", length: 4}
+        // {0: "a", 1: "xx", 2: "c", 3: "xx", length: 4}
         break;
 
     // 返回一个键值对的迭代器
@@ -367,11 +373,15 @@ switch (currentArrayAPI) {
         break;
 }
 
-// 是否改变原数组
-// 是否能被Array-like调用
-//
+/*
+    是否改变原数组
+    原数组不变： concat
+    原数组改变：copyWithin
 
+    能被Array-like调用: copyWithin
+    es6 新增：entries
 
+*/
 // 常见问题
 // 如何判断一个变量是否为数组
 // 数组的原生方法有哪些？
