@@ -71,6 +71,7 @@ switch (currentArrayAPI) {
         break;
 
     // 原数组改变，可以被类数组调用
+    // 浅复制数组的一部分到另一个位置，并返回它，length始终不改变
     case 'copywithin':
         var examp = ['a', 'b', 'c', 'd', 1];
         var res = examp.copyWithin();

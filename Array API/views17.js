@@ -9,19 +9,21 @@ function unite(...args) {
         return res.concat(cur);
     }, [])
 
-    let res = [];
-    let o = {};
+    // let res = [];
+    // let o = {};
 
-    temp.forEach(item => {
-        _item = String(item);
-        if (!o[_item]) {
-            res.push(item);
-            o[_item] = 1;
-        } else {
-            o[_item] ++;
-        }
-    })
-    return res;
+    // temp.forEach(item => {
+    //     _item = String(item);
+    //     if (!o[_item]) {
+    //         res.push(item);
+    //         o[_item] = 1;
+    //     } else {
+    //         o[_item] ++;
+    //     }
+    // })
+    // return res;
+
+    return temp.filter((item, i, arr) => arr.indexOf(item) === i);
 }
 
 console.log(unite([1, 3, 2], [1, [5]], [2, [4]]));

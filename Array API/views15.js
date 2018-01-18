@@ -1,6 +1,5 @@
 // 遍历一个对象数组，找出包含指定对象所有属性且值都相等的对象集合
 
-
 function where(collection, source) {
     return collection.reduce((res, cur) => {
         var foo =  true;
